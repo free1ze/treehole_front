@@ -18,8 +18,7 @@ page{
 .box{
   background-color: white;
   padding-top: 10rpx;
-  padding-bottom: 10rpx;
-  border-bottom: 10rpx solid #EFEFEF;
+  border-bottom: 20rpx solid #EFEFEF;
   margin: 25rpx 50rpx;
   border-radius: 20rpx;
 }
@@ -79,8 +78,8 @@ page{
   margin-top: 10rpx;
   margin-left: 4%;
   margin-right: 4%;
-  /* padding-bottom: 20rpx; */
-  /* border-bottom: 5rpx solid #BBBBBB; */
+  padding-bottom: 20rpx;
+  border-bottom: 5rpx solid #BBBBBB;
 }
 
 .content{
