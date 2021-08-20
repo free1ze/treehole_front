@@ -1,1 +1,184 @@
 /* pages/detail/detail.wxss */
+/* pages/square/square.wxss */
+@import "/pages/bottom_menu/bottom_menu";
+
+page{
+  background-color: #EFEFEF;
+}
+
+.scbg{
+  background-color: #EFEFEF;
+  width: 100%;
+  height: 91%;
+  left: 0rpx;
+  right: 0rpx;
+  top: 0rpx;
+  position: absolute;
+}
+
+.box{
+  width: 100%;
+  background-color: white;
+  padding-top: 30rpx;
+  border-bottom: 10rpx solid #EFEFEF;
+}
+
+.firstblock{
+  height: 150rpx;
+  width: 92%;
+  margin-left: 4%;
+  margin-right: 4%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.touxiang{
+  width: 130rpx;
+  height: 130rpx;
+}
+
+.person{
+  width: 75%;
+  height: 130rpx;
+  margin-left: 30rpx;
+  margin-top: 10rpx;
+}
+
+.name{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10rpx;
+  font-size: 40rpx;
+  flex-direction: row;
+}
+
+
+.tel{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 35rpx;
+  flex-direction: row;
+}
+
+.showname{
+  font-size: 34rpx;
+  color: #3F51B5;
+  font-family: PingFangSC-regular;
+  font-weight: bold;
+}
+
+.showtime{
+  font-size: 25rpx;
+  color: #5E5D5D;
+  font-family: PingFangSC-regular;
+}
+
+.secondblock{
+  margin-top: 10rpx;
+  margin-left: 4%;
+  margin-right: 4%;
+  padding-bottom: 20rpx;
+  border-bottom: 5rpx solid #BBBBBB;
+}
+
+.content{
+  font-size: 29rpx;
+  color: #101010;
+  word-break: break-all;
+}
+
+.thirdblock{
+  height: 100rpx;
+  margin-left: 4%;
+  margin-right: 4%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.like{
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.num{
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-top: 25rpx;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  color: #101010;
+}
+
+.commitcontentblock{
+  margin-top: 0rpx;
+  margin-left: 8%;
+  margin-right: 8%;
+  padding-bottom: 10rpx;
+}
+
+.bottom{
+  margin-top: 10rpx;
+  margin-left: 4%;
+  margin-right: 4%;
+  padding-bottom: 30rpx;
+  font-size: 25rpx;
+  color:#9494b8;
+  border-bottom: 2rpx solid #BBBBBB;
+}
+
+.commitbox{
+  width: 100%;
+  background-color: white;
+  padding-top: 0rpx;
+  border-bottom: 0rpx solid #EFEFEF;
+}
+
+.commitnametxt{
+  font-size: 30rpx;
+  color: #3F51B5;
+  font-family: PingFangSC-regular;
+}
+
+.committime{
+  font-size: 25rpx;
+  color: #5E5D5D;
+  font-family: PingFangSC-regular;
+}
+
+.committel{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15rpx;
+  flex-direction: row;
+}
+
+.commitname{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20rpx;
+  font-size: 40rpx;
+  flex-direction: row;
+}
+
+.commitcontent{
+  font-size: 29rpx;
+  color: #101010;
+  word-break: break-all;
+}
+
+.replyview{
+  margin-left: 10%;
+  margin-right: 4%;
+  margin-top: 0rpx;
+  padding-bottom: 5rpx;
+}
+
+.replytxt{
+  margin-top: 10rpx;
+  font-size: 25rpx;
+  color: #9494b8;
+  word-break: break-all;
+}
