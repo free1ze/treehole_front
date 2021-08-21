@@ -30,6 +30,7 @@ Page({
         if (res.code) {
           console.log(res)
           var user_code = res.code
+          var username = getApp().globalData.userInfo.nickName
 
           // 查看是否授权
           wx.getSetting({
@@ -52,10 +53,12 @@ Page({
                   method: 'POST',
                   data: {
                     code: user_code,
+                    username: username,
                   },
                   success (res){
                     console.log(res)
                     if(res.data["error_code"] == 0){
+                      getApp().globalData.user.openid = res.data.data.openid;
                       that.next();
                     }
                   }

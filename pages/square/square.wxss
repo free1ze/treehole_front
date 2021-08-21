@@ -64,7 +64,7 @@ page{
 
 .showname{
   font-size: 25rpx;
-  color: #bb4367;
+  color: #5FD9CD;
   font-family: PingFangSC-regular;
   font-weight: bold;
 }

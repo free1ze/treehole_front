@@ -16,14 +16,7 @@ Page({
 
   send: function(e) {
     var that=this
-
-    wx.showToast({
-      title: '已发送',
-      icon: 'success',
-      duration: 1000
-    })
     
-
     console.log(that.data.detail)
 
     setTimeout(function (){
@@ -33,6 +26,32 @@ Page({
     }, 1000)
     
     //与服务器交互
+    wx.request({
+      url: getApp().globalData.url + '/post_artical',
+      method: "POST",
+      data: {
+        openid: getApp().globalData.user.openid,
+        content: that.data.detail,
+      },
+
+      success(res){
+          if(res.error_code == 0){
+          wx.showToast({
+            title: '已发送',
+            icon: 'success',
+            duration: 1000
+          })
+        }
+      },
+
+      fail(res){
+        wx.showToast({
+          title: '发送失败',
+          icon: 'loading',
+          duration: 1000
+        })
+      }
+    })
   },
 
   
