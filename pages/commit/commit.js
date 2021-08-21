@@ -35,10 +35,18 @@ Page({
       },
 
       success(res){
-          if(res.error_code == 0){
+        console.log(res)
+          if(res.data.result.error_code == 0){
           wx.showToast({
             title: '已发送',
             icon: 'success',
+            duration: 1000
+          })
+        }
+        else{
+          wx.showToast({
+            title: '发送失败',
+            icon: 'error',
             duration: 1000
           })
         }
