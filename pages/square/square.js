@@ -11,19 +11,38 @@ Page({
   },
 
   like: function(e){
-    console.log(e)
+    var that = this
+    var list = this.data.list 
+    for (var i=0; i<list.length; i++)
+    {
+      if(list[i]._id == e.target.dataset._id){
+        if(list[i].islike == 1){
+          // list[i].islike = 0;
+          // if(list[i]>0)  list[i].likes--;
+        }
+        else{
+          console.log(list[i])
+          list[i].islike = 1;
+          list[i].likes++;
+          that.setData({
+            list: list
+          })
+          console.log(list[i])
+        }
+        
+      }
+    }
     wx.request({
       url: getApp().globalData.url + '/like',
       method: 'POST',
       data:{
-        user_id: getApp().globalData.user.user_id,
-        like_id: e.target.dataset.openid,
+        like_id: e.target.dataset._id,
+        openid: e.target.dataset.openid,
       },
       success(res){
-
+        console.log(res)
       },
-
-      fail(res){
+      fail:function(res){
         // 网络超时等
       }
     })
@@ -103,7 +122,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    // wx.reLaunch({
+    //   url: 'pages/square/square'
+    // })
   },
 
   /**
