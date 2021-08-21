@@ -30,7 +30,7 @@ Page({
         if (res.code) {
           console.log(res)
           var user_code = res.code
-          var username = getApp().globalData.userInfo.nickName
+          var username = getApp().globalData.user.nickName
 
           // 查看是否授权
           wx.getSetting({

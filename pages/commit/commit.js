@@ -42,6 +42,9 @@ Page({
             icon: 'success',
             duration: 1000
           })
+          wx.reLaunch({
+            url: '/pages/square/square',
+          })
         }
         else{
           wx.showToast({
@@ -52,13 +55,16 @@ Page({
         }
       },
 
-      fail(res){
+      fail: function(res){
         wx.showToast({
           title: '发送失败',
           icon: 'loading',
-          duration: 1000
+          duration: 2000
         })
-      }
+      },
+      complete: function(res){
+        wx.hideLoading()
+      } 
     })
   },
 

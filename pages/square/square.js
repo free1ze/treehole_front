@@ -7,29 +7,7 @@ Page({
   data: {
     firco: "#000000",
     secco: "#979797",
-    list: [{
-        message_id: "msgid_un_filled",
-        openid: "哆啦B梦",
-        send_timestamp: "2019-7-6 14:42",
-        centent: "阅读，是一次心灵的艺术之旅。前辈们留下了大量优秀的作品，通过这些传世之作给我们以启迪，教会我们如何感受世界。那些震撼心灵的好书往往意义深远，让人相逢恨晚。",
-        likes: 2,
-        comments: 2,
-      },
-      {
-        essage_id: "msgid_un_filled",
-        openid: "哆啦C梦",
-        send_timestamp: "2019-8-6 15:14",
-        centent: "阅读，是一次心灵的艺术之旅。",
-        likes: 6,
-      },
-      {
-        essage_id: "msgid_un_filled",
-        openid: "天线宝宝",
-        send_timestamp: "2019-8-8 14:42",
-        centent: "阅读，是一次心灵的艺术之旅。前辈们留下了大量优秀的作品，通过这些传世之作给我们以启迪，教会我们如何感受世界。那些震撼心灵的好书往往意义深远，让人相逢恨晚。",
-        likes: 9,
-      },
-    ]
+    list: []
   },
 
   like: function(e){
@@ -80,7 +58,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var that = this
+    wx.request({
+      url: getApp().globalData.url + '/get_all_artical',
+      method: "POST",
+      success(res){
+        // 不能使用that.data.list = res.data.data，不会触发渲染
+        that.setData({
+          list: res.data.data
+        })
+      }
+    })
   },
 
   /**
