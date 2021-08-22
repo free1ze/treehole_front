@@ -21,7 +21,7 @@
       <text class='num_like' wx:if="{{itemName.likes != 0}}">{{itemName.likes}}</text>
                                         <!-- 用空格占位 -->
       <text class='num_like' wx:if="{{itemName.likes == 0}}">  </text>
-      <image class='comment' src="./images/likeplus.png" bindtap="comment"></image>
+      <image class='comment' src="/images/comment.png" bindtap="comment"></image>
       <text class='num_comment' wx:if="{{itemName.comments != 0}}">{{itemName.comments}}</text>
       <text class='num_comment' wx:if="{{itemName.comments == 0}}">  </text>
     </view>
