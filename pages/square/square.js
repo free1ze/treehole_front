@@ -17,17 +17,16 @@ Page({
     {
       if(list[i]._id == e.target.dataset._id){
         if(list[i].islike == 1){
+          console.log(list[i]);
           // list[i].islike = 0;
           // if(list[i]>0)  list[i].likes--;
         }
         else{
-          console.log(list[i])
           list[i].islike = 1;
           list[i].likes++;
           that.setData({
             list: list
           })
-          console.log(list[i])
         }
         
       }
@@ -86,13 +85,19 @@ Page({
     wx.request({
       url: getApp().globalData.url + '/get_all_artical',
       method: "POST",
+      data: {
+        openid: getApp().globalData.user.openid,
+      },
+
       success(res){
         // 不能使用that.data.list = res.data.data，不会触发渲染
         that.setData({
           list: res.data.data
         })
+
       }
     })
+    
   },
 
   /**
