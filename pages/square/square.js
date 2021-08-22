@@ -16,35 +16,44 @@ Page({
     for (var i=0; i<list.length; i++)
     {
       if(list[i]._id == e.target.dataset._id){
+        console.log(list[0]);
         if(list[i].islike == 1){
-          console.log(list[i]);
-          // list[i].islike = 0;
-          // if(list[i]>0)  list[i].likes--;
+          list[i].islike = 0;
+          list[i].likes--;
+          wx.request({
+            url: getApp().globalData.url + '/dislike',
+            method: 'POST',
+            data:{
+              like_id: e.target.dataset._id,
+              openid: e.target.dataset.openid,
+            },
+            success(res){
+              console.log(res)
+            },
+          })
         }
         else{
           list[i].islike = 1;
           list[i].likes++;
-          that.setData({
-            list: list
+
+          wx.request({
+            url: getApp().globalData.url + '/like',
+            method: 'POST',
+            data:{
+              like_id: e.target.dataset._id,
+              openid: e.target.dataset.openid,
+            },
+            success(res){
+              // console.log(res)
+            },
           })
         }
+        that.setData({
+          list: list
+        })
         
       }
     }
-    wx.request({
-      url: getApp().globalData.url + '/like',
-      method: 'POST',
-      data:{
-        like_id: e.target.dataset._id,
-        openid: e.target.dataset.openid,
-      },
-      success(res){
-        console.log(res)
-      },
-      fail:function(res){
-        // 网络超时等
-      }
-    })
   },
 
   first_select: function() {
