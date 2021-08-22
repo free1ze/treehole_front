@@ -3,7 +3,7 @@
 <block wx:for="{{list}}" wx:for-item="itemName" wx:for-index="id">
   <view class='box' bindtap="showdetail">
     <view class='firstblock'>
-      <!-- <image class='touxiang' src='{{itemName.face_url}}'></image> -->
+      <image class='touxiang' src='{{itemName.face_url}}'></image>
       <view class='person'>
         <view class='name'>
           <text class='showname'>{{itemName.username}}</text>
@@ -17,7 +17,8 @@
       <text class='content'>{{itemName.centent}}</text>
     </view>
     <view class='thirdblock'>
-      <image class='like' src='/images/like.png' id='{{itemName.id}}' ></image>
+      <image class='like' bindtap="like"  wx:if="{{!like}}" src='/images/like.png'></image>
+      <image class='like' bindtap="like"  wx:elif="{{like}}" src='/images/likeplus.png'></image>
       <text class='num'>{{itemName.total_likes}}</text>
     </view>
   </view>
@@ -28,7 +29,7 @@
       <text class="replytxt">{{itemName.reply}}</text>
     </view>
     <view class='firstblock'>
-      <!-- <image class='touxiang' src='{{itemName.face_url}}'></image> -->
+      <image class='touxiang' src='{{itemName.face_url}}'></image>
       <view class='person'>
         <view class='commitname'>
           <text class='commitnametxt'>{{itemName.username}}</text>
@@ -38,7 +39,8 @@
         </view>
       </view>
       <view class='thirdblock'>
-      <image class='like' src='/images/like.png'></image>
+        <image class='like' bindtap="commitlike"  wx:if="{{!itemName.like}}" src='/images/like.png'></image>
+      <image class='like' bindtap="commitlike"  wx:elif="{{itemName.like}}" src='/images/likeplus.png'></image>
       <text class='num'>{{itemName.total_likes}}</text>
     </view>
     </view>
@@ -46,10 +48,13 @@
       <text class='commitcontent'>{{itemName.content}}</text>
     </view>
     <view class='bottom'>
-      <text>回复</text>
+      <text bindtap="reply">回复</text>
     </view>
   </view>
 </block>
 </scroll-view>
-
+<view class="reply" wx:if="{{reply}}">
+      <textarea id="replycontent" show-confirm-bar="{{false}}" placeholder="回复..." placeholder-class="commitreply" class="commitreply" type="text" fixed="true"/>
+      <button id="btn" class="submit" bindtap="reply">发送</button>
+</view>
 <!-- <include src="/pages/bottom_menu/bottom_menu" /> -->

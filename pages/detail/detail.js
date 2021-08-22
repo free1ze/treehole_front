@@ -7,6 +7,8 @@ Page({
   data: {
     firco: "#000000",
     secco: "#979797",
+    reply: false,
+    like: false,
     list: [{
         face_url: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=447979932,3108003765&fm=26&gp=0.jpg",
         username: "哆啦B梦",
@@ -17,6 +19,7 @@ Page({
     ],
     commit: [{
       reply:"",
+      like:false,
       face_url: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=447979932,3108003765&fm=26&gp=0.jpg",
       username: "哆啦C梦",
       send_timestamp: "2019-7-6 14:42",
@@ -25,6 +28,7 @@ Page({
     },
     {
       reply:"",
+      like:false,
       face_url: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=447979932,3108003765&fm=26&gp=0.jpg",
       username: "谭宝子",
       send_timestamp: "2019-7-6 14:42",
@@ -33,13 +37,23 @@ Page({
     },
     {
       reply:"▉ 收到收到我是探宝。",
+      like:false,
+      face_url: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=447979932,3108003765&fm=26&gp=0.jpg",
+      username: "献宝",
+      send_timestamp: "2019-7-6 14:42",
+      content: "收到收到over。",
+      total_likes: 666,
+    },
+    {
+      reply:"▉ 收到收到我是探宝。",
+      like:false,
       face_url: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=447979932,3108003765&fm=26&gp=0.jpg",
       username: "献宝",
       send_timestamp: "2019-7-6 14:42",
       content: "收到收到over。",
       total_likes: 666,
     }
-  ]
+    ],
   },
 
   first_select: function() {
@@ -66,7 +80,53 @@ Page({
     // })
   },
 
+  reply:function(e){
+    var that = this;
+    // 回复form隐藏、展示切换
+    if(that.data.reply==true){
+      that.setData({
+        reply: false     //展示回复框
+      })
+    }else{
+      that.setData({
+        reply: true     //隐藏回复框
+      })
+    }
+    that.setData({
+      reply_id: e.currentTarget.dataset.cid   //用户点击回复的评论id
+    })
+  },
 
+  like:function(){
+    var that = this;
+    // 回复form隐藏、展示切换
+    if(that.data.like==true){
+      that.setData({
+        like: false     //点赞
+      })
+    }else{
+      that.setData({
+        like: true     //点赞+
+      })
+    }
+  },
+  
+  commitlike:function(){
+    var that = this;
+    // 回复form隐藏、展示切换
+    if(that.data.commit.like==true){
+      that.setData({
+        like: false     //点赞
+      })
+    }else{
+      that.setData({
+        like: true     //点赞+
+      })
+    }
+  },
+  inputs:function(){
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
