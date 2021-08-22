@@ -18,7 +18,12 @@
     </view>
     <view class='thirdblock'>
       <image class='like' src="{{itemName.islike== 1 ? '/images/likeplus.png' : '/images/like.png' }}" bindtap="like" data-_id='{{itemName._id}}' data-openid='{{itemName.openid}}'></image>
-      <text class='num' wx:if="{{itemName.likes != 0}}">{{itemName.likes}}</text>
+      <text class='num_like' wx:if="{{itemName.likes != 0}}">{{itemName.likes}}</text>
+                                        <!-- 用空格占位 -->
+      <text class='num_like' wx:if="{{itemName.likes == 0}}">  </text>
+      <image class='comment' src="./images/likeplus.png" bindtap="comment"></image>
+      <text class='num_comment' wx:if="{{itemName.comments != 0}}">{{itemName.comments}}</text>
+      <text class='num_comment' wx:if="{{itemName.comments == 0}}">  </text>
     </view>
   </view>
 </block>
