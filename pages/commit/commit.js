@@ -18,7 +18,7 @@ Page({
     var that=this
     
     console.log(that.data.detail)
-    console.log("!") 
+
 
     setTimeout(function (){
       wx.navigateBack({

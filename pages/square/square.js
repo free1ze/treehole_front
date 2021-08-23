@@ -16,7 +16,6 @@ Page({
     for (var i=0; i<list.length; i++)
     {
       if(list[i]._id == e.target.dataset._id){
-        console.log(list[0]);
         if(list[i].islike == 1){
           list[i].islike = 0;
           list[i].likes--;
@@ -28,7 +27,7 @@ Page({
               openid: e.target.dataset.openid,
             },
             success(res){
-              console.log(res)
+              // console.log(res)
             },
           })
         }
@@ -74,15 +73,15 @@ Page({
     })
   },
 
-  showdetail: function() {
-    // wx.navigateTo({
-    //   url: '/pages/detail/detail'
-    // })
-  },
 
-    comment: function(){
+    comment: function(e){
+      var _id = e.target.dataset._id
+      console.log('/pages/detail/detail' + 
+      '?message_id=' + _id )
+      console.log(e.target)
       wx.navigateTo({
-        url: '/pages/detail/detail'
+        url: '/pages/detail/detail' + 
+              '?message_id=' + _id,
       })
     },
 
@@ -90,6 +89,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
     var that = this
     wx.request({
       url: getApp().globalData.url + '/get_all_artical',
@@ -106,21 +119,6 @@ Page({
 
       }
     })
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
   },
 
   /**

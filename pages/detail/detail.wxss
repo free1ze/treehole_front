@@ -114,7 +114,7 @@ page{
   color: #101010;
 }
 
-.commitfirstblock{
+.commentfirstblock{
   height: 100rpx;
   width: 92%;
   margin-left: 4%;
@@ -124,7 +124,7 @@ page{
   align-items: flex-start;
 }
 
-.commitcontentblock{
+.commentcontentblock{
   margin-top: 0rpx;
   margin-left: 8%;
   margin-right: 8%;
@@ -141,14 +141,14 @@ page{
   border-bottom: 2rpx solid #BBBBBB;
 }
 
-.commitperson{
+.commentperson{
   width: 75%;
   height: 100rpx;
   margin-left: 30rpx;
   margin-top: 5rpx;
 }
 
-.commitbox{
+.commentbox{
   background-color: white;
   padding-top: 10rpx;
   border-bottom: 10rpx solid #EFEFEF;
@@ -156,26 +156,26 @@ page{
   border-radius: 20rpx;
 }
 
-.commitnametxt{
+.commentnametxt{
   font-size: 30rpx;
   color: #5FD9CD;
   font-family: PingFangSC-regular;
 }
 
-.committime{
+.commenttime{
   font-size: 25rpx;
   color: #5E5D5D;
   font-family: PingFangSC-regular;
 }
 
-.committel{
+.commenttel{
   display: flex;
   justify-content: flex-start;
   margin-top: 15rpx;
   flex-direction: row;
 }
 
-.commitname{
+.commentname{
   display: flex;
   justify-content: flex-start;
   margin-top: 10rpx;
@@ -183,7 +183,7 @@ page{
   flex-direction: row;
 }
 
-.commitcontent{
+.commentcontent{
   font-size: 29rpx;
   color: #101010;
   word-break: break-all;
@@ -215,7 +215,7 @@ page{
   padding-top: 20rpx;
 }
 
-.commitreply{
+.commentreply{
   font-size: 50rpx;
   height: 120rpx;
   margin-top: 10rpx;
