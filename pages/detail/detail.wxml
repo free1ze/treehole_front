@@ -3,7 +3,6 @@
 <block wx:for="{{list}}" wx:for-item="itemName" wx:for-index="id">
   <view class='box' bindtap="showdetail">
     <view class='firstblock'>
-      <image class='touxiang' src='{{itemName.face_url}}'></image>
       <view class='person'>
         <view class='name'>
           <text class='showname'>{{itemName.username}}</text>
@@ -20,18 +19,19 @@
       <image class='like' bindtap="like"  wx:if="{{!like}}" src='/images/like.png'></image>
       <image class='like' bindtap="like"  wx:elif="{{like}}" src='/images/likeplus.png'></image>
       <text class='num'>{{itemName.total_likes}}</text>
+      <image class='like' src='/images/comment.png'></image>
+      <text class='num'>{{itemName.total_comments}}</text>
     </view>
   </view>
 </block>
 <view class="commitbox">
-  <block wx:for="{{commit}}" wx:for-item="itemName" wx:for-index="id" >
+  <block wx:for="{{commit}}" wx:for-item="itemName" wx:for-index="id">
   <view bindtap="showdetail">
     <view class="replyview">
       <text class="replytxt">{{itemName.reply}}</text>
     </view>
-    <view class='firstblock'>
-      <image class='touxiang' src='{{itemName.face_url}}'></image>
-      <view class='person'>
+    <view class='commitfirstblock'>
+      <view class='commitperson'>
         <view class='commitname'>
           <text class='commitnametxt'>{{itemName.username}}</text>
         </view>

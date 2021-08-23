@@ -44,7 +44,7 @@ page{
   width: 75%;
   height: 130rpx;
   margin-left: 30rpx;
-  margin-top: 10rpx;
+  margin-top: 5rpx;
 }
 
 .name{
@@ -101,8 +101,8 @@ page{
 .like{
   margin-top: 20rpx;
   margin-left: 20rpx;
-  width: 50rpx;
-  height: 50rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .num{
@@ -112,6 +112,16 @@ page{
   margin-left: 20rpx;
   font-size: 30rpx;
   color: #101010;
+}
+
+.commitfirstblock{
+  height: 100rpx;
+  width: 92%;
+  margin-left: 4%;
+  margin-right: 4%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .commitcontentblock{
@@ -129,6 +139,13 @@ page{
   font-size: 25rpx;
   color:#9494b8;
   border-bottom: 2rpx solid #BBBBBB;
+}
+
+.commitperson{
+  width: 75%;
+  height: 100rpx;
+  margin-left: 30rpx;
+  margin-top: 5rpx;
 }
 
 .commitbox{
@@ -161,7 +178,7 @@ page{
 .commitname{
   display: flex;
   justify-content: flex-start;
-  margin-top: 20rpx;
+  margin-top: 10rpx;
   font-size: 40rpx;
   flex-direction: row;
 }
