@@ -2,55 +2,26 @@
 <scroll-view class='scbg' scroll-y="true">
   <view class='personalInf'>
     <view class='deco'>
-      <open-data class='ava' type="userAvatarUrl"></open-data>
+      <image class='ava' src="/images/purpose.png"></image>
     </view>
-    <open-data class='nn' type="userNickName"></open-data>
+    <text class='nn'>西交树洞 Version:0.0.0</text>
   </view>
   <view class='box'>
-    <view class='secondblock'>
-      <text class='content'>{{content}}</text>
-      <view class="tel">
-        <text class="showtime">{{timestamp}}</text>
-      </view>
+    <view class="setbar">
+    <text class="settxt">社区规范</text>
+    <image class="arrow" src="/images/rightarrow.png"></image>
+    <text class="arrow"></text>
     </view>
-    <view class='thirdblock'>
-      <view class='combination'>
-        <image class="like" src="/images/like.png"></image>
-        <text class='num'>{{num}}</text>
-      </view>
-      <view class='del'>删除</view>
+    <view class="setbar">
+    <text class="settxt">评价及建议</text>
+    <image class="arrow" src="/images/rightarrow.png"></image>
     </view>
-  </view>
-
-  <view class='box'>
-    <view class='secondblock'>
-      <text class='content'>{{content}}</text>
-      <view class="tel">
-        <text class="showtime">{{timestamp}}</text>
-      </view>
+    <view class="setbar">
+    <text class="settxt">树洞设置</text>
+    <image class="arrow" src="/images/rightarrow.png"></image>
     </view>
-    <view class='thirdblock'>
-      <view class='combination'>
-        <image class="like" src="/images/like.png"></image>
-        <text class='num'>{{num}}</text>
-      </view>
-      <view class='del'>删除</view>
-    </view>
-  </view>
-
-  <view class='box'>
-    <view class='secondblock'>
-      <text class='content'>{{content}}</text>
-      <view class="tel">
-        <text class="showtime">{{timestamp}}</text>
-      </view>
-    </view>
-    <view class='thirdblock'>
-      <view class='combination'>
-        <image class="like" src="/images/like.png"></image>
-        <text class='num'>{{num}}</text>
-      </view>
-      <view class='del'>删除</view>
+    <view class="cu">
+    <text class="cu">Contact us: xxxxxxxxx@qq.com </text>
     </view>
   </view>
 </scroll-view>

@@ -1,12 +1,16 @@
 /* pages/commit/commit.wxss */
 
 page{
-  background-color: #EFEFEF;
+  background-color: #c0b6b6;
 }
 
 .textarea{
-  width: 100%;
-  background-color: #fff;
+  background-color: white;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 10rpx solid #EFEFEF;
+  margin: 25rpx 50rpx;
+  border-radius: 20rpx;
 }
 
 .textinput{
@@ -16,7 +20,7 @@ page{
   margin-right: 2%;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
-  font-size: 38rpx;
+  font-size: 30rpx;
 }
 
 .click{
@@ -28,8 +32,9 @@ page{
   margin-top: 70rpx;
   margin-left: 8%;
   margin-right: 8%;
-  background-color: #F76968;
+  background-color: #5FD9CD;
+  /* background-color: #b266ff; */
   text-align: center;
   color: white;
-  font-size: 33rpx;
+  font-size: 35rpx;
 }

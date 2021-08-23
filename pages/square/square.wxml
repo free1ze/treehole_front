@@ -2,7 +2,7 @@
 <scroll-view class='scbg' scroll-y='true'>
 <block wx:for="{{list}}" wx:for-item="itemName" wx:for-index="id">
   <view class='box' bindtap="showdetail">
-    <view class='firstblock'>
+    <view class='firstblock'  bindtap="comment">
       <!-- <image class='touxiang' src='{{itemName.face_url}}'></image> -->
       <view class='person'>
         <view class='name'>
@@ -13,7 +13,7 @@
         </view>
       </view>
     </view>
-    <view class='secondblock'>
+    <view class='secondblock'  bindtap="comment">
       <text class='content'>{{itemName.content}}</text>
     </view>
     <view class='thirdblock'>
@@ -23,7 +23,7 @@
       <text class='num_like' wx:if="{{itemName.likes == 0}}">  </text>
       <image class='comment' src="/images/comment.png" bindtap="comment"></image>
       <text class='num_comment' wx:if="{{itemName.comments != 0}}">{{itemName.comments}}</text>
-      <text class='num_comment' wx:if="{{itemName.comments == 0}}">  </text>
+      <text class='num_comment' wx:elif="{{itemName.comments == 0}}">  </text>
     </view>
   </view>
 </block>

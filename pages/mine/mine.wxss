@@ -56,7 +56,7 @@ page {
 .box {
   width: 100%;
   background-color: white;
-  padding-top: 30rpx;
+  /* padding-top: 30rpx; */
   border-bottom: 20rpx solid #efefef;
 }
 
@@ -163,4 +163,44 @@ page {
   text-align: center;
   color: #FFFFFF;
   line-height: 50rpx;
+}
+
+.cu{
+  margin-top: 25rpx;
+  margin-left: 10%;
+  width: 80%;
+  height: 50rpx;
+  border-radius: 10rpx;
+  background-color: #5e5d5d;
+  font-size: 30rpx;
+  text-align: center;
+  color: #FFFFFF;
+  line-height: 50rpx;
+  justify-content: center;
+}
+
+.setbar{
+  width: 100%;
+  height: 50rpx;
+  padding-bottom: 7.5rpx;
+  padding-left: 30rpx;
+  padding-top: 7.5rpx;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+}
+
+.settxt{
+  font-size: 35rpx;
+  width: 50%;
+  flex-direction: row;
+  display: inline-block;
+  height: 50rpx;
+}
+
+.arrow{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 30%;
+  margin-top:15rpx;
 }

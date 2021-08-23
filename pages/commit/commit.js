@@ -25,7 +25,10 @@ Page({
         delta: 1
       })
     }, 1000)
-    
+
+    wx.showLoading({
+      title: '发送中',
+    })
     //与服务器交互
     wx.request({
       url: getApp().globalData.url + '/post_artical',

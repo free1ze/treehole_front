@@ -95,36 +95,38 @@ page{
   margin-right: 4%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .like{
   margin-top: 15rpx;
   margin-right: 10rpx;
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 20rpx;
 }
 
 .num_like{
-  height: 50rpx;
-  line-height: 50rpx;
+  height: 40rpx;
+  line-height: 40rpx;
   margin-top: 10rpx;
   width: 40rpx;
-  font-size: 20rpx;
+  font-size: 25rpx;
   color: #101010;
 }
 
 .comment{
-  margin-top: 15rpx;
+  margin-top: 10rpx;
   margin-right: 10rpx;
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .num_comment{
-  height: 50rpx;
-  line-height: 50rpx;
+  height: 40rpx;
+  line-height: 40rpx;
   margin-top: 10rpx;
   width: 40rpx;
-  font-size: 20rpx;
+  font-size: 40rpx;
   color: #101010;
 }
