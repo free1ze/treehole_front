@@ -23,8 +23,9 @@
     </view>
   </view>
 </block>
-<block wx:for="{{commit}}" wx:for-item="itemName" wx:for-index="id">
-  <view class='commitbox' bindtap="showdetail">
+<view class="commitbox">
+  <block wx:for="{{commit}}" wx:for-item="itemName" wx:for-index="id" >
+  <view bindtap="showdetail">
     <view class="replyview">
       <text class="replytxt">{{itemName.reply}}</text>
     </view>
@@ -52,6 +53,7 @@
     </view>
   </view>
 </block>
+</view>
 </scroll-view>
 <view class="reply" wx:if="{{reply}}">
       <textarea id="replycontent" show-confirm-bar="{{false}}" placeholder="回复..." placeholder-class="commitreply" class="commitreply" type="text" fixed="true"/>

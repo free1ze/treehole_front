@@ -3,7 +3,7 @@
 @import "/pages/bottom_menu/bottom_menu";
 
 page{
-  background-color: #EFEFEF;
+  background-color: #c0b6b6;
 }
 
 .scbg{
@@ -17,10 +17,12 @@ page{
 }
 
 .box{
-  width: 100%;
   background-color: white;
-  padding-top: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
   border-bottom: 10rpx solid #EFEFEF;
+  margin: 25rpx 50rpx;
+  border-radius: 20rpx;
 }
 
 .firstblock{
@@ -63,7 +65,7 @@ page{
 
 .showname{
   font-size: 34rpx;
-  color: #3F51B5;
+  color: #5FD9CD;
   font-family: PingFangSC-regular;
   font-weight: bold;
 }
@@ -83,7 +85,7 @@ page{
 }
 
 .content{
-  font-size: 29rpx;
+  font-size: 30rpx;
   color: #101010;
   word-break: break-all;
 }
@@ -130,15 +132,16 @@ page{
 }
 
 .commitbox{
-  width: 100%;
   background-color: white;
-  padding-top: 0rpx;
-  border-bottom: 0rpx solid #EFEFEF;
+  padding-top: 10rpx;
+  border-bottom: 10rpx solid #EFEFEF;
+  margin: 0rpx 50rpx;
+  border-radius: 20rpx;
 }
 
 .commitnametxt{
   font-size: 30rpx;
-  color: #3F51B5;
+  color: #5FD9CD;
   font-family: PingFangSC-regular;
 }
 
