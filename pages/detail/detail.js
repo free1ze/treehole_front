@@ -8,6 +8,10 @@ Page({
     firco: "#000000",
     secco: "#979797",
     reply: false,
+    message_id: "",
+    detail:"",
+    reply_to:"",
+    reply_type:0,       //0: message  1: comment
     // like: false,
     list: [],
     comment: [],
@@ -31,34 +35,95 @@ Page({
     })
   },
 
-  reply:function(e){
-    var that = this;
-    // 回复form隐藏、展示切换
-    if(that.data.reply==true){
-      that.setData({
-        reply: false     //展示回复框
+  bindTextAreaBlur: function(e) {
+    // console.log(e.detail.value)
+    this.data.detail = e.detail.value
+  },
+
+
+  reply0:function(e){
+    this.setData({
+      message_id: e.target.dataset.message_id,
+      reply_type:0,
+    })
+    if(this.data.reply==false){
+      this.setData({
+        reply: true     //展示回复框
       })
     }
-    else{
-      that.setData({
-        reply: true     //隐藏回复框
+  },
+  reply1:function(e){
+    this.setData({
+      message_id: e.target.dataset.message_id,
+      reply_to: e.target.dataset.reply_to,
+      reply_type:1,
+    })
+    if(this.data.reply==false){
+      this.setData({
+        reply: true     //展示回复框
       })
+    }
+  },
+
+  reply_by_type: function(e){
+    if(this.data.reply_type == 0){
+      this.reply_message(e)
+    }
+    else{
+      this.reply_comment(e)
+    }
+  },
+
+  reply_message:function(e){
+    console.log("msg!!!!!!!!")
+    var that = this;
+    // 回复form隐藏、展示切换
+    console.log(e.detail)
+    
+      wx.request({
+        url: getApp().globalData.url + '/reply_message',
+        method: "POST",
+        data:{
+          content: that.data.detail,
+          openid: getApp().globalData.user.openid,
+          message_id: that.data.message_id,
+          reply_to: ""
+        },
+        success(res){
+          that.reload_comment()
+          console.log("msg",res)
+        },
+      })
+
+      this.setData({
+        reply: false     //隐藏回复框
+      })
+
+  },
+
+  reply_comment:function(e){
+    console.log("cmt!!!!!!!!")
+    var that = this;
+    
       wx.request({
         url: getApp().globalData.url + '/reply_comment',
         method: "POST",
-        // data:{
-        //   content: e.detail.value,
-        //   openid: ,
-        //   message_id:  ,
-        //   reply_to: .
-        // }
+        data:{
+          content: that.data.detail,
+          openid: getApp().globalData.user.openid,
+          message_id: that.data.message_id,
+          reply_to: that.data.reply_to,
+        },
+        success(res){
+          that.reload_comment()
+        },
       })
-    }
-    // that.setData({
-    //   reply_id: e.currentTarget.dataset.cid   //用户点击回复的评论id
-    // })
-  },
 
+      this.setData({
+        reply: false     //隐藏回复框
+      })
+      
+  },
   
   like: function(e){
     var that = this
@@ -177,16 +242,24 @@ Page({
   onLoad: function(options) {
     var that = this;
     
+    var msg_id = ""
+    //first load 
+    if (this.data.message_id == ""){
+      msg_id = options.message_id
+    }
+    //second load 
+    else{
+      msg_id = this.data.message_id
+    }
     //get artical
     wx.request({
       url: getApp().globalData.url + '/get_single_artical',
       method: "POST",
       data: {
-        message_id: options.message_id,
+        message_id: msg_id,
         openid: getApp().globalData.openid,
       },
       success(res){
-        console.log(res.data.data)
         that.setData({
           list: [res.data.data]
         })
@@ -198,7 +271,28 @@ Page({
       url: getApp().globalData.url + '/get_all_comment',
       method: "POST",
       data: {
-        message_id: options.message_id
+        message_id: msg_id,
+      },
+      success(res){
+        console.log(res)
+        that.setData({
+          comment: res.data.data
+        })
+      }
+    })
+  },
+
+  reload_comment: function(e){
+    var that = this;
+    
+    var msg_id = this.data.message_id
+    
+    //get artical comments
+    wx.request({
+      url: getApp().globalData.url + '/get_all_comment',
+      method: "POST",
+      data: {
+        message_id: msg_id,
       },
       success(res){
         console.log(res)

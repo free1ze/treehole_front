@@ -141,7 +141,6 @@ Page({
             that.setData({
               list: newlist
             })
-            console.log("!")
           }
         }
         console.log(that.data)
