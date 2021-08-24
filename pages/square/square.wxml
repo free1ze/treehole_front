@@ -1,5 +1,6 @@
 <!--pages/square/square.wxml-->
-<scroll-view class='scbg' scroll-y='true'>
+<view class="fatherview">
+<view class='scbg'  scroll-y='true'>
 <block wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
   <view class='box' data-_id='{{item._id}}' >
     <view class='firstblock'  bindtap="comment" data-_id='{{item._id}}'>
@@ -26,6 +27,8 @@
     </view>
   </view>
 </block>
-</scroll-view>
+</view>
+</view>
+
 
 <include src="/pages/bottom_menu/bottom_menu" />

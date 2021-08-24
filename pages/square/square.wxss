@@ -1,14 +1,18 @@
 /* pages/square/square.wxss */
 @import "/pages/bottom_menu/bottom_menu";
 
-page{
+.page{
   background-color: #c0b6b6;
 }
 
+.fatherview{
+  /* bad solution here!!!!  to make the background color correct... */
+  height: 10000001%;  
+}
 .scbg{
   background-color: #c0b6b6;
   width: 100%;
-  height: 91%;
+  /* height: 100%; */
   left: 0rpx;
   right: 0rpx;
   top: 0rpx;
@@ -22,6 +26,7 @@ page{
   border-bottom: 10rpx solid #EFEFEF;
   margin: 25rpx 50rpx;
   border-radius: 20rpx;
+  
 }
 
 .firstblock{

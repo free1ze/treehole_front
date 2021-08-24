@@ -234,9 +234,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
-    wx.reLaunch({
-      url: '/pages/square/square',
-    })
+
   },
 
   /**
@@ -250,7 +248,23 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    var that = this
+    wx.request({
+      url: getApp().globalData.url + '/get_all_comment',
+      method: "POST",
+      data: {
+        openid: getApp().globalData.user.openid,
+        loaded: that.data.comment.length,
+      },
 
+      success(res){
+        // 不能使用that.data.list = res.data.data，不会触发渲染
+        that.setData({
+          list: that.data.comment.concat(res.data.data)
+        })
+
+      }
+    })
   },
 
   /**

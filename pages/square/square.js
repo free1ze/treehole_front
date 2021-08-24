@@ -89,7 +89,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var that = this
+    wx.request({
+      url: getApp().globalData.url + '/get_all_artical',
+      method: "POST",
+      data: {
+        openid: getApp().globalData.user.openid,
+        loaded: 0,
+      },
 
+      success(res){
+        // 不能使用that.data.list = res.data.data，不会触发渲染
+        that.setData({
+          list: res.data.data
+        })
+
+      }
+    })
   },
 
   /**
@@ -103,22 +119,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    var that = this
-    wx.request({
-      url: getApp().globalData.url + '/get_all_artical',
-      method: "POST",
-      data: {
-        openid: getApp().globalData.user.openid,
-      },
-
-      success(res){
-        // 不能使用that.data.list = res.data.data，不会触发渲染
-        that.setData({
-          list: res.data.data
-        })
-
-      }
-    })
+    
   },
 
   /**
@@ -139,16 +140,46 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    // wx.reLaunch({
-    //   url: 'pages/square/square'
-    // })
+    var that = this
+    wx.request({
+      url: getApp().globalData.url + '/get_all_artical',
+      method: "POST",
+      data: {
+        openid: getApp().globalData.user.openid,
+        loaded: 0,
+      },
+
+      success(res){
+        // 不能使用that.data.list = res.data.data，不会触发渲染
+        that.setData({
+          list: res.data.data
+        })
+
+      }
+    })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    var that = this
+    wx.request({
+      url: getApp().globalData.url + '/get_all_artical',
+      method: "POST",
+      data: {
+        openid: getApp().globalData.user.openid,
+        loaded: that.data.list.length,
+      },
 
+      success(res){
+        // 不能使用that.data.list = res.data.data，不会触发渲染
+        that.setData({
+          list: that.data.list.concat(res.data.data)
+        })
+
+      }
+    })
   },
 
   /**

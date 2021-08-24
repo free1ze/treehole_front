@@ -39,7 +39,7 @@
     "showES6CompileOption": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.7.3",
+  "libVersion": "2.19.2",
   "appid": "wxce5f0a5a2adf1966",
   "projectname": "treehole-test",
   "debugOptions": {
