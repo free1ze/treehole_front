@@ -7,7 +7,8 @@ Page({
   data: {
     firco: "#000000",
     secco: "#979797",
-    list: []
+    last_visit_msg_id: "",
+    list: [],
   },
 
   like: function(e){
@@ -76,6 +77,9 @@ Page({
 
     comment: function(e){
       var _id = e.target.dataset._id
+      this.setData({
+        last_visit_msg_id : _id,
+      })
       console.log('/pages/detail/detail' + 
       '?message_id=' + _id )
       console.log(e.target)
@@ -118,7 +122,32 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    // this.onLoad();
+    
+    var that= this
+    var newlist = this.data.list
+
+    if(that.data.last_visit_msg_id=="")return;
+    wx.request({
+      url: getApp().globalData.url + '/get_single_artical',
+      method: "POST",
+      data: {
+        openid: getApp().globalData.user.openid,
+        message_id : that.data.last_visit_msg_id,
+      },
+      success(res){
+        for(var i=0;i<newlist.length;i++){
+          if (newlist[i]._id == res.data.data._id){
+            newlist[i] = res.data.data
+            that.setData({
+              list: newlist
+            })
+            console.log("!")
+          }
+        }
+        console.log(that.data)
+        // 不能使用that.data.list = res.data.data，不会触发渲染
+      }
+    })
   },
 
   /**
@@ -186,6 +215,10 @@ Page({
    */
   onShareAppMessage: function() {
 
-  }
+  },
+
+  
+
+  
 })
 
