@@ -1,4 +1,6 @@
 <!--pages/square/square.wxml-->
+<wxs src='/wxs/time.wxs' module="tools"/>
+
 <view class="fatherview">
 <view class='scbg'  scroll-y='true'>
 <block wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
@@ -9,7 +11,7 @@
           <text class='showname'># {{item.id}}</text>
         </view>
         <view class='tel'>
-          <text class='showtime'>{{item.createdAt}}</text>
+          <text class='showtime'>{{tools.timeFormat(item.time)}}</text>
         </view>
       </view>
     </view>
