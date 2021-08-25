@@ -55,9 +55,9 @@
   </view>
 </block>
 </view>
-</view>
-<view id="replycontent" class="reply" wx:if="{{reply}}">
-      <textarea id="replycontent" show-confirm-bar="{{false}}" placeholder="回复..." bindinput ="bindTextAreaBlur" placeholder-class="commentreply" class="commentreply" type="text" fixed="true"/>
+<view>
+<view id="replycontent" class="reply" wx:if="{{reply}}" auto-height="true">
+      <textarea id="replycontent" show-confirm-bar="{{false}}" placeholder="回复..." bindinput ="bindTextAreaBlur" placeholder-class="commentreply" class="commentreply" type="text" fixed="true" auto-height="true"/>
       <view id="btn" class="submit"  bindtap="reply_by_type">发送</view>
 </view>
 <!-- <include src="/pages/bottom_menu/bottom_menu" /> -->
