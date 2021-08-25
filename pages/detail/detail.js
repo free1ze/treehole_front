@@ -40,6 +40,17 @@ Page({
     this.data.detail = e.detail.value
   },
 
+  dereply:function(e){
+    this.setData({
+      message_id: e.target.dataset.message_id,
+      reply_type:0,
+    })
+    if(e.target.id!="replycontent" && this.data.reply==true){
+      this.setData({
+        reply: false    //如果有回复框，则把它取消掉
+      })
+    }
+  },
 
   reply0:function(e){
     this.setData({
