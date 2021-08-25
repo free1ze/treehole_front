@@ -41,10 +41,6 @@ Page({
   },
 
   dereply:function(e){
-    this.setData({
-      message_id: e.target.dataset.message_id,
-      reply_type:0,
-    })
     if(e.target.id!="replycontent" && this.data.reply==true){
       this.setData({
         reply: false    //如果有回复框，则把它取消掉
@@ -53,6 +49,7 @@ Page({
   },
 
   reply0:function(e){
+    console.log("000")
     this.setData({
       message_id: e.target.dataset.message_id,
       reply_type:0,
@@ -74,9 +71,12 @@ Page({
         reply: true     //展示回复框
       })
     }
+    console.log(this.data)
+    console.log(this.data.reply_type)
   },
 
   reply_by_type: function(e){
+    
     if(this.data.reply_type == 0){
       this.reply_message(e)
     }
