@@ -76,7 +76,8 @@ Page({
 
 
     comment: function(e){
-      var _id = e.target.dataset._id
+      //这里要用currentTarget而不是target！！！
+      var _id = e.currentTarget.dataset._id
       this.setData({
         last_visit_msg_id : _id,
       })

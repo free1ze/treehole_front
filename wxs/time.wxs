@@ -1,7 +1,6 @@
 
 //这里输入的时间戳
 var timeFormat = function (timestamp) {
-    console.log(timestamp)
     var mistiming = timestamp;
     var arrr = ['年', '个月', '周', '天', '小时', '分钟', '秒'];
     var arrn = [31536000, 2592000, 604800, 86400, 3600, 60, 1];
