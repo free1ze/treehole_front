@@ -98,7 +98,7 @@ Page({
           content: that.data.detail,
           openid: getApp().globalData.user.openid,
           message_id: that.data.message_id,
-          reply_to: ""
+          reply_to: ""  
         },
         success(res){
           that.reload_comment()
@@ -114,7 +114,7 @@ Page({
 
   reply_comment:function(e){
     var that = this;
-    
+    console.log("!!!")
       wx.request({
         url: getApp().globalData.url + '/reply_comment',
         method: "POST",
@@ -357,6 +357,8 @@ Page({
    */
   onReachBottom: function() {
     console.log("reach")
+    if(!this.data.message_id)
+      return;
     var that = this
     wx.request({
       url: getApp().globalData.url + '/get_all_comment',
