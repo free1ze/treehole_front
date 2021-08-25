@@ -1,6 +1,6 @@
 <!--pages/detail/detail.wxml-->
 <wxs src='/wxs/time.wxs' module="tools"/>
-<scroll-view class='scbg' scroll-y='true'>
+<view class='scbg' scroll-y='true'>
 <block wx:for="{{list}}" wx:for-item="itemName" wx:for-index="id">
   <view class='box'>
     <view class='firstblock'>
@@ -55,7 +55,8 @@
   </view>
 </block>
 </view>
-</scroll-view>
+</view>
+
 <view class="reply" wx:if="{{reply}}">
       <textarea id="replycontent" show-confirm-bar="{{false}}" placeholder="回复..." bindinput ="bindTextAreaBlur" placeholder-class="commentreply" class="commentreply" type="text" fixed="true"/>
       <button id="btn" class="submit"  bindtap="reply_by_type">发送</button>

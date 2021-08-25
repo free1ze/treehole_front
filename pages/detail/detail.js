@@ -102,7 +102,6 @@ Page({
   },
 
   reply_comment:function(e){
-    console.log("cmt!!!!!!!!")
     var that = this;
     
       wx.request({
@@ -246,6 +245,9 @@ Page({
     //first load 
     if (this.data.message_id == ""){
       msg_id = options.message_id
+      this.setData({
+        message_id: msg_id,
+      })
     }
     //second load 
     else{
@@ -276,7 +278,7 @@ Page({
       success(res){
         console.log(res)
         that.setData({
-          comment: res.data.data
+          comment: res.data.data,
         })
       }
     })
@@ -293,6 +295,7 @@ Page({
       method: "POST",
       data: {
         message_id: msg_id,
+        loaded: 0,
       },
       success(res){
         console.log(res)
@@ -342,19 +345,20 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    console.log("reach")
     var that = this
     wx.request({
       url: getApp().globalData.url + '/get_all_comment',
       method: "POST",
       data: {
-        openid: getApp().globalData.user.openid,
+        message_id: that.data.message_id,
         loaded: that.data.comment.length,
       },
-
       success(res){
         // 不能使用that.data.list = res.data.data，不会触发渲染
+        console.log(res.data)
         that.setData({
-          list: that.data.comment.concat(res.data.data)
+          comment: that.data.comment.concat(res.data.data)
         })
 
       }
