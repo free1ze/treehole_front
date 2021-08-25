@@ -1,9 +1,9 @@
 <!--pages/detail/detail.wxml-->
 <wxs src='/wxs/time.wxs' module="tools"/>
-<view class='scbg' scroll-y='true'>
+<view class='scbg' scroll-y='true' bindtap="dereply">
 <block wx:for="{{list}}" wx:for-item="itemName" wx:for-index="id">
   <view class='box'>
-    <view class='firstblock'>
+    <view class='firstblock' bindtap="dereply">
       <view class='person'>
         <view class='name'>
           <text class='showname'># {{itemName.id}}</text>
@@ -13,14 +13,14 @@
         </view>
       </view>
     </view>
-    <view class='secondblock'>
+    <view class='secondblock' bindtap="dereply">
       <text class='content'>{{itemName.content}}</text>
     </view>
     <view class='thirdblock'>
       <image class='like' bindtap="like"  wx:if="{{!itemName.islike}}" src='/images/like.png' data-_id='{{itemName._id}}'></image>
       <image class='like' bindtap="like"  wx:elif="{{itemName.islike}}" src='/images/likeplus.png' data-_id='{{itemName._id}}'></image>
       <text class='num'>{{itemName.likes}}</text>
-      <text class='like' bindtap="reply0" data-message_id="{{itemName._id}}">回复</text>
+      <image id="replycontent" class='like' bindtap="reply0" data-message_id="{{itemName._id}}" src="/images/comment.png"></image>
       <text class='num'>{{itemName.comments}}</text>
     </view>
   </view>
@@ -28,10 +28,10 @@
 <view class="commentbox">
   <block wx:for="{{comment}}" wx:for-item="itemName" wx:for-index="id">
   <view>
-    <view class="replyview">
+    <view class="replyview" bindtap="dereply">
       <text class="replytxt">{{itemName.reply_to}}</text>
     </view>
-    <view class='commentfirstblock'>
+    <view class='commentfirstblock' bindtap="dereply">
       <view class='commentperson'>
         <view class='commentname'>
           <text class='commentnametxt'>{{itemName.username}}</text>
@@ -46,19 +46,18 @@
       <text class='num'>{{itemName.likes}}</text>
     </view>
     </view>
-    <view class='commentcontentblock'>
+    <view class='commentcontentblock' bindtap="dereply">
       <text class='commentcontent'>{{itemName.content}}</text>
     </view>
     <view class='bottom'>
-      <text bindtap="reply1"data-message_id="{{itemName.message_id}}" data-reply_to="{{itemName.content}}">回复</text>
+      <text id="replycontent" bindtap="reply1"data-message_id="{{itemName.message_id}}" data-reply_to="{{itemName.content}}">回复</text>
     </view>
   </view>
 </block>
 </view>
 </view>
-
-<view class="reply" wx:if="{{reply}}">
+<view id="replycontent" class="reply" wx:if="{{reply}}">
       <textarea id="replycontent" show-confirm-bar="{{false}}" placeholder="回复..." bindinput ="bindTextAreaBlur" placeholder-class="commentreply" class="commentreply" type="text" fixed="true"/>
-      <button id="btn" class="submit"  bindtap="reply_by_type">发送</button>
+      <view id="btn" class="submit"  bindtap="reply_by_type">发送</view>
 </view>
 <!-- <include src="/pages/bottom_menu/bottom_menu" /> -->

@@ -104,6 +104,11 @@ page{
   width: 40rpx;
   height: 40rpx;
 }
+/* notuse */
+.commentbutton{
+  font-size: 30rpx;
+  margin-left: 0rpx;
+}
 
 .num{
   height: 50rpx;
@@ -204,7 +209,7 @@ page{
 }
 
 .reply{
-  height: 200rpx;
+  height: 150rpx;
   width: 100%;
   overflow: hidden;
   position: fixed;
@@ -212,21 +217,38 @@ page{
   left: 0;
   z-index: 2000;
   background: #fff;
-  padding-top: 20rpx;
+  padding-top: 12.5rpx;
+  padding-bottom: 12.5rpx;
 }
 
 .commentreply{
-  font-size: 50rpx;
-  height: 120rpx;
-  margin-top: 10rpx;
+  overflow: hidden;
+  display: inline-block;
+  height: 125rpx;
+  width: 80%;
+  margin-top: 12.5rpx;
+  margin-bottom: 12.5rpx;
   font-size: 29rpx;
   color: #101010;
   word-break: break-all;
+  border-radius: 10rpx;
+  border: 3rpx solid #BBB;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
 }
 
 .submit{
+  overflow: hidden;
+  display: inline-block;
   margin-top: 10rpx;
-  font-size: 25rpx;
-  color: #3F51B5;
-  word-break: break-all;
+  margin-bottom: 50rpx;
+  /* margin-right: 10rpx; */
+  border-radius: 10rpx;
+  width: 100rpx;
+  height: 50rpx;
+  background-color: #00b8e6;
+  border: 3rpx solid #BBB;
+  font-size: 30rpx;
+  text-align: center;
+  color: #FFFFFF;
 }
