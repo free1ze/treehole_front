@@ -57,8 +57,8 @@
 </block>
 </view>
 </view>
-<view id="replycontent" class="reply" wx:if="{{reply}}" style="bottom: {{keyboardHeight}}rpx">
-      <textarea id="replycontent" focus="true" show-confirm-bar="{{false}}" placeholder="回复..." bindinput ="bindTextAreaBlur" placeholder-class="commentreply" class="commentreply" type="text" fixed="true" auto-height="true"/>
+<view id="replycontent" class="reply" wx:if="{{reply}}" style="bottom: {{keyboardHeight}}px">
+      <textarea id="replycontent" focus="true" show-confirm-bar="{{false}}" placeholder="回复..." bindinput ="bindTextAreaBlur" adjust-position="false" placeholder-class="commentreply" class="commentreply" type="text" fixed="true" bindfocus="onShow" bindblur="onShow" auto-height="true"/>
       <view id="btn" class="submit" bindtap="reply_by_type">发送</view>
 </view>
 <!-- <include src="/pages/bottom_menu/bottom_menu" /> -->

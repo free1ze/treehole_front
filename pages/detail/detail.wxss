@@ -213,10 +213,9 @@ page{
   width: 100%;
   overflow: hidden;
   position: fixed;
-  left: 0;
   z-index: 2000;
-  padding-top: 12.5rpx;
-  padding-bottom: 12.5rpx;
+  /* padding-top: 12.5rpx;
+  padding-bottom: 12.5rpx; */
   background-color: #c0b6b6;
   align-items: center;
 }

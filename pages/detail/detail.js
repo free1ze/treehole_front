@@ -251,12 +251,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    //监听键盘高度
-    wx.onKeyboardHeightChange((result) => {
-      this.setData({
-        keyboardHeight: res.height
-      });
-    })
     var that = this;
     var msg_id = ""
     //first load 
@@ -334,7 +328,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    //监听键盘高度会被多次调用
+    wx.onKeyboardHeightChange(res => {
+      this.setData({
+        keyboardHeight: res.height
+      })
+    })
+    console.log("height")
+    console.log(this.data.keyboardHeight)
   },
 
   /**
