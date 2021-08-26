@@ -209,37 +209,34 @@ page{
 }
 
 .reply{
-  /* height: 150rpx; */
+  height: 150rpx;
   width: 100%;
   overflow: hidden;
   position: fixed;
-  bottom: 0;
   left: 0;
   z-index: 2000;
   padding-top: 12.5rpx;
   padding-bottom: 12.5rpx;
   background-color: #c0b6b6;
   align-items: center;
-  min-height: 50rpx;
-  max-height: 150rpx;
 }
 
 .commentreply{
   overflow: hidden;
   display: inline-block;
   height: 125rpx;
-  width: 80%;
+  width: 75%;
   /* margin-top: 12.5rpx;*/
-  margin-bottom: 10rpx; 
+  /* margin-bottom: 20rpx;  */
   font-size: 29rpx;
   color: #101010;
   word-break: break-all;
   border-radius: 10rpx;
   border: 3rpx solid #BBB;
   margin-left: 10rpx;
-  margin-right: 10rpx;
+  margin-right: 20rpx;
   line-height: 50rpx;
-  min-height: 50rpx;
+  min-height: 80rpx;
   max-height: 125rpx;
   background-color: #FFFFFF;
   position: relative;
@@ -252,13 +249,14 @@ page{
   overflow: hidden;
   display: inline-block;
   /* /* margin-top: 50rpx; */
-  margin-bottom: 10rpx; 
+  /* margin-bottom: 20rpx;  */
   /* margin-right: 10rpx; */
   border-radius: 10rpx;
-  width: 100rpx;
-  height: 50rpx;
+  width: 120rpx;
+  height: 60rpx;
   background-color: #00b8e6;
   font-size: 30rpx;
   text-align: center;
   color: #FFFFFF;
+  padding-top: 15rpx;
 }

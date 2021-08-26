@@ -15,6 +15,7 @@ Page({
     // like: false,
     list: [],
     comment: [],
+    keyboardHeight: 0,
   },
 
   first_select: function() {
@@ -250,8 +251,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    //监听键盘高度
+    wx.onKeyboardHeightChange((result) => {
+      this.setData({
+        keyboardHeight: res.height
+      });
+    })
     var that = this;
-    
     var msg_id = ""
     //first load 
     if (this.data.message_id == ""){
