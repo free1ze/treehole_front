@@ -94,6 +94,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    
     var that = this
     wx.request({
       url: getApp().globalData.url + '/get_all_artical',
@@ -113,10 +114,44 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+
   onReady: function() {
+   
+  },
+
+  onTap: function (e) {
+    if(this.popover){
+      this.popover.onHide()
+    }
+    console.log(e.target.dataset.id)
+    var selector = '#popover'+e.target.dataset.id
+    console.log(selector)
+    this.popover = this.selectComponent(selector)
+    // 获取元素的坐标信息
+    console.log(this.popover)
+    wx.createSelectorQuery().select(selector).boundingClientRect(res => {
+      this.popover.onDisplay(res);
+    }).exec()
+  },
+
+  onClickA: function (e) {
+    console.log('onClick A ', e);
+    this.popover.onHide();
+  },
+
+  onClickB: function (e) {
+    console.log('onClick B ', e);
+    wx.showToast({
+      title: '你点击了B',
+      icon: 'none'
+    });
+    this.popover.onHide();
+  },
+
+  deselect_popover: function(e){
+    if(!(e.target.dataset.ispopover == true)){
+      this.popover.onHide();
+    }
   },
 
   /**
@@ -217,8 +252,5 @@ Page({
 
   },
 
-  
-
-  
 })
 

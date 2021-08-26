@@ -43,9 +43,9 @@
       </view>
       <view class='thirdblock'>
         <image class='like' bindtap="commentlike"  wx:if="{{!itemName.islike}}" src='/images/like.png' data-_id="{{itemName._id}}"></image>
-      <image class='like' bindtap="commentlike"  wx:elif="{{itemName.islike}}" src='/images/likeplus.png' data-_id="{{itemName._id}}"></image>
-      <text class='num'>{{itemName.likes}}</text>
-    </view>
+        <image class='like' bindtap="commentlike"  wx:elif="{{itemName.islike}}" src='/images/likeplus.png' data-_id="{{itemName._id}}"></image>
+        <text class='num'>{{itemName.likes}}</text>
+      </view>
     </view>
     <view class='commentcontentblock' bindtap="dereply">
       <text class='commentcontent'>{{itemName.content}}</text>

@@ -30,7 +30,7 @@ Page({
         if (res.code) {
           console.log(res)
           var user_code = res.code
-          var username = getApp().globalData.user.nickName
+          var username 
 
           // 查看是否授权
           wx.getSetting({
@@ -40,11 +40,9 @@ Page({
                 wx.getUserInfo({
                   success: function(res) {
                     getApp().globalData.userInfo = res.userInfo
+                    username = getApp().globalData.user.nickName
                     console.log(res.userInfo)
                     
-                  }
-                })
-              
                 // 调用auth.code2Session请求得到openid 
                 // 小程序禁止前端调用此接口，故需要从后端调用
                 // 调用login
@@ -56,13 +54,15 @@ Page({
                     username: username,
                   },
                   success (res){
-                    console.log(res)
+                    console.log("!!!!!")
                     if(res.data["error_code"] == 0){
                       getApp().globalData.user.openid = res.data.data.openid;
                       that.next();
                     }
                   }
                 })
+              }
+            })
 
               }
             }
