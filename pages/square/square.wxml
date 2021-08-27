@@ -1,6 +1,6 @@
 <!--pages/square/square.wxml-->
 <wxs src='/wxs/time.wxs' module="tools"/>
-<view class="fatherview" bindtap="deselect_popover">
+<view class="fatherview">
 <view class='scbg'  scroll-y='true'>
 <!-- 弹窗
 <block  wx:if="{{startwindow}}">
@@ -26,7 +26,7 @@
     </view>
     <view class='thirdblock'>
 
-      <image class='more' src="/images/more.png" data-id='{{item.id}}' bindtap="onTapMore"></image>
+      <image class='more' src="/images/more.png" data-id='{{item.openid}}' bindtap="onTapMore" data-_id='{{item._id}}'></image>
       <image class='like' src="{{item.islike == 1 ? '/images/likeplus.png' : '/images/like.png' }}" bindtap="like" data-_id='{{item._id}}' data-openid='{{item.openid}}'/>
 
       <text class='num_like' wx:if="{{item.likes != 0}}">{{item.likes}}</text>

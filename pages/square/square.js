@@ -100,9 +100,10 @@ Page({
     var that = this
     wx.showModal({
       title: "树洞须知",
-      content: "欢迎光临xxxxx（树洞规则)",
+      content: "欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦",
       showCancel: false,
-      confirmText:'知道了'
+      confirmText:'知道了',
+
     })
     wx.request({
       url: getApp().globalData.url + '/get_all_artical',
@@ -130,19 +131,67 @@ Page({
    
   },
 
-  onTap: function (e) {
-    // if(this.popover){
-    //   this.popover.onHide()
-    // }
-    // console.log(e.target.dataset.id)
-    // var selector = '#popover'+e.target.dataset.id
-    // console.log(selector)
-    // this.popover = this.selectComponent(selector)
-    // // 获取元素的坐标信息
-    // console.log(this.popover)
-    // wx.createSelectorQuery().select(selector).boundingClientRect(res => {
-    //   this.popover.onDisplay(res);
-    // }).exec()
+  onTapMore: function (e) {
+    var that = this
+    var itemList= []
+    var message_id = e.target.dataset._id
+    console.log(e.currentTarget)
+    if(e.target.dataset.id == getApp().globalData.user.openid){
+      itemList = ["删除"]
+    }else{
+      itemList = ["举报"]
+    }
+    wx.showActionSheet({
+      itemList: itemList,
+      itemColor: 'red',
+      success(res){
+        //report
+        if(itemList[0] == "举报"){
+          var itemList2 =  ["色情低俗", "人身攻击", "虚假信息", "其它"]
+          wx.showActionSheet({
+            itemList: itemList2,
+            success(res){
+              wx.request({
+                url: getApp().globalData.url + '/report',
+                method: "POST",
+                data:{
+                  message_id: message_id,
+                  type: itemList2[res.tapIndex],
+                  },
+                  success(res){
+                    console.log(res)
+                    wx.showToast({
+                      title: '举报成功',
+                      icon: 'success',
+                      duration: 1000,
+                    })
+                }
+              })
+            }
+          })
+        }
+        //delete
+        else{
+          wx.request({
+            url: getApp().globalData.url + '/delete',
+            method: "POST",
+            data:{
+              _id: message_id,
+            },
+            success(res){
+              for(var i =0; i<that.data.list.length; i++){
+                if(that.data.list[i]._id == message_id){
+                  that.data.list.splice(i,1)
+                  that.setData({
+                    list: that.data.list
+                  })
+                }
+              }
+            }
+          })
+        }
+      }
+    })
   },
 
   onClickA: function (e) {
@@ -157,12 +206,6 @@ Page({
       icon: 'none'
     });
     this.popover.onHide();
-  },
-
-  deselect_popover: function(e){
-    if(!(e.target.dataset.ispopover == true)){
-      this.popover.onHide();
-    }
   },
 
   /**
@@ -205,7 +248,6 @@ Page({
         openid: getApp().globalData.user.openid,
         loaded: that.data.list.length,
       },
-
       success(res){
         wx.setStorageSync('list', res.data.data)
         console.log(res.data.data)
@@ -270,8 +312,8 @@ Page({
             list: that.data.list.concat(res.data)
           }, ()=>{
             that.loadStorgeArtical(that)
-          } )
-
+            } 
+          )
         }
       }
     })
