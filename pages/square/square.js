@@ -101,6 +101,8 @@ Page({
     wx.showModal({
       title: "树洞须知",
       content: "欢迎光临xxxxx（树洞规则)",
+      showCancel: false,
+      confirmText:'知道了'
     })
     wx.request({
       url: getApp().globalData.url + '/get_all_artical',
