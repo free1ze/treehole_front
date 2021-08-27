@@ -1,8 +1,14 @@
 <!--pages/square/square.wxml-->
 <wxs src='/wxs/time.wxs' module="tools"/>
-
 <view class="fatherview" bindtap="deselect_popover">
 <view class='scbg'  scroll-y='true'>
+<!-- 弹窗
+<block  wx:if="{{startwindow}}">
+  <view class="startwindow">
+  <textarea class="windowtxt">abc</textarea>
+  <button class="okbutton"></button>
+  </view>
+</block> -->
 <block wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
   <view class='box' data-_id='{{item._id}}' >
     <view class='firstblock'  bindtap="comment" data-_id='{{item._id}}'>
@@ -31,14 +37,14 @@
       <text class='num_comment' wx:elif="{{item.comments == 0}}">  </text>
 
       </view>
-      <div class="moreblock">
+      <!-- <div class="moreblock">
 
-      </div>
+      </div> -->
   </view>
 </block>
 </view>
 
 </view>
-
-
 <include src="/pages/bottom_menu/bottom_menu" />
+
+
