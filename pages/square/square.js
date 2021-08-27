@@ -10,6 +10,7 @@ Page({
     last_visit_msg_id: "",
     list: [],
     listisempty:false,
+    startwindow: true,
   },
 
   like: function(e){
@@ -97,6 +98,10 @@ Page({
   onLoad: function(options) {
     
     var that = this
+    wx.showModal({
+      title: "树洞须知",
+      content: "欢迎光临xxxxx（树洞规则)",
+    })
     wx.request({
       url: getApp().globalData.url + '/get_all_artical',
       method: "POST",

@@ -154,3 +154,27 @@
   height: 40rpx;
   margin-right: 385rpx;
 }
+
+.startwindow{
+  width: 70%;
+  height: 800rpx;
+  margin-top: 10%;
+  margin-bottom: 15%;
+  margin-left: 15%;
+  margin-right: 15%;
+  background-color: white;
+  border: 3rpx solid #BBB;
+  position: absolute;
+}
+
+.textarea{
+  width: 50%;
+  height: 700rpx;
+}
+
+.okbutton{
+  width: 70%;
+  background-color: #5FD9CD;
+  height: 80rpx;
+  position: fixed;
+}
