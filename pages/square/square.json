@@ -3,10 +3,5 @@
   "navigationBarTitleText": "树洞广场",
   "navigationBarTextStyle": "black",
   "enablePullDownRefresh": true ,
-  "backgroundTextStyle": "dark",
-  "component": true,
-  "usingComponents": {
-    "popover": "/components/popover",
-    "popover-item": "/components/popover-item"
-  }
+  "backgroundTextStyle": "dark"
 }

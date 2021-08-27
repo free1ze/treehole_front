@@ -120,18 +120,18 @@ Page({
   },
 
   onTap: function (e) {
-    if(this.popover){
-      this.popover.onHide()
-    }
-    console.log(e.target.dataset.id)
-    var selector = '#popover'+e.target.dataset.id
-    console.log(selector)
-    this.popover = this.selectComponent(selector)
-    // 获取元素的坐标信息
-    console.log(this.popover)
-    wx.createSelectorQuery().select(selector).boundingClientRect(res => {
-      this.popover.onDisplay(res);
-    }).exec()
+    // if(this.popover){
+    //   this.popover.onHide()
+    // }
+    // console.log(e.target.dataset.id)
+    // var selector = '#popover'+e.target.dataset.id
+    // console.log(selector)
+    // this.popover = this.selectComponent(selector)
+    // // 获取元素的坐标信息
+    // console.log(this.popover)
+    // wx.createSelectorQuery().select(selector).boundingClientRect(res => {
+    //   this.popover.onDisplay(res);
+    // }).exec()
   },
 
   onClickA: function (e) {

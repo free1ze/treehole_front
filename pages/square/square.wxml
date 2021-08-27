@@ -19,16 +19,8 @@
       <text class='content'>{{item.content}}</text>
     </view>
     <view class='thirdblock'>
-      
-      <view>
-        <image id='like' class='more' src="/images/more.png" data-id='{{item.id}}'bindtap="onTap"></image>
-      <popover id='popover{{item.id}}'>
-        <popover-item bindtap='onClickA' data-ispopover='true' hasline>删除</popover-item>
-        <popover-item bindtap='onClickB' data-ispopover='true' hasline>举报</popover-item>
-      </popover>
-      </view>
 
-      <!-- <image class='more' src="/images/more.png" bindtap="" data-_id='{{item._id}}'></image> -->
+      <image class='more' src="/images/more.png" data-id='{{item.id}}' bindtap="onTapMore"></image>
       <image class='like' src="{{item.islike == 1 ? '/images/likeplus.png' : '/images/like.png' }}" bindtap="like" data-_id='{{item._id}}' data-openid='{{item.openid}}'/>
 
       <text class='num_like' wx:if="{{item.likes != 0}}">{{item.likes}}</text>
@@ -39,6 +31,9 @@
       <text class='num_comment' wx:elif="{{item.comments == 0}}">  </text>
 
       </view>
+      <div class="moreblock">
+
+      </div>
   </view>
 </block>
 </view>

@@ -139,10 +139,18 @@
   color: #101010;
 }
 
+.moreblock{
+  position: absolute;
+  width: 200rpx;
+  height: 100rpx;
+  margin-top:20rpx;
+  border-style: solid;
+  border-color: black;
+  margin-left: 20rpx;
+}
+
 .more{
-  margin-top: 15rpx;
-  margin-right: 400rpx;
   width: 40rpx;
   height: 40rpx;
-  margin-bottom: 20rpx;
+  margin-right: 385rpx;
 }
