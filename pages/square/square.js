@@ -9,6 +9,7 @@ Page({
     secco: "#979797",
     last_visit_msg_id: "",
     list: [],
+    listisempty:false,
   },
 
   like: function(e){
@@ -108,10 +109,13 @@ Page({
         // 不能使用that.data.list = res.data.data，不会触发渲染
         that.setData({
           list: res.data.data
+        },()=>{
+          that.loadStorgeArtical(that)
         })
-
+        
       }
     })
+    
   },
 
 
@@ -185,6 +189,24 @@ Page({
     })
   },
 
+  loadStorgeArtical: function(that){
+
+    wx.request({
+      url: getApp().globalData.url + '/get_all_artical',
+      method: "POST",
+      data: {
+        openid: getApp().globalData.user.openid,
+        loaded: that.data.list.length,
+      },
+
+      success(res){
+        wx.setStorageSync('list', res.data.data)
+        console.log(res.data.data)
+      }
+    })
+  
+  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -227,20 +249,21 @@ Page({
    */
   onReachBottom: function() {
     var that = this
-    wx.request({
-      url: getApp().globalData.url + '/get_all_artical',
-      method: "POST",
-      data: {
-        openid: getApp().globalData.user.openid,
-        loaded: that.data.list.length,
-      },
-
+    
+    wx.getStorage({
+      key: 'list',
       success(res){
-        // 不能使用that.data.list = res.data.data，不会触发渲染
-        that.setData({
-          list: that.data.list.concat(res.data.data)
-        })
+        if(res.data.length == 0)
+          return;
+        else{
+          console.log(res.data)
+          that.setData({
+            list: that.data.list.concat(res.data)
+          }, ()=>{
+            that.loadStorgeArtical(that)
+          } )
 
+        }
       }
     })
   },
