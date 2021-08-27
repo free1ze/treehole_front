@@ -8,6 +8,17 @@
   </view>
   <view class='box'>
     <view class="setbar">
+    <text class="settxt">个人中心</text>
+    <image class="arrow" src="/images/rightarrow.png"></image>
+    <text class="arrow"></text>
+    </view>
+    <view class="setbar">
+    <text class="settxt">树洞设置</text>
+    <image class="arrow" src="/images/rightarrow.png"></image>
+    </view>
+  </view>
+  <view class='box'>
+    <view class="setbar">
     <text class="settxt">社区规范</text>
     <image class="arrow" src="/images/rightarrow.png"></image>
     <text class="arrow"></text>
@@ -17,12 +28,16 @@
     <image class="arrow" src="/images/rightarrow.png"></image>
     </view>
     <view class="setbar">
-    <text class="settxt">树洞设置</text>
+    <text class="settxt">推广树洞</text>
     <image class="arrow" src="/images/rightarrow.png"></image>
     </view>
-    <view class="cu">
-    <text class="cu">Contact us: xxxxxxxxx@qq.com </text>
+    <view class="setbar">
+    <text class="settxt">支持我们</text>
+    <image class="arrow" src="/images/rightarrow.png"></image>
     </view>
+  </view>
+  <view class="cu">
+    <text>Contact us: xjtutreehold@163.com </text>
   </view>
   <!-- <view class='weui-cells weui_cells-after-title'>
   <view class='weui-cell'>

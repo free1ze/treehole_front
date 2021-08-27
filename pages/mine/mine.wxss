@@ -176,17 +176,17 @@ page {
   color: #FFFFFF;
   line-height: 50rpx;
   justify-content: center;
+  align-items: center;
 }
 
 .setbar{
   width: 100%;
-  height: 50rpx;
-  padding-bottom: 7.5rpx;
+  height: 70rpx;
   padding-left: 30rpx;
-  padding-top: 7.5rpx;
   text-align: left;
   align-items: center;
   justify-content: center;
+  border-bottom: 3rpx solid #BBB;
 }
 
 .settxt{
@@ -195,6 +195,7 @@ page {
   flex-direction: row;
   display: inline-block;
   height: 50rpx;
+  overflow: hidden;
 }
 
 .arrow{
@@ -202,4 +203,5 @@ page {
   height: 50rpx;
   margin-left: 30%;
   margin-top:15rpx;
+  overflow: hidden;
 }

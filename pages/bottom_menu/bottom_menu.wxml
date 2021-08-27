@@ -7,6 +7,6 @@
     <image class='bottomImg' src='/images/add.png'></image>
   </view>
   <view class='bottomtab' bindtap="third_select">
-    <text class='bottomtabText' style='color:{{secco}}'>版本信息</text>
+    <text class='bottomtabText' style='color:{{secco}}'>我的</text>
   </view>
 </view>
