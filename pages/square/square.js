@@ -286,7 +286,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+    wx.showNavigationBarLoading({
+      success: (res) => {},
+    })
+    console.log("pull")
     var that = this
+    wx.showToast({
+      title: '玩命加载中~',
+      icon:'none',
+    })
     wx.request({
       url: getApp().globalData.url + '/get_all_artical',
       method: "POST",
@@ -294,17 +302,23 @@ Page({
         openid: getApp().globalData.user.openid,
         loaded: 0,
       },
-
       success(res){
         // 不能使用that.data.list = res.data.data，不会触发渲染
         that.setData({
           list: res.data.data
         },()=>{
           that.loadStorgeArtical(that)
+          wx.hideNavigationBarLoading();
+          wx.stopPullDownRefresh()
+          wx.showToast({
+            title: '加载完成～',
+            icon:'none',
+            duration:1000,
+          })
         })
-
       }
     })
+
   },
 
   /**
@@ -312,12 +326,20 @@ Page({
    */
   onReachBottom: function() {
     var that = this
-    
     wx.getStorage({
       key: 'list',
       success(res){
-        if(res.data.length == 0)
+        if(that.data.list[that.data.list.length-1].id == 1){
+          wx.showToast({
+            title: '已经到底了～',
+            icon: 'none',
+            duration:1000,
+          })
           return;
+        }
+        else if(res.data.length == 0){
+          that.onReachBottom()
+        }
         else{
           // console.log(res.data)
           that.setData({

@@ -403,9 +403,19 @@ Page({
    */
   onReachBottom: function() {
     console.log("reach")
-    if(!this.data.message_id)
-      return;
+    if(!this.data.message_id){
+      wx.showToast({
+        title: '已经到底了～',
+        icon: 'none',
+        duration: 1000,
+      })
+    }
+    else{
     var that = this
+    wx.showToast({
+      title: '玩命加载中～',
+      icon:'none',
+    })
     wx.request({
       url: getApp().globalData.url + '/get_all_comment',
       method: "POST",
@@ -418,10 +428,17 @@ Page({
         console.log(res.data)
         that.setData({
           comment: that.data.comment.concat(res.data.data)
+        },()=>{
+          wx.showToast({
+            title: '加载完成～',
+            icon:'none',
+            duration:1000,
+          })
         })
 
       }
     })
+    }
   },
 
   /**
