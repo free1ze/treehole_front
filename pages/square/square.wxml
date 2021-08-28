@@ -9,7 +9,7 @@
   <button class="okbutton"></button>
   </view>
 </block> -->
-<block wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
+<block wx:for="{{list}}" wx:for-item="item" wx:for-index="id" wx:key='id'>
   <view class='box' data-_id='{{item._id}}' >
     <view class='firstblock'  bindtap="comment" data-_id='{{item._id}}'>
       <view class='person'>

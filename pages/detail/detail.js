@@ -15,6 +15,7 @@ Page({
     list: [],
     comment: [],
     releaseFocus:false,
+    nomessageflag:false,
   },
 
   first_select: function() {
@@ -402,8 +403,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    console.log("reach")
-    if(!this.data.message_id){
+    if(this.data.nomessageflag == true){
       wx.showToast({
         title: '已经到底了～',
         icon: 'none',
@@ -434,6 +434,11 @@ Page({
             icon:'none',
             duration:1000,
           })
+          if(res.data.data.length == 0){
+            that.setData({
+              nomessageflag: true,
+            })
+          }
         })
 
       }

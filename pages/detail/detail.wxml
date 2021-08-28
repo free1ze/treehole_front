@@ -2,7 +2,7 @@
 <wxs src='/wxs/time.wxs' module="tools"/>
 <!-- <wxs src='/wxs/reply.wxs' module="tools"/> -->
 <view class='scbg' scroll-y='true' >
-<block wx:for="{{list}}" wx:for-item="itemName" wx:for-index="id">
+<block wx:for="{{list}}" wx:for-item="itemName" wx:for-index="id" wx:key='id'>
   <view class='box'>
     <view class='firstblock'>
       <view class='person'>
