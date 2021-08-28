@@ -10,7 +10,8 @@ page{
   padding-bottom: 10rpx;
   border-bottom: 10rpx solid #EFEFEF;
   margin: 25rpx 50rpx;
-  border-radius: 20rpx;
+  margin-top: 5rpx;
+  border-radius: 30rpx;
 }
 
 .textinput{
@@ -27,7 +28,7 @@ page{
   width: 84%;
   height: 100rpx;
   line-height: 100rpx;
-  border-radius: 10rpx;
+  border-radius: 30rpx;
   margin: auto;
   margin-top: 70rpx;
   margin-left: 8%;

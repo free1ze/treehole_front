@@ -12,10 +12,9 @@ Page({
     detail:"",
     reply_to:"",
     reply_type:0,       //0: message  1: comment
-    // like: false,
     list: [],
     comment: [],
-    keyboardHeight: 0,
+    releaseFocus:false,
   },
 
   first_select: function() {
@@ -41,39 +40,21 @@ Page({
     this.data.detail = e.detail.value
   },
 
-  dereply:function(e){
-    if(e.target.id!="replycontent" && this.data.reply==true){
-      this.setData({
-        reply: false    //如果有回复框，则把它取消掉
-      })
-    }
-  },
-
   reply0:function(e){
-    console.log("000")
+
     this.setData({
       message_id: e.target.dataset.message_id,
       reply_type:0,
+      releaseFocus:true,
     })
-    if(this.data.reply==false){
-      this.setData({
-        reply: true     //展示回复框
-      })
-    }
   },
   reply1:function(e){
     this.setData({
       message_id: e.target.dataset.message_id,
       reply_to: e.target.dataset.reply_to,
       reply_type:1,
+      releaseFocus:true,
     })
-    if(this.data.reply==false){
-      this.setData({
-        reply: true     //展示回复框
-      })
-    }
-    console.log(this.data)
-    console.log(this.data.reply_type)
   },
 
   reply_by_type: function(e){
@@ -84,13 +65,15 @@ Page({
     else{
       this.reply_comment(e)
     }
+    //这里应该处理异步，不过不知道为什么没有BUG，所以没管
+    this.setData({
+      commentValue: ""
+    })
   },
 
   reply_message:function(e){
-    console.log("msg!!!!!!!!")
     var that = this;
     // 回复form隐藏、展示切换
-    console.log(e.detail)
     
       wx.request({
         url: getApp().globalData.url + '/reply_message',
@@ -119,7 +102,6 @@ Page({
 
   reply_comment:function(e){
     var that = this;
-    console.log("!!!")
       wx.request({
         url: getApp().globalData.url + '/reply_comment',
         method: "POST",
@@ -247,7 +229,7 @@ Page({
     }
     wx.showActionSheet({
       itemList: itemList,
-      itemColor: 'FF0000',
+      itemColor: '#FF0000',
       success(res){
         //report
         if(itemList[0] == "举报"){
@@ -447,5 +429,25 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+
+  hideKeyboard: function(e){
+    this.setData({
+      releaseFocus:false,
+    })
+  },
+  setValue: function(e){
+    this.setData({
+      detail:e.detail.value,
+    })
+  },
+  catchBubble:function(e){
+    wx.showKeyboard({
+      confirmHold: true,
+      confirmType: confirmType,
+      defaultValue: 'defaultValue',
+      maxLength: 0,
+      multiple: true,
+    })
   }
 })
