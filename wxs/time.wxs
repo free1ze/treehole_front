@@ -13,4 +13,15 @@ var timeFormat = function (timestamp) {
     return '刚刚'
 }
 
+//这里输入被回复的内容
+var contentFormat = function (content) {
+    if(content.length<10){
+      return content;
+    }
+    else{
+      return content.substring(0,8)+"..."
+    }
+  }
+  
+module.exports.contentFormat = contentFormat;
 module.exports.timeFormat = timeFormat;

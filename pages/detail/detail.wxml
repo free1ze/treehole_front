@@ -1,5 +1,6 @@
 <!--pages/detail/detail.wxml-->
 <wxs src='/wxs/time.wxs' module="tools"/>
+<!-- <wxs src='/wxs/reply.wxs' module="tools"/> -->
 <view class='scbg' scroll-y='true' bindtap="dereply">
 <block wx:for="{{list}}" wx:for-item="itemName" wx:for-index="id">
   <view class='box'>
@@ -31,7 +32,7 @@
   <view>
     <view class="replyview" bindtap="dereply" wx:if="{{itemName.reply_to}}">
       <!-- <text class="replytxt" wx:if="{{itemName.reply_to}}"></text> -->
-      <text class="replytxt"> 回复: {{itemName.reply_to}}</text>
+      <text class="replytxt"> 回复: {{tools.contentFormat(itemName.reply_to)}}</text>
     </view>
     <view class='commentfirstblock' bindtap="dereply">
       <view class='commentperson'>

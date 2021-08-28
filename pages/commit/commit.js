@@ -6,6 +6,7 @@ Page({
    */
   data: {
     detail: "",
+    sent: false,
   },
 
   bindTextAreaBlur: function(e) {
@@ -18,58 +19,49 @@ Page({
     var that=this
     
     console.log(that.data.detail)
-
-
-    setTimeout(function (){
-      wx.navigateBack({
-        delta: 1
+    if(this.data.sent == false){
+      wx.showLoading({
+        title: '发送中',
       })
-    }, 1000)
-
-    wx.showLoading({
-      title: '发送中',
-    })
-    //与服务器交互
-    wx.request({
-      url: getApp().globalData.url + '/post_artical',
-      method: "POST",
-      data: {
-        openid: getApp().globalData.user.openid,
-        content: that.data.detail,
-      },
-
-      success(res){
-        console.log(res)
-          if(res.data.result.error_code == 0){
-          wx.showToast({
-            title: '已发送',
-            icon: 'success',
-            duration: 1000
-          })
-          wx.reLaunch({
-            url: '/pages/square/square',
-          })
-        }
-        else{
+      //与服务器交互
+      wx.request({
+        url: getApp().globalData.url + '/post_artical',
+        method: "POST",
+        data: {
+          openid: getApp().globalData.user.openid,
+          content: that.data.detail,
+        },
+        success(res){
+          console.log(res)
+            if(res.data.result.error_code == 0){
+            wx.reLaunch({
+              url: '/pages/square/square',
+            })
+          }
+          else{
+            wx.showToast({
+              title: '发送失败',
+              icon: 'error',
+              duration: 1000
+            })
+          }
+        },
+        fail: function(res){
           wx.showToast({
             title: '发送失败',
-            icon: 'error',
-            duration: 1000
+            icon: 'loading',
+            duration: 2000
           })
-        }
-      },
-
-      fail: function(res){
-        wx.showToast({
-          title: '发送失败',
-          icon: 'loading',
-          duration: 2000
-        })
-      },
-      complete: function(res){
-        wx.hideLoading()
-      } 
-    })
+        },
+        complete: function(res){
+          wx.hideLoading()
+        } 
+      })
+      this.setData({
+        sent:true,
+      })
+    }
+    
   },
 
   
