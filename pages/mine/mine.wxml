@@ -4,7 +4,7 @@
     <view class='deco'>
       <image class='ava' src="/images/purpose.png"></image>
     </view>
-    <text class='nn'>西交树洞 Version:0.0.0</text>
+    <text class='nn'>西交树洞 Version:1.0.0</text>
   </view>
   <view class='box'>
     <view class="setbar">
@@ -37,7 +37,7 @@
     </view>
   </view>
   <view class="cu">
-    <text>Contact us: xjtutreehold@163.com </text>
+    <text>Contact us: 531251248@qq.com </text>
   </view>
   <!-- <view class='weui-cells weui_cells-after-title'>
   <view class='weui-cell'>

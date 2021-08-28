@@ -2,7 +2,7 @@
 @import "/pages/bottom_menu/bottom_menu";
 
 page {
-  background-color: #c0b6b6;
+  background-color: #FBEDEC;
 }
 
 .personalInf {
@@ -12,12 +12,12 @@ page {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  border-bottom: 20rpx solid #efefef;
+  border-bottom: 10rpx solid #efefef;
   border-radius: 20rpx;
 }
 
 .scbg {
-  background-color: #c0b6b6;
+  background-color: #FBEDEC;
   widows: 100%;
   left: 0rpx;
   right: 0rpx;
@@ -55,7 +55,7 @@ page {
   margin: 20rpx 50rpx;
   background-color: white;
   /* padding-top: 30rpx; */
-  border-bottom: 20rpx solid #efefef;
+  border-bottom: 10rpx solid #efefef;
   border-radius: 20rpx;
 }
 
@@ -180,13 +180,16 @@ page {
 }
 
 .setbar{
-  width: 100%;
+  width: 90%;
   height: 70rpx;
   padding-left: 30rpx;
+  padding-right: 30rpx;
+  margin-right: 30rpx;
   text-align: left;
   align-items: center;
   justify-content: center;
   border-bottom: 3rpx solid #BBB;
+  
 }
 
 .settxt{

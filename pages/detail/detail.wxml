@@ -17,20 +17,21 @@
       <text class='content'>{{itemName.content}}</text>
     </view>
     <view class='thirdblock'>
+      <image class='more' src="/images/more.png" data-openid='{{itemName.openid}}' bindtap="onTapMore" data-_id='{{itemName._id}}'></image>
       <image class='like' bindtap="like"  wx:if="{{!itemName.islike}}" src='/images/like.png' data-_id='{{itemName._id}}'></image>
       <image class='like' bindtap="like"  wx:elif="{{itemName.islike}}" src='/images/likeplus.png' data-_id='{{itemName._id}}'></image>
-      <text class='num'>{{itemName.likes}}</text>
+      <text class='num_like'>{{itemName.likes}}</text>
       <image id="replycontent" class='like' bindtap="reply0" data-message_id="{{itemName._id}}" src="/images/comment.png"></image>
-      <text class='num'>{{itemName.comments}}</text>
+      <text class='num_comment'>{{itemName.comments}}</text>
     </view>
   </view>
 </block>
 <view class="commentbox">
   <block wx:for="{{comment}}" wx:for-item="itemName" wx:for-index="id">
   <view>
-    <view class="replyview" bindtap="dereply">
-      <text class="replytxt" wx:if="{{itemName.reply_to}}">回复: </text>
-      <text class="replytxt">{{itemName.reply_to}}</text>
+    <view class="replyview" bindtap="dereply" wx:if="{{itemName.reply_to}}">
+      <!-- <text class="replytxt" wx:if="{{itemName.reply_to}}"></text> -->
+      <text class="replytxt"> 回复: {{itemName.reply_to}}</text>
     </view>
     <view class='commentfirstblock' bindtap="dereply">
       <view class='commentperson'>
@@ -42,16 +43,18 @@
         </view>
       </view>
       <view class='thirdblock'>
+        
         <image class='like' bindtap="commentlike"  wx:if="{{!itemName.islike}}" src='/images/like.png' data-_id="{{itemName._id}}"></image>
         <image class='like' bindtap="commentlike"  wx:elif="{{itemName.islike}}" src='/images/likeplus.png' data-_id="{{itemName._id}}"></image>
-        <text class='num'>{{itemName.likes}}</text>
+        <text class='num_like'>{{itemName.likes}}</text>
       </view>
     </view>
     <view class='commentcontentblock' bindtap="dereply">
       <text class='commentcontent'>{{itemName.content}}</text>
     </view>
     <view class='bottom'>
-      <text id="replycontent" bindtap="reply1"data-message_id="{{itemName.message_id}}" data-reply_to="{{itemName.content}}">回复</text>
+      <image class='commentmore' src="/images/more.png" data-openid='{{itemName.openid}}' bindtap="onTapMore" data-_id='{{itemName._id}}'></image>
+      <text id="replycontent" class='replycontent' bindtap="reply1"data-message_id="{{itemName.message_id}}" data-reply_to="{{itemName.content}}">回复</text>
     </view>
   </view>
 </block>

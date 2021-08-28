@@ -103,7 +103,11 @@ Page({
         },
         success(res){
           that.reload_comment()
-          console.log("msg",res)
+          wx.showToast({
+            title: '已发送',
+            icon: 'none',
+            duration: 1000,
+          })
         },
       })
 
@@ -126,6 +130,11 @@ Page({
           reply_to: that.data.reply_to,
         },
         success(res){
+          wx.showToast({
+            title: '已发送',
+            icon: 'none',
+            duration: 1000,
+          })
           that.reload_comment()
         },
       })
@@ -200,7 +209,6 @@ Page({
               openid: getApp().globalData.user.openid,
             },
             success(res){
-              console.log(res)
             },
           })
         }
@@ -226,27 +234,76 @@ Page({
       }
     }
   },
-  
-  // commentlike:function(){
-  //   var that = this;
-  //   wx.request({
-  //     url: getApp().globalData.url + '/get_all_commment',
-  //     method: "POST",
-  //     data:{
-  //       message_id: this.data.list[0]._id
-  //     },
-  //     success(res){
-  //       that.setData({
-  //         comment: res.data.data
-  //       })
-  //       console.log(res)
-  //     }
-  //   })
-  // },
 
-  inputs:function(){
-
+  onTapMore: function (e) {
+    var that = this
+    var itemList= []
+    var message_id = e.target.dataset._id
+    console.log(e.currentTarget)
+    if(e.target.dataset.openid == getApp().globalData.user.openid){
+      itemList = ["删除"]
+    }else{
+      itemList = ["举报"]
+    }
+    wx.showActionSheet({
+      itemList: itemList,
+      itemColor: 'FF0000',
+      success(res){
+        //report
+        if(itemList[0] == "举报"){
+          var itemList2 =  ["色情低俗", "人身攻击", "虚假信息", "其它"]
+          wx.showActionSheet({
+            itemList: itemList2,
+            success(res){
+              wx.request({
+                url: getApp().globalData.url + '/report',
+                method: "POST",
+                data:{
+                  message_id: message_id,
+                  type: itemList2[res.tapIndex],
+                  from_id: getApp().globalData.user.openid,
+                  },
+                  success(res){
+                    console.log(res)
+                    wx.showToast({
+                      title: '举报成功',
+                      icon: 'success',
+                      duration: 1000,
+                    })
+                }
+              })
+            }
+          })
+        }
+        //delete
+        else{
+          wx.request({
+            url: getApp().globalData.url + '/delete',
+            method: "POST",
+            data:{
+              _id: message_id,
+            },
+            success(res){
+              for(var i =0; i<that.data.list.length; i++){
+                if(that.data.list[i]._id == message_id){
+                  that.data.list.splice(i,1)
+                  that.setData({
+                    list: that.data.list
+                  })
+                  wx.showToast({
+                    title: '永远的消失了～',
+                    icon: 'none',
+                    duration: 1000,
+                  })
+                }
+              }
+            }
+          })
+        }
+      }
+    })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */

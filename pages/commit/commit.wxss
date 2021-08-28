@@ -1,7 +1,7 @@
 /* pages/commit/commit.wxss */
 
 page{
-  background-color: #c0b6b6;
+  background-color: #FBEDEC;
 }
 
 .textarea{

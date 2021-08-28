@@ -98,6 +98,8 @@ Page({
   onLoad: function(options) {
     
     var that = this
+    if(this.data.startwindow == false){
+
     wx.showModal({
       title: "树洞须知",
       content: "欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦",
@@ -105,6 +107,10 @@ Page({
       confirmText:'知道了',
 
     })
+    this.setData({
+      startwindow: true,
+    })
+    }
     wx.request({
       url: getApp().globalData.url + '/get_all_artical',
       method: "POST",
@@ -136,14 +142,14 @@ Page({
     var itemList= []
     var message_id = e.target.dataset._id
     console.log(e.currentTarget)
-    if(e.target.dataset.id == getApp().globalData.user.openid){
+    if(e.target.dataset.openid == getApp().globalData.user.openid){
       itemList = ["删除"]
     }else{
       itemList = ["举报"]
     }
     wx.showActionSheet({
       itemList: itemList,
-      itemColor: 'red',
+      itemColor: '#FF0000',
       success(res){
         //report
         if(itemList[0] == "举报"){
@@ -157,6 +163,7 @@ Page({
                 data:{
                   message_id: message_id,
                   type: itemList2[res.tapIndex],
+                  from_id: getApp().globalData.user.openid,
                   },
                   success(res){
                     console.log(res)
@@ -184,6 +191,11 @@ Page({
                   that.data.list.splice(i,1)
                   that.setData({
                     list: that.data.list
+                  })
+                  wx.showToast({
+                    title: '永远的消失了～',
+                    icon: 'none',
+                    duration: 1000,
                   })
                 }
               }

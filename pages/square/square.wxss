@@ -2,16 +2,16 @@
 @import "/pages/bottom_menu/bottom_menu";
 
 .page{
-  background-color: #c0b6b6;
+  background-color: #FBEDEC;
 }
 
 .fatherview{
-  background-color: #c0b6b6;
+  background-color: #FBEDEC;
   /* bad solution here!!!!  to make the background color correct... */
   height: 10000001%;  
 }
 .scbg{
-  background-color: #c0b6b6;
+  background-color: #FBEDEC;
   width: 100%;
   /* height: 100%; */
   margin-bottom: 15%;
@@ -41,10 +41,6 @@
   align-items: flex-start;
 }
 
-.touxiang{
-  width: 130rpx;
-  height: 130rpx;
-}
 
 .person{
   width: 75%;
