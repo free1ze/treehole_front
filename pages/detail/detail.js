@@ -436,18 +436,13 @@ Page({
       releaseFocus:false,
     })
   },
+
   setValue: function(e){
     this.setData({
       detail:e.detail.value,
     })
   },
   catchBubble:function(e){
-    wx.showKeyboard({
-      confirmHold: true,
-      confirmType: confirmType,
-      defaultValue: 'defaultValue',
-      maxLength: 0,
-      multiple: true,
-    })
+    // 
   }
 })

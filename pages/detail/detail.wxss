@@ -249,8 +249,6 @@ page{
   overflow: hidden;
   position: fixed;
   z-index: 2000;
-  /* padding-top: 12.5rpx;
-  padding-bottom: 12.5rpx; */
   background-color: #c0b6b6;
   align-items: center;
 }
@@ -274,22 +272,7 @@ page{
   position: relative;
   align-items: center;
 }
-/*
-.submit{
-  position: relative;
-  align-items: center;
-  overflow: hidden;
-  display: inline-block;
-  border-radius: 10rpx;
-  width: 120rpx;
-  height: 60rpx;
-  background-color: #00b8e6;
-  font-size: 30rpx;
-  text-align: center;
-  color: #FFFFFF;
-  padding-top: 15rpx;
-}
-*/
+
 
 .more{
   margin-top: 15rpx;
@@ -352,6 +335,7 @@ page{
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
   color: #333333;
+  
 }
 
 .release .submit {

@@ -34,9 +34,11 @@ Page({
         success(res){
           console.log(res)
             if(res.data.result.error_code == 0){
-            wx.reLaunch({
-              url: '/pages/square/square',
-            })
+              wx.showToast({
+                title: '发送成功',
+                icon: 'loading',
+                duration: 1000
+              })
           }
           else{
             wx.showToast({
@@ -55,6 +57,9 @@ Page({
         },
         complete: function(res){
           wx.hideLoading()
+          wx.reLaunch({
+            url: '/pages/square/square',
+          })
         } 
       })
       this.setData({
