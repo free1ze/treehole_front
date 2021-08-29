@@ -11,6 +11,7 @@ Page({
     list: [],
     listisempty:false,
     startwindow: true,
+    isloadfinished:false,
   },
 
   like: function(e){
@@ -99,13 +100,11 @@ Page({
     
     var that = this
     if(this.data.startwindow == false){
-
     wx.showModal({
       title: "树洞须知",
       content: "欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦",
       showCancel: false,
       confirmText:'知道了',
-
     })
     this.setData({
       startwindow: true,
@@ -122,7 +121,8 @@ Page({
       success(res){
         // 不能使用that.data.list = res.data.data，不会触发渲染
         that.setData({
-          list: res.data.data
+          list: res.data.data,
+          isloadfinished:false,
         },()=>{
           that.loadStorgeArtical(that)
         })
@@ -252,20 +252,37 @@ Page({
   },
 
   loadStorgeArtical: function(that){
-
+    console.log("loading")
+    if(that.data.isloadfinished == true){
+      setTimeout(() => {
+        that.loadStorgeArtical(that)
+      }, 200);
+      return;
+    }
+    else{
     wx.request({
-      url: getApp().globalData.url + '/get_all_artical',
-      method: "POST",
-      data: {
-        openid: getApp().globalData.user.openid,
-        loaded: that.data.list.length,
-      },
-      success(res){
-        wx.setStorageSync('list', res.data.data)
-        console.log(res.data.data)
-      }
-    })
-  
+        url: getApp().globalData.url + '/get_all_artical',
+        method: "POST",
+        data: {
+          openid: getApp().globalData.user.openid,
+          loaded: that.data.list.length,
+        },
+        success(res){
+          wx.setStorage({
+            key: 'list',
+            data: res.data.data,
+            success(res){
+              console.log(res)
+              that.setData({
+                isloadfinished: true,
+              })
+              return;
+            }
+          }
+          )
+        }
+      })
+    }
   },
 
   /**
@@ -286,46 +303,50 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    wx.showNavigationBarLoading({
-      success: (res) => {},
-    })
+    wx.showNavigationBarLoading()
+
     console.log("pull")
     var that = this
     wx.showToast({
       title: '玩命加载中~',
       icon:'none',
     })
-    wx.request({
-      url: getApp().globalData.url + '/get_all_artical',
-      method: "POST",
-      data: {
-        openid: getApp().globalData.user.openid,
-        loaded: 0,
-      },
-      success(res){
-        // 不能使用that.data.list = res.data.data，不会触发渲染
-        that.setData({
-          list: res.data.data
-        },()=>{
-          that.loadStorgeArtical(that)
-          wx.hideNavigationBarLoading();
-          wx.stopPullDownRefresh()
-          wx.showToast({
-            title: '加载完成～',
-            icon:'none',
-            duration:1000,
+    
+      wx.request({
+        url: getApp().globalData.url + '/get_all_artical',
+        method: "POST",
+        data: {
+          openid: getApp().globalData.user.openid,
+          loaded: 0,
+        },
+        success(res){
+          // 不能使用that.data.list = res.data.data，不会触发渲染
+          that.setData({
+            list: res.data.data,
+            isloadfinished: false
+          },()=>{
+            that.loadStorgeArtical(that)
+            wx.hideNavigationBarLoading();
+            wx.stopPullDownRefresh()
+            wx.showToast({
+              title: '加载完成～',
+              icon:'none',
+              duration:1000,
+            })
           })
-        })
-      }
-    })
-
+        }
+      })
+    
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    console.log("reach bottom")
+    console.log(this.data.isloadfinished)
     var that = this
+    if(that.data.isloadfinished == true){
     wx.getStorage({
       key: 'list',
       success(res){
@@ -337,20 +358,30 @@ Page({
           })
           return;
         }
-        else if(res.data.length == 0){
-          that.onReachBottom()
-        }
         else{
-          // console.log(res.data)
+          wx.showToast({
+            title: '加载中～',
+            icon: 'none',
+            duration:1000,
+          })
           that.setData({
-            list: that.data.list.concat(res.data)
+            list: that.data.list.concat(res.data),
+            isloadfinished: false,
           }, ()=>{
             that.loadStorgeArtical(that)
+            // wx.hideToast()
             } 
           )
         }
       }
     })
+  }
+  else{
+    setTimeout(() => {
+      that.onReachBottom()
+    }, 200);
+    return;
+  }
   },
 
   /**

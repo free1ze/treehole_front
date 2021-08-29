@@ -267,11 +267,11 @@ Page({
               _id: message_id,
             },
             success(res){
-              for(var i =0; i<that.data.list.length; i++){
-                if(that.data.list[i]._id == message_id){
-                  that.data.list.splice(i,1)
+              for(var i =0; i<that.data.comment.length; i++){
+                if(that.data.comment[i]._id == message_id){
+                  that.data.comment.splice(i,1)
                   that.setData({
-                    list: that.data.list
+                    comment: that.data.comment
                   })
                   wx.showToast({
                     title: '永远的消失了～',
