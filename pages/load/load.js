@@ -181,6 +181,9 @@ Page({
   },
 
   getUserProfile(e) {
+    wx.showToast({
+      title: '加载中～',
+    })
     var that = this
     var user_code
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
@@ -212,6 +215,7 @@ Page({
           success (res){
             if(res.data["error_code"] == 1){
               getApp().globalData.user.openid = res.data.data.openid;
+              wx.hideToast()
               that.next();
             }
           }
