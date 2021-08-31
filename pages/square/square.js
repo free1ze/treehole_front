@@ -362,7 +362,7 @@ Page({
           wx.showToast({
             title: '加载中～',
             icon: 'none',
-            duration:1000,
+            duration:500,
           })
           that.setData({
             list: that.data.list.concat(res.data),
