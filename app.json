@@ -7,7 +7,11 @@
     "pages/mine/mine",
     "pages/commit/commit",
     "pages/bottom_menu/bottom_menu",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/page1/page1",
+    "pages/page2/page2",
+    "pages/page3/page3",
+    "pages/page4/page4"
   ],
   "window": {
     "backgroundTextStyle": "light",

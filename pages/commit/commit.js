@@ -7,6 +7,7 @@ Page({
   data: {
     detail: "",
     sent: false,
+    tag: 0,
   },
 
   bindTextAreaBlur: function(e) {
@@ -30,6 +31,7 @@ Page({
         data: {
           openid: getApp().globalData.user.openid,
           content: that.data.detail,
+          tag: that.data.tag,
         },
         success(res){
           console.log(res)
@@ -69,6 +71,26 @@ Page({
     
   },
 
+  tag1:function(){
+    this.setData({
+      tag:1
+    })
+  },
+  tag2:function(){
+    this.setData({
+      tag:2
+    })
+  },
+  tag3:function(){
+    this.setData({
+      tag:3
+    })
+  },
+  tag4:function(){
+    this.setData({
+      tag:4
+    })
+  },
   
 
   /**

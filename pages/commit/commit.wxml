@@ -1,5 +1,11 @@
 <!--pages/commit/commit.wxml-->
 <view class='textarea'>
    <textarea placeholder="发条树洞吧~(不得超过1000字)" placeholder-style="color:#888888" class='textinput' maxlength='1000' bindinput ="bindTextAreaBlur" show-confirm-bar="{{false}}" ></textarea>
+   <view class="tagsbar">
+   <view class="tag" bindtap="tag1" style="{{tag==1? 'background-color: #EAF786': ''}}">情感</view>
+   <view class="tag" bindtap="tag2" style="{{tag==2? 'background-color: #B8F4FF': ''}}">交友</view>
+   <view class="tag" bindtap="tag3" style="{{tag==3? 'background-color: #B8FFB8': ''}}">寻物</view>
+   <view class="tag" bindtap="tag4" style="{{tag==4? 'background-color: #FFB5A1': ''}}">吐槽</view>
+   </view>
 </view>
 <view id='btn' class='click' bindtap='send'>发送</view>

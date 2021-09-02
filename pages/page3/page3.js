@@ -1,51 +1,11 @@
-// pages/mine/mine.js
+// pages/page3/page3.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    firco: "#979797",
-    secco: "#000000",
-    num: 4,
-  },
 
-  first_select: function () {
-    wx.navigateBack({
-      delta: 1,
-    })
-  },
-
-  second_select: function () {
-    wx.navigateTo({
-      url: '../commit/commit'
-    })
-  },
-
-  third_select: function () {
-    // wx.redirectTo({
-    //   url: '/pages/mine/mine'
-    // })
-  },
-  topage1: function(){
-    wx.navigateTo({
-      url: '/pages/page1/page1',
-    })
-  },
-  topage2: function(){
-    wx.navigateTo({
-      url: '/pages/page2/page2',
-    })
-  },
-  topage3: function(){
-    wx.navigateTo({
-      url: '/pages/page3/page3',
-    })
-  },
-  topage4: function(){
-    wx.navigateTo({
-      url: '/pages/page4/page4',
-    })
   },
 
   /**

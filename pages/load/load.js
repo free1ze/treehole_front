@@ -151,6 +151,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUseGetUserProfile: false,
+    buttonClickable:false,
   },
   onLoad() {
     var that = this
@@ -174,6 +175,11 @@ Page({
             getApp().globalData.user.openid = res.data.data.openid;
             that.next();
           }
+          else{
+            this.setData({
+              buttonClickable:true
+            })
+          }
         }
       })
     }
@@ -181,6 +187,9 @@ Page({
   },
 
   getUserProfile(e) {
+    if(this.data.buttonClickable == false){
+      return
+    }
     wx.showToast({
       title: '加载中～',
     })

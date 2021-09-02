@@ -18,21 +18,21 @@
     </view>
   </view>
   <view class='box'>
-    <view class="setbar">
-    <text class="settxt">社区规范</text>
+    <view class="setbar" bindtap='topage1'>
+    <text class="settxt"  >社区规范</text>
     <image class="arrow" src="/images/rightarrow.png"></image>
     <text class="arrow"></text>
     </view>
-    <view class="setbar">
-    <text class="settxt">评价及建议</text>
+    <view class="setbar" bindtap='topage2'>
+    <text class="settxt" >评价及建议</text>
     <image class="arrow" src="/images/rightarrow.png"></image>
     </view>
-    <view class="setbar">
-    <text class="settxt">推广树洞</text>
+    <view class="setbar" bindtap='topage3'>
+    <text class="settxt" >推广树洞</text>
     <image class="arrow" src="/images/rightarrow.png"></image>
     </view>
-    <view class="setbar">
-    <text class="settxt">支持我们</text>
+    <view class="setbar" bindtap='topage4'>
+    <text class="settxt" >支持我们</text>
     <image class="arrow" src="/images/rightarrow.png"></image>
     </view>
   </view>

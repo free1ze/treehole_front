@@ -8,6 +8,10 @@
       <view class='person'>
         <view class='name'>
           <text class='showname'># {{itemName.id}}</text>
+          <text class="tag" style="background-color: #EAF786" wx:if= "{{itemName.tag ==1}}">情感</text>
+          <text class="tag" style="background-color: #B8F4FF" wx:if= "{{itemName.tag ==2}}">交友</text>
+          <text class="tag" style="background-color: #B8FFB8" wx:if= "{{itemName.tag ==3}}">寻物</text>
+          <text class="tag" style="background-color: #FFB5A1" wx:if= "{{itemName.tag ==4}}">吐槽</text>
         </view>
         <view class='tel'>
           <text class='showtime'>{{tools.timeFormat(itemName.time)}}</text>

@@ -110,6 +110,7 @@ Page({
       startwindow: true,
     })
     }
+
     wx.request({
       url: getApp().globalData.url + '/get_all_artical',
       method: "POST",
@@ -119,6 +120,7 @@ Page({
       },
 
       success(res){
+        
         // 不能使用that.data.list = res.data.data，不会触发渲染
         that.setData({
           list: res.data.data,
@@ -390,6 +392,24 @@ Page({
   onShareAppMessage: function() {
 
   },
+
+  getTag: function(tagtype){
+    var tagNames = ["情感", "交友", "寻物", "吐槽"]
+    var tagColors = ["#EAF786", "#B8F4FF", "#B8FFB8", "#FFB5A1"]
+
+    var newlist = this.data.list
+    for(var i =0;i<this.data.list.length;i++)
+    {
+      if(this.data.list.tag>0){
+          newlist[i].tagName=tagNames[tagtype]
+          newlist[i].tagColor=tagColors[tagtype]
+      }
+    }
+
+    this.setData({
+      list: newlist  
+    })
+  }
 
 })
 
