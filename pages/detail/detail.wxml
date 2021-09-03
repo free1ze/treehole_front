@@ -62,7 +62,12 @@
       <text id="replycontent" class='replycontent' bindtap="reply1"data-message_id="{{itemName.message_id}}" data-reply_to="{{itemName.content}}">回复</text>
     </view>
   </view>
+
 </block>
+<view wx:if="{{!comment.length}}" class="nocommentview">
+    <image class="nocommentpic" src="/images/nocomment.png"></image>
+    <text class="nocommenttxt">暂无回复，等你来喔~</text>
+</view>
 </view>
 </view>
 
