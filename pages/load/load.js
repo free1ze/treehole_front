@@ -176,7 +176,7 @@ Page({
             that.next();
           }
           else{
-            this.setData({
+            that.setData({
               buttonClickable:true
             })
           }
@@ -190,9 +190,6 @@ Page({
     if(this.data.buttonClickable == false){
       return
     }
-    wx.showToast({
-      title: '加载中～',
-    })
     var that = this
     var user_code
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
