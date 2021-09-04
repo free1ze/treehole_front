@@ -74,7 +74,6 @@ Page({
 
   reply_message:function(e){
     var that = this;
-    // 回复form隐藏、展示切换
     
       wx.request({
         url: getApp().globalData.url + '/reply_message',
@@ -87,6 +86,11 @@ Page({
         },
         success(res){
           that.reload_comment()
+          var newlist = [...that.data.list]
+          newlist[0].comments +=1
+          that.setData({
+            list: newlist
+          })
           wx.showToast({
             title: '已发送',
             icon: 'none',
@@ -102,29 +106,34 @@ Page({
   },
 
   reply_comment:function(e){
-    var that = this;
-      wx.request({
-        url: getApp().globalData.url + '/reply_comment',
-        method: "POST",
-        data:{
-          content: that.data.detail,
-          openid: getApp().globalData.user.openid,
-          message_id: that.data.message_id,
-          reply_to: that.data.reply_to,
-        },
-        success(res){
-          wx.showToast({
-            title: '已发送',
-            icon: 'none',
-            duration: 1000,
-          })
-          that.reload_comment()
-        },
-      })
+    var that = this
+    wx.request({
+      url: getApp().globalData.url + '/reply_comment',
+      method: "POST",
+      data:{
+        content: that.data.detail,
+        openid: getApp().globalData.user.openid,
+        message_id: that.data.message_id,
+        reply_to: that.data.reply_to,
+      },
+      success(res){
+        var newlist = [...that.data.list]
+        newlist[0].comments +=1
+        that.setData({
+          list: newlist
+        })
+        wx.showToast({
+          title: '已发送',
+          icon: 'none',
+          duration: 1000,
+        })
+        that.reload_comment()
+      },
+    })
 
-      this.setData({
-        reply: false     //隐藏回复框
-      })
+    this.setData({
+      reply: false     //隐藏回复框
+    })
       
   },
   
@@ -271,7 +280,7 @@ Page({
                 if(that.data.comment[i]._id == message_id){
                   that.data.comment.splice(i,1)
                   that.setData({
-                    comment: that.data.comment
+                    comment: that.data.comment,
                   })
                   wx.showToast({
                     title: '永远的消失了～',
