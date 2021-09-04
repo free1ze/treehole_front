@@ -250,7 +250,7 @@ page{
   font-size: 25rpx;
   color: #797979;
   word-break: break-all;
-  background-color: #eee7e0;
+  background-color: #F3F4EE;
   border-radius: 20rpx;
 }
 
