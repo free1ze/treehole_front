@@ -1,1 +1,41 @@
 /* pages/page2/page2.wxss */
+
+page{
+  background-color: #FBEDEC;
+}
+
+.textarea{
+  background-color: white;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 10rpx solid #EFEFEF;
+  margin: 25rpx 50rpx;
+  margin-top: 5rpx;
+  border-radius: 30rpx;
+}
+
+.textinput{
+  width: 96%;
+  height: 500rpx;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  font-size: 30rpx;
+}
+
+.click{
+  width: 84%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 30rpx;
+  margin: auto;
+  margin-top: 70rpx;
+  margin-left: 8%;
+  margin-right: 8%;
+  background-color: #5FD9CD;
+  /* background-color: #b266ff; */
+  text-align: center;
+  color: white;
+  font-size: 35rpx;
+}

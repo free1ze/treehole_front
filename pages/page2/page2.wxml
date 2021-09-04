@@ -1,2 +1,7 @@
 <!--pages/page2/page2.wxml-->
-<text>pages/page2/page2.wxml</text>
+<!--pages/commit/commit.wxml-->
+<view class='textarea'>
+   <textarea placeholder="写点评价和建议吧～" placeholder-style="color:#888888" class='textinput' maxlength='1000' bindinput ="bindTextAreaBlur" show-confirm-bar="{{false}}" ></textarea>
+</view>
+<view id='btn' class='click' bindtap='send'>提交</view>
+

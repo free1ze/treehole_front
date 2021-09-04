@@ -58,7 +58,7 @@ Page({
           })
         },
         complete: function(res){
-          wx.hideLoading()
+          wx.hideToast()
           wx.reLaunch({
             url: '/pages/square/square',
           })

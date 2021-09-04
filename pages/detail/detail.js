@@ -322,6 +322,7 @@ Page({
         openid: getApp().globalData.openid,
       },
       success(res){
+        console.log(res.data)
         that.setData({
           list: [res.data.data]
         })

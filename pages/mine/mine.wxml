@@ -6,7 +6,7 @@
     </view>
     <text class='nn'>西交树洞 Version:1.0.0</text>
   </view>
-  <view class='box'>
+  <!-- <view class='box'>
     <view class="setbar">
     <text class="settxt">个人中心</text>
     <image class="arrow" src="/images/rightarrow.png"></image>
@@ -16,7 +16,7 @@
     <text class="settxt">树洞设置</text>
     <image class="arrow" src="/images/rightarrow.png"></image>
     </view>
-  </view>
+  </view> -->
   <view class='box'>
     <view class="setbar" bindtap='topage1'>
     <text class="settxt"  >社区规范</text>
@@ -24,7 +24,7 @@
     <text class="arrow"></text>
     </view>
     <view class="setbar" bindtap='topage2'>
-    <text class="settxt" >评价及建议</text>
+    <text class="settxt" >反馈一下</text>
     <image class="arrow" src="/images/rightarrow.png"></image>
     </view>
     <view class="setbar" bindtap='topage3'>
@@ -37,7 +37,7 @@
     </view>
   </view>
   <view class="cu">
-    <text>Contact us: 531251248@qq.com </text>
+    <text>Contact us:  xjtutreehole@qq.com </text>
   </view>
   <!-- <view class='weui-cells weui_cells-after-title'>
   <view class='weui-cell'>

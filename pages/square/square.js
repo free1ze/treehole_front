@@ -28,7 +28,7 @@ Page({
             method: 'POST',
             data:{
               like_id: e.target.dataset._id,
-              openid: e.target.dataset.openid,
+              openid: getApp().globalData.user.openid,
             },
             success(res){
               // console.log(res)
@@ -44,7 +44,7 @@ Page({
             method: 'POST',
             data:{
               like_id: e.target.dataset._id,
-              openid: e.target.dataset.openid,
+              openid: getApp().globalData.user.openid,
             },
             success(res){
               // console.log(res)
@@ -239,6 +239,7 @@ Page({
         message_id : that.data.last_visit_msg_id,
       },
       success(res){
+        console.log(res.data)
         for(var i=0;i<newlist.length;i++){
           if (newlist[i]._id == res.data.data._id){
             newlist[i] = res.data.data
@@ -247,8 +248,6 @@ Page({
             })
           }
         }
-        console.log(that.data)
-        // 不能使用that.data.list = res.data.data，不会触发渲染
       }
     })
   },

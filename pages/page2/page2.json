@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#F2F2F2",
+  "navigationBarTitleText": "反馈一下",
+  "navigationBarTextStyle": "black"
 }
