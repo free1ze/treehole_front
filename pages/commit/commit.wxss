@@ -54,10 +54,12 @@ page{
   width: 80rpx;
   height: 40rpx;
   margin-left: 20rpx;
-  background-color: #E6E7EB;
+  background-color: #b3b3cc;
   text-align: center;
   font-size: 22rpx;
-  color: #797979;
+  /* color: #797979; */
   border-radius: 30rpx;
   text-align: center;
+  color: white;
+  padding-top: 9rpx;
 }

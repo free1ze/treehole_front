@@ -61,9 +61,11 @@ page{
   background-color: #E6E7EB;
   text-align: center;
   font-size: 22rpx;
-  color: #797979;
+  /* color: #797979; */
   border-radius: 30rpx;
   text-align: center;
+  color: white;
+  padding-top: 9rpx;
 }
 
 
@@ -178,16 +180,6 @@ page{
   padding-bottom: 10rpx;
 }
 
-.bottom{
-  margin-top: 10rpx;
-  margin-left: 4%;
-  margin-right: 4%;
-  padding-bottom: 10rpx;
-  font-size: 25rpx;
-  color:#9494b8;
-  border-bottom: 2rpx solid #BBBBBB;
-}
-
 .commentperson{
   width: 75%;
   height: 100rpx;
@@ -294,19 +286,30 @@ page{
   margin-right: 380rpx;
 }
 
+.bottom{
+  margin-top: 10rpx;
+  margin-left: 4%;
+  margin-right: 4%;
+  color:#9494b8;
+  border-bottom: 2rpx solid #BBBBBB;
+  height: 50rpx;
+  flex-direction: row;
+  display: flex;
+}
+
 .commentmore{
-  margin-top: 15rpx;
-  margin-right: 10rpx;
+  margin-right: 75%;
+  margin-left: 2%;
   width: 40rpx;
   height: 40rpx;
-  margin-right: 380rpx;
 }
 
 .replycontent{
-  margin-top: 15rpx;
-  margin-right: 10rpx;
-  width: 40rpx;
+  width: 50rpx;
   height: 40rpx;
+  font-size: 25rpx;
+  margin-bottom: 10rpx;
+  /* padding-top: 7.5rpx; */
 }
 
 
