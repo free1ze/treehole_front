@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "wxParse": "/components/wxParse/wxParse"
+  },
+  "enablePullDownRefresh": false
 }

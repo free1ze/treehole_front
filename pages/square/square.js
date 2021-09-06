@@ -346,6 +346,10 @@ Page({
   onReachBottom: function() {
     console.log("reach bottom")
     console.log(this.data.isloadfinished)
+    wx.showToast({
+      title: '加载中～',
+      icon: 'none',
+    })
     var that = this
     if(that.data.isloadfinished == true){
     wx.getStorage({
@@ -360,17 +364,12 @@ Page({
           return;
         }
         else{
-          wx.showToast({
-            title: '加载中～',
-            icon: 'none',
-            duration:500,
-          })
           that.setData({
             list: that.data.list.concat(res.data),
             isloadfinished: false,
           }, ()=>{
             that.loadStorgeArtical(that)
-            // wx.hideToast()
+            wx.hideToast()
             } 
           )
         }
@@ -388,9 +387,13 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
-  },
+  // onShareAppMessage: function() {
+  //   wx.showShareMenu({
+  //     title: '自定义转发标题',
+  //     // path: '/page/user?id=123',
+  //     // imageUrl: '',
+  //   })
+  // },
 
   getTag: function(tagtype){
     var tagNames = ["情感", "交友", "寻物", "吐槽"]

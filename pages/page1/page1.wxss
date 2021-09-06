@@ -1,5 +1,14 @@
 /* pages/page1/page1.wxss */
 
 page {
-  background-color: #FBEDEC;
+  background-color: #ffffff;
+}
+
+.contentarea{
+  background-color: #ffffff;
+  margin-top: 3%;
+  margin-left: 8%;
+  margin-right: 8%;
+  flex-direction: column;
+  border-radius: 30rpx;
 }

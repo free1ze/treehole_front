@@ -5,7 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    htmlText:'\
+    <h3>\
+    树洞小程序分享方法：\
+  </h3>\
+  <h4>\
+    方法一：\
+  </h4>\
+  <br>\
+  <p>\
+    <img src="/images/step1.png" title="img" alt="img" /> \
+  </p>\
+  <br>\
+  <p>\
+    <img src="/images/step2.png" title="img" alt="img" />\
+  </p>\
+  <br>\
+  <p>\
+    <img src="/images/step3.png" title="img" alt="img" />\
+  </p>\
+  <h4>\
+    方法二：\
+  </h4>\
+  <p>\
+    保存小程序二维码分享\
+  </p>\
+  <p>\
+    <img src="http://aa" title="img" alt="img" />\
+  </p>'
   },
 
   /**
@@ -60,7 +87,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  // onShareAppMessage: function () {
 
-  }
+  // }
 })

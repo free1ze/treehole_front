@@ -1,4 +1,7 @@
 <!--pages/page1/page1.wxml-->
 <import src="/wxParse/wxParse.wxml"/>
-<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
 
+<view class='contentarea'>
+<!-- <template is="wxParse" data="{{wxParseData:article.nodes}}"/> -->
+<wxParse nodes="{{ htmlText }}"/>
+</view>
