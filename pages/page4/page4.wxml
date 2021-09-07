@@ -1,2 +1,8 @@
 <!--pages/page4/page4.wxml-->
-<text>pages/page4/page4.wxml</text>
+<import src="/wxParse/wxParse.wxml"/>
+
+<view class='contentarea'>
+<!-- <template is="wxParse" data="{{wxParseData:article.nodes}}"/> -->
+<wxParse nodes="{{ htmlText }}"/>
+</view>
+

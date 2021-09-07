@@ -1,1 +1,14 @@
 /* pages/page4/page4.wxss */
+
+page {
+  background-color: #ffffff;
+}
+
+.contentarea{
+  background-color: #ffffff;
+  margin-top: 3%;
+  margin-left: 8%;
+  margin-right: 8%;
+  flex-direction: column;
+  border-radius: 30rpx;
+}

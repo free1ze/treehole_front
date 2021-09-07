@@ -271,28 +271,33 @@ Page({
         }
         //delete
         else{
-          wx.request({
-            url: getApp().globalData.url + '/delete',
-            method: "POST",
-            data:{
-              _id: message_id,
-            },
-            success(res){
-              for(var i =0; i<that.data.comment.length; i++){
-                if(that.data.comment[i]._id == message_id){
-                  that.data.comment.splice(i,1)
-                  that.setData({
-                    comment: that.data.comment,
-                  })
-                  wx.showToast({
-                    title: '永远的消失了～',
-                    icon: 'none',
-                    duration: 1000,
-                  })
-                }
-              }
-            }
+          wx.showToast({
+            title: '删除功能暂时关闭～',
+            duration: 1000,
+            icon: 'none',
           })
+          // wx.request({
+          //   url: getApp().globalData.url + '/delete',
+          //   method: "POST",
+          //   data:{
+          //     _id: message_id,
+          //   },
+          //   success(res){
+          //     for(var i =0; i<that.data.comment.length; i++){
+          //       if(that.data.comment[i]._id == message_id){
+          //         that.data.comment.splice(i,1)
+          //         that.setData({
+          //           comment: that.data.comment,
+          //         })
+          //         wx.showToast({
+          //           title: '永远的消失了～',
+          //           icon: 'none',
+          //           duration: 1000,
+          //         })
+          //       }
+          //     }
+          //   }
+          // })
         }
       }
     })
