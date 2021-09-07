@@ -89,7 +89,8 @@ Page({
           var newlist = [...that.data.list]
           newlist[0].comments +=1
           that.setData({
-            list: newlist
+            list: newlist,
+            nomessageflag:false
           })
           wx.showToast({
             title: '已发送',
@@ -120,7 +121,8 @@ Page({
         var newlist = [...that.data.list]
         newlist[0].comments +=1
         that.setData({
-          list: newlist
+          list: newlist,
+          nomessageflag:false
         })
         wx.showToast({
           title: '已发送',
@@ -356,12 +358,12 @@ Page({
       method: "POST",
       data: {
         message_id: msg_id,
-        loaded: 0,
+        loaded: that.data.comment.length,
       },
       success(res){
         console.log(res)
         that.setData({
-          comment: res.data.data
+          comment: that.data.comment.concat(res.data.data)
         })
       }
     })
