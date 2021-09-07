@@ -110,11 +110,10 @@ page{
   margin-right: 4%;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
 }
 
 .like{
-  margin-top: 15rpx;
+  margin-top: 0rpx;
   margin-right: 10rpx;
   width: 40rpx;
   height: 40rpx;
@@ -279,12 +278,13 @@ page{
 
 
 .more{
-  margin-top: 15rpx;
-  margin-right: 10rpx;
+  margin-top: 5rpx;
+  /* margin-right: 10rpx; */
+  margin-left: 5rpx;
   width: 40rpx;
   height: 40rpx;
   margin-bottom: 20rpx;
-  margin-right: 380rpx;
+  margin-right: 60%;
 }
 
 .bottom{
