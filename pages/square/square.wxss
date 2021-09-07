@@ -128,7 +128,7 @@
   line-height: 40rpx;
   margin-top: 10rpx;
   width: 40rpx;
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #101010;
 }
 
@@ -144,7 +144,7 @@
   line-height: 40rpx;
   margin-top: 10rpx;
   width: 40rpx;
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #101010;
 }
 

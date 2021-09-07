@@ -25,9 +25,16 @@
       <image class='more' src="/images/more.png" data-openid='{{itemName.openid}}' bindtap="onTapMore" data-_id='{{itemName._id}}'></image>
       <image class='like' bindtap="like"  wx:if="{{!itemName.islike}}" src='/images/like.png' data-_id='{{itemName._id}}'></image>
       <image class='like' bindtap="like"  wx:elif="{{itemName.islike}}" src='/images/likeplus.png' data-_id='{{itemName._id}}'></image>
-      <text class='num_like'>{{itemName.likes}}</text>
+      <text class='num_like' wx:if="{{itemName.likes != 0 && itemName.likes <= 99}}">{{itemName.likes}}</text>
+                                        <!-- 用空格占位 -->
+      <text class='num_like' wx:if="{{itemName.likes == 0}}">  </text>
+      <text class='num_like' wx:if="{{itemName.likes > 99 && itemName.likes <= 999}}" style="width: 60rpx">{{itemName.likes}}</text>
+      <text class='num_like' wx:if="{{itemName.likes > 999}}" style="width: 70rpx">999+</text>
       <image id="replycontent" class='like' bindtap="reply0" data-message_id="{{itemName._id}}" src="/images/comment.png"></image>
-      <text class='num_comment'>{{itemName.comments}}</text>
+      <text class='num_comment' wx:if="{{itemName.comments != 0 && itemName.comments <= 99}}">{{itemName.comments}}</text>
+      <text class='num_comment' wx:if="{{itemName.comments > 99 && itemName.comments <= 999}}" style="width: 60rpx">{{itemName.comments}}</text>
+      <text class='num_comment' wx:elif="{{itemName.comments == 0}}">  </text>
+      <text class='num_comment' wx:elif="{{itemName.comments > 999}}" style="width: 70rpx">999+</text>
     </view>
   </view>
 </block>
