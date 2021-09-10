@@ -30,23 +30,28 @@
     </view>
 
     <view class="cu-form-group">
-      <!-- <image src='{{item.imgList[0]}}' mode='aspectFill'></image> -->
     <!-- 1 -->
-      <view class="grid col-1 flex-sub" wx:if="{{item.imgList.length == 1}}">
-        <view class="bg-img" wx:for="{{item.imgList}}" wx:for-item="img" bindtap="ViewImage">
-        <image src='{{img}}' mode='aspectFill'></image>
+      <view class="grid col-1 flex-sub" wx:if="{{item.imgs.length == 1}}">
+        <view class="bg-img" wx:for="{{item.imgs}}" wx:for-item="img"  wx:for-index="index" bindtap="ViewImage">
+        <image src='{{img}}' mode='aspectFill' 
+        bindload="onImageLoad" binderror="onImageError"
+        data-urls='{{item.imgs}}' data-current='{{img}}'></image>
         </view>
       </view>
     <!-- 2,4 -->
-    <view class="grid col-2 grid-square flex-sub" wx:if="{{item.imgList.length == 2 || item.imgList.length == 4}}">
-      <view class="bg-img" wx:for="{{item.imgList}}" wx:for-item="img" bindtap="ViewImage">
-        <image src='{{img}}' mode='aspectFill'></image>
+    <view class="grid col-2 grid-square flex-sub" wx:if="{{item.imgs.length == 2 || item.imgs.length == 4}}">
+      <view class="bg-img" wx:for="{{item.imgs}}" wx:for-item="img" wx:for-index="index" bindtap="ViewImage">
+        <image src='{{img}}' mode='aspectFill' 
+        bindload="onImageLoad" binderror="onImageError"
+        data-urls='{{item.imgs}}' data-current='{{img}}'></image>
         </view>
       </view>
     <!-- 3,5,6,7,8,9 -->
-      <view class="grid col-3 grid-square flex-sub"  wx:if="{{item.imgList.length == 3 ||(item.imgList.length >=5 && item.imgList.length <= 9)}}">
-        <view class="bg-img" wx:for="{{item.imgList}}" wx:for-item="img" bindtap="ViewImage">
-          <image src='{{img}}' mode='aspectFill'></image>
+      <view class="grid col-3 grid-square flex-sub"  wx:if="{{item.imgs.length == 3 ||(item.imgs.length >=5 && item.imgs.length <= 9)}}">
+        <view class="bg-img" wx:for="{{item.imgs}}" wx:for-item="img" wx:for-index="index" bindtap="ViewImage"> 
+        <image src='{{img}}' mode='aspectFill' 
+        bindload="onImageLoad" binderror="onImageError"
+        data-urls='{{item.imgs}}' data-current='{{img}}'></image>
         </view>
       </view>
     </view>

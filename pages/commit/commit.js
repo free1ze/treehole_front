@@ -28,14 +28,6 @@ Page({
 
   send: function(e) {
     var that=this
-    // wx.compressImage({
-    //   src: '', // 图片路径
-    //   quality: 80 ,// 压缩质量
-    //   success(res){
-    //     console.log(res.tempFilePath)
-    //   }
-    // })
-    console.log(that.data.detail)
     if(this.data.sent == false){
       wx.showLoading({
         title: '发送中',
@@ -43,17 +35,38 @@ Page({
 
       //上传图片
       let resultImageUrls = [];
-      const uploadTask = this.data.imgList.map(item => this.uploadPhoto(item))
-      Promise.all(uploadTask).then(result => {
-      console.log("上传结果", result)
-      for (const file of result) {
-        resultImageUrls.push(file.fileID);
-      }
-      console.log("上传后的图片云存储路径", resultImageUrls)
-      //与服务器交互
-      this.sendToServer(resultImageUrls)
-
-    }).catch(() => {
+      let fileIDList = [];
+      const compressTask = this.data.imgList.map(item => this.compressPhoto(item))
+      //compressTask 返回一个Promise，结构{error_Msg:"", tempFilePath:""}
+      Promise.all(compressTask).then(res=>{
+        const uploadTask = res.map(item => this.uploadPhoto(item.tempFilePath))
+        Promise.all(uploadTask).then(result => {
+        console.log("上传结果", result)
+        for (const file of result) {
+          console.log(file.fileID, file)
+          resultImageUrls.push([file.fileID, file]);
+          fileIDList.push(file.fileID)
+        }
+        // console.log("上传后的图片云存储路径", resultImageUrls)
+        //与服务器交互
+        this.sendToServer(fileIDList)
+        const storeTask = resultImageUrls.map(item => wx.setStorage({
+          key:  item[0],
+          data: item[1],
+        }))
+        Promise.all(storeTask).then(result =>{
+          console.log("存到缓存",result)
+        })
+      }).catch((err) => {
+        console.log(err)
+        wx.showToast({
+          title: '上传图片错误',
+          icon: 'error'
+        })
+        return 
+      })
+    }).catch((err) => {
+      console.log(err)
       wx.showToast({
         title: '上传图片错误',
         icon: 'error'
@@ -61,16 +74,15 @@ Page({
       return 
     })
 
-      this.setData({
-        sent:true,
-      })
+    this.setData({
+      sent:true,
+    })
     }
-    
   },
 
-  sendToServer: function(resultImageUrls){
+  sendToServer: function(fileIDList){
     var that = this
-    console.log(resultImageUrls)
+    console.log(fileIDList)
 
     wx.request({
       url: getApp().globalData.url + '/post_artical',
@@ -79,7 +91,7 @@ Page({
         openid: getApp().globalData.user.openid,
         content: that.data.detail,
         tag: that.data.tag,
-        imgs: resultImageUrls
+        imgs: fileIDList
       },
       success(res){
         console.log(res)
@@ -179,9 +191,16 @@ Page({
   },
 
   uploadPhoto(filePath) {
+    console.log(filePath)
     return wx.cloud.uploadFile({
       cloudPath: `${Date.now()}-${Math.floor(Math.random(0, 1) * 10000000)}.png`,
       filePath
+    })
+  },
+  compressPhoto(filePath) {
+    return wx.compressImage({
+      src: filePath,
+      quality: 5,
     })
   },
 

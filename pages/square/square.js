@@ -13,12 +13,7 @@ Page({
     startwindow: true,
     isloadfinished:false,
   },
-  setImgList: function(lst){
-    for(var i =0; i<lst.length;i++){
-      lst[i].imgList = [...Array(lst[i].imgs.length)].map(_=>"/images/broken_image.png")
-    }
-    return lst
-  },
+
   like: function(e){
     var that = this
     var list = this.data.list 
@@ -126,7 +121,7 @@ Page({
       success(res){
 
         that.setData({
-          list: that.setImgList(res.data.data),
+          list: res.data.data,
           isloadfinished:false,
         },()=>{
           that.loadStorgeArtical(that)
@@ -142,6 +137,47 @@ Page({
     
   },
 
+  onImageLoad: function(e){
+    // var that = this
+    // console.log(e.target.dataset.fileid)
+
+    // const fileID = e.target.dataset.fileid
+    // var list = that.data.list
+    //     for(var i=0;i<list.length;i++){
+    //       for(var j=0;j<list[i].imgList.length;j++){
+    //         if(list[i].imgs[j] == fileID){
+    //           list[i].imgList[j] = fileID
+    //           that.setData({
+    //             ['list['+i+'].imgList['+j+']']: fileID
+    //           })
+    //         }
+    //       }
+    //     }
+    // if(!fileID)return
+    // wx.getStorage({
+    //   key: fileID,
+    //   success (res) {
+    //   }
+    // })
+  },
+  onImageError: function(e){
+    // for(var i=0;i<list.length;i++){
+      //       for(var j=0;j<list[i].imgList.length;j++){
+      //         if(list[i].imgs[j] == fileID){
+      //           list[i].imgList[j] = fileID
+      //           that.setData({
+      //             ['list['+i+'].imgList['+j+']']: "/images/broken_image.png"
+      //           })
+      //         }
+      //       }
+      //     }
+  },
+  ViewImage(e) {
+    wx.previewImage({
+      urls: e.target.dataset.urls,
+      current: e.target.dataset.current
+    });
+  },
 
   onReady: function() {
    
@@ -361,7 +397,7 @@ Page({
         success(res){
           // 不能使用that.data.list = res.data.data，不会触发渲染
           that.setData({
-            list:that.setImgList(res.data.data),
+            list: res.data.data,
             isloadfinished: false
           },()=>{
             that.loadStorgeArtical(that)
@@ -403,7 +439,7 @@ Page({
         }
         else{
           that.setData({
-            list: that.setImgList(that.data.list.concat(res.data)),
+            list: that.data.list.concat(res.data),
             isloadfinished: false,
           }, ()=>{
             that.loadStorgeArtical(that)
