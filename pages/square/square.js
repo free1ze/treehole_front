@@ -13,7 +13,12 @@ Page({
     startwindow: true,
     isloadfinished:false,
   },
-
+  setImgList: function(lst){
+    for(var i =0; i<lst.length;i++){
+      lst[i].imgList = [...Array(lst[i].imgs.length)].map(_=>"/images/broken_image.png")
+    }
+    return lst
+  },
   like: function(e){
     var that = this
     var list = this.data.list 
@@ -67,7 +72,7 @@ Page({
 
   second_select: function() {
     wx.navigateTo({
-      url: '../commit/commit'
+      url: '/pages/commit/commit'
     })
   },
 
@@ -97,7 +102,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
     var that = this
     if(this.data.startwindow == false){
     wx.showModal({
@@ -120,16 +124,20 @@ Page({
       },
 
       success(res){
-        
-        // 不能使用that.data.list = res.data.data，不会触发渲染
+
         that.setData({
-          list: res.data.data,
+          list: that.setImgList(res.data.data),
           isloadfinished:false,
         },()=>{
           that.loadStorgeArtical(that)
+          console.log(that.data.list)
+          // getImg({},(res)=>{
+          //   that.setData({
+              
+          //   })
+          // })
         })
-        
-      }
+      },  
     })
     
   },
@@ -291,6 +299,31 @@ Page({
     }
   },
 
+  getImg:function(imageID){
+    console.log(imageID)
+    wx.cloud.getTempFileURL({
+      fileList: imageID
+    }).then(res => {
+      console.log(res.fileList)
+      for (var index in res.fileList){
+        var url = res.fileList[index].tempFileURL
+        wx.downloadFile({
+          url: url,
+          type: 'image',
+          success(res) {
+            // console.log("got img")
+            console.log(res.tempFilePath)
+          },
+          fail(res){
+            console.log(res)
+          }
+        })
+      }
+    }).catch(error => {
+      console.log(error)
+    })
+  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -328,7 +361,7 @@ Page({
         success(res){
           // 不能使用that.data.list = res.data.data，不会触发渲染
           that.setData({
-            list: res.data.data,
+            list:that.setImgList(res.data.data),
             isloadfinished: false
           },()=>{
             that.loadStorgeArtical(that)
@@ -370,7 +403,7 @@ Page({
         }
         else{
           that.setData({
-            list: that.data.list.concat(res.data),
+            list: that.setImgList(that.data.list.concat(res.data)),
             isloadfinished: false,
           }, ()=>{
             that.loadStorgeArtical(that)

@@ -28,6 +28,29 @@
     <view class='secondblock'  bindtap="comment" data-_id='{{item._id}}'>
       <text class='content'>{{item.content}}</text>
     </view>
+
+    <view class="cu-form-group">
+      <!-- <image src='{{item.imgList[0]}}' mode='aspectFill'></image> -->
+    <!-- 1 -->
+      <view class="grid col-1 flex-sub" wx:if="{{item.imgList.length == 1}}">
+        <view class="bg-img" wx:for="{{item.imgList}}" wx:for-item="img" bindtap="ViewImage">
+        <image src='{{img}}' mode='aspectFill'></image>
+        </view>
+      </view>
+    <!-- 2,4 -->
+    <view class="grid col-2 grid-square flex-sub" wx:if="{{item.imgList.length == 2 || item.imgList.length == 4}}">
+      <view class="bg-img" wx:for="{{item.imgList}}" wx:for-item="img" bindtap="ViewImage">
+        <image src='{{img}}' mode='aspectFill'></image>
+        </view>
+      </view>
+    <!-- 3,5,6,7,8,9 -->
+      <view class="grid col-3 grid-square flex-sub"  wx:if="{{item.imgList.length == 3 ||(item.imgList.length >=5 && item.imgList.length <= 9)}}">
+        <view class="bg-img" wx:for="{{item.imgList}}" wx:for-item="img" bindtap="ViewImage">
+          <image src='{{img}}' mode='aspectFill'></image>
+        </view>
+      </view>
+    </view>
+
     <view class='thirdblock'>
 
       <image class='more' src="/images/more.png" data-openid='{{item.openid}}' bindtap="onTapMore" data-_id='{{item._id}}'></image>
