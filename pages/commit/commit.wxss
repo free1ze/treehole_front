@@ -42,10 +42,10 @@ page{
 
 .tagsbar{
   width: 96%;
-  height: 50rpx;
+  height: 60rpx;
   margin-left: 2%;
   margin-right: 2%;
-  padding-top: 10rpx;
+  padding-top: 12rpx;
   display: flex;
   justify-content: flex-start;
 }
@@ -63,3 +63,4 @@ page{
   color: white;
   padding-top: 9rpx;
 }
+

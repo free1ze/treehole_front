@@ -161,17 +161,20 @@ Page({
     // })
   },
   onImageError: function(e){
-    // for(var i=0;i<list.length;i++){
-      //       for(var j=0;j<list[i].imgList.length;j++){
-      //         if(list[i].imgs[j] == fileID){
-      //           list[i].imgList[j] = fileID
-      //           that.setData({
-      //             ['list['+i+'].imgList['+j+']']: "/images/broken_image.png"
-      //           })
-      //         }
-      //       }
-      //     }
+    var that = this
+    var list = this.data.list
+    var fileID = e.target.dataset.current
+    for(var i=0;i<list.length;i++){
+      for(var j=0;j<list[i].imgs.length;j++){
+        if(list[i].imgs[j] == fileID){
+          that.setData({
+            ['list['+i+'].imgs['+j+']']: "/images/broken_image.png"
+          })
+        }
+      }
+    }
   },
+
   ViewImage(e) {
     wx.previewImage({
       urls: e.target.dataset.urls,

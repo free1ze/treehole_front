@@ -28,16 +28,24 @@ Page({
 
   send: function(e) {
     var that=this
-    if(this.data.sent == false){
+    if(that.data.imgList.length > that.data.imgMaxNumber){
+      wx.showToast({
+        title: '图片太多啦！',
+        icon:'none',
+        duration:500
+      })
+      return
+    }
+    else if(this.data.sent == false){
       wx.showLoading({
         title: '发送中',
       })
-
       //上传图片
       let resultImageUrls = [];
       let fileIDList = [];
       const compressTask = this.data.imgList.map(item => this.compressPhoto(item))
       //compressTask 返回一个Promise，结构{error_Msg:"", tempFilePath:""}
+      
       Promise.all(compressTask).then(res=>{
         const uploadTask = res.map(item => this.uploadPhoto(item.tempFilePath))
         Promise.all(uploadTask).then(result => {
@@ -47,17 +55,12 @@ Page({
           resultImageUrls.push([file.fileID, file]);
           fileIDList.push(file.fileID)
         }
-        // console.log("上传后的图片云存储路径", resultImageUrls)
-        //与服务器交互
         this.sendToServer(fileIDList)
-        const storeTask = resultImageUrls.map(item => wx.setStorage({
-          key:  item[0],
-          data: item[1],
-        }))
-        Promise.all(storeTask).then(result =>{
-          console.log("存到缓存",result)
+        this.setData({
+          sent:true,
         })
-      }).catch((err) => {
+      })
+    }).catch((err) => {
         console.log(err)
         wx.showToast({
           title: '上传图片错误',
@@ -65,25 +68,11 @@ Page({
         })
         return 
       })
-    }).catch((err) => {
-      console.log(err)
-      wx.showToast({
-        title: '上传图片错误',
-        icon: 'error'
-      })
-      return 
-    })
-
-    this.setData({
-      sent:true,
-    })
-    }
-  },
+  }
+},
 
   sendToServer: function(fileIDList){
     var that = this
-    console.log(fileIDList)
-
     wx.request({
       url: getApp().globalData.url + '/post_artical',
       method: "POST",
@@ -94,11 +83,10 @@ Page({
         imgs: fileIDList
       },
       success(res){
-        console.log(res)
           if(res.data.result.error_code == 0){
             wx.showToast({
               title: '发送成功',
-              icon: 'loading',
+              icon: 'success',
               duration: 1000
             })
         }
@@ -113,15 +101,17 @@ Page({
       fail: function(res){
         wx.showToast({
           title: '发送失败',
-          icon: 'loading',
-          duration: 2000
+          icon: 'error',
+          duration: 1000
         })
       },
       complete: function(res){
-        wx.hideToast()
-        wx.reLaunch({
-          url: '/pages/square/square',
-        })
+        setTimeout(() => {
+          wx.hideToast()
+          wx.reLaunch({
+            url: '/pages/square/square',
+          })
+        }, 300);
       } 
     })
   },

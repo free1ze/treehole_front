@@ -302,6 +302,26 @@ Page({
       }
     })
   },
+  ViewImage(e) {
+    wx.previewImage({
+      urls: e.target.dataset.urls,
+      current: e.target.dataset.current
+    });
+  },
+  onImageError: function(e){
+    var that = this
+    var list = this.data.list
+    var fileID = e.target.dataset.current
+    for(var i=0;i<list.length;i++){
+      for(var j=0;j<list[i].imgs.length;j++){
+        if(list[i].imgs[j] == fileID){
+          that.setData({
+            ['list['+i+'].imgs['+j+']']: "/images/broken_image.png"
+          })
+        }
+      }
+    }
+  },
 
   /**
    * 生命周期函数--监听页面加载

@@ -94,7 +94,6 @@ page{
   margin-left: 4%;
   margin-right: 4%;
   padding-bottom: 20rpx;
-  border-bottom: 5rpx solid #BBBBBB;
 }
 
 .content{
