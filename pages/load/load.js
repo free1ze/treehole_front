@@ -156,13 +156,15 @@ Page({
   onLoad() {
     var that = this
     var user_code 
+    wx.showToast({
+      title: '加载中～',
+      icon:'loading',
+    })
     wx.login({
       success(res){
         if(res.code){
           user_code = res.code
-          console.log(user_code)
         }
-    
       wx.request({
         url: 'https://qckf3o.fn.thelarkcloud.com/login',
         method: 'POST',
@@ -172,10 +174,12 @@ Page({
         success (res){
           console.log(res)
           if(res.data["error_code"] == 0){
-            getApp().globalData.user.openid = res.data.data.openid;
             that.next();
+            wx.hideToast()
+            getApp().globalData.user.openid = res.data.data.openid;
           }
           else{
+            wx.hideToast()
             that.setData({
               buttonClickable:true
             })

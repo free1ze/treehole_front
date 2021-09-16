@@ -1,4 +1,6 @@
 // pages/square/square.js
+let SCREEN_WIDTH = 750
+let RATE = wx.getSystemInfoSync().screenHeight / wx.getSystemInfoSync().screenWidth
 Page({
 
   /**
@@ -12,6 +14,8 @@ Page({
     listisempty:false,
     startwindow: true,
     isloadfinished:false,
+    // ScreenTotalW: SCREEN_WIDTH,
+    // ScreenTotalH: SCREEN_WIDTH * RATE * 5,
   },
 
   like: function(e){
@@ -23,6 +27,9 @@ Page({
         if(list[i].islike == 1){
           list[i].islike = 0;
           list[i].likes--;
+          that.setData({
+            list: list
+          })
           wx.request({
             url: getApp().globalData.url + '/dislike',
             method: 'POST',
@@ -38,7 +45,9 @@ Page({
         else{
           list[i].islike = 1;
           list[i].likes++;
-
+          that.setData({
+            list: list
+          })
           wx.request({
             url: getApp().globalData.url + '/like',
             method: 'POST',
@@ -51,10 +60,6 @@ Page({
             },
           })
         }
-        that.setData({
-          list: list
-        })
-        
       }
     }
   },
@@ -81,16 +86,15 @@ Page({
     comment: function(e){
       //这里要用currentTarget而不是target！！！
       var _id = e.currentTarget.dataset._id
-      this.setData({
-        last_visit_msg_id : _id,
-      })
-      console.log('/pages/detail/detail' + 
-      '?message_id=' + _id )
-      console.log(e.target)
       wx.navigateTo({
         url: '/pages/detail/detail' + 
               '?message_id=' + _id,
       })
+      this.setData({
+        last_visit_msg_id : _id,
+      })
+      // console.log('/pages/detail/detail' + 
+      // '?message_id=' + _id )
     },
 
   /**
@@ -101,7 +105,7 @@ Page({
     if(this.data.startwindow == false){
     wx.showModal({
       title: "树洞须知",
-      content: "欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦欢迎光临xxxxx（树洞规则)首先不能欺负谭宝维护一个漂亮的树洞没啦",
+      content: "欢迎光临～",
       showCancel: false,
       confirmText:'知道了',
     })
@@ -119,18 +123,12 @@ Page({
       },
 
       success(res){
-
         that.setData({
           list: res.data.data,
           isloadfinished:false,
         },()=>{
           that.loadStorgeArtical(that)
           console.log(that.data.list)
-          // getImg({},(res)=>{
-          //   that.setData({
-              
-          //   })
-          // })
         })
       },  
     })
@@ -139,26 +137,6 @@ Page({
 
   onImageLoad: function(e){
     // var that = this
-    // console.log(e.target.dataset.fileid)
-
-    // const fileID = e.target.dataset.fileid
-    // var list = that.data.list
-    //     for(var i=0;i<list.length;i++){
-    //       for(var j=0;j<list[i].imgList.length;j++){
-    //         if(list[i].imgs[j] == fileID){
-    //           list[i].imgList[j] = fileID
-    //           that.setData({
-    //             ['list['+i+'].imgList['+j+']']: fileID
-    //           })
-    //         }
-    //       }
-    //     }
-    // if(!fileID)return
-    // wx.getStorage({
-    //   key: fileID,
-    //   success (res) {
-    //   }
-    // })
   },
   onImageError: function(e){
     var that = this
@@ -488,7 +466,25 @@ Page({
     this.setData({
       list: newlist  
     })
-  }
+  },
+
+  // getRect () {
+    // wx.createSelectorQuery().select('#swiper').boundingClientRect(function(rect){
+    //   rect.id      // 节点的ID
+    //   rect.dataset // 节点的dataset
+    //   rect.left    // 节点的左边界坐标
+    //   rect.right   // 节点的右边界坐标
+    //   rect.top     // 节点的上边界坐标
+    //   rect.bottom  // 节点的下边界坐标
+    //   rect.width   // 节点的宽度
+    //   rect.height  // 节点的高度
+    // }).exec((res)=>{
+    //   console.log(res)
+    //   this.setData({
+    //     ScreenTotalH: res[0].height
+    //   })
+    // })
+  // },
 
 })
 

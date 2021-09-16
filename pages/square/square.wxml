@@ -1,7 +1,12 @@
 <!--pages/square/square.wxml-->
 <wxs src='/wxs/time.wxs' module="tools"/>
+
+
+<!-- <swiper style="height:{{ScreenTotalH}}rpx" id="swiper"> 
+<swiper-item> -->
 <view class="fatherview">
 <view class='scbg'  scroll-y='true'>
+
 <!-- 弹窗
 <block  wx:if="{{startwindow}}">
   <view class="startwindow">
@@ -29,7 +34,7 @@
       <text class='content'>{{item.content}}</text>
     </view>
 
-    <view class="cu-form-group">
+    <view class="cu-form-group" wx:if="{{item.imgs.length > 0}}">
     <!-- 1 -->
       <view class="grid col-1 flex-sub" wx:if="{{item.imgs.length == 1}}">
         <view class="bg-img" wx:for="{{item.imgs}}" wx:for-item="img"  wx:for-index="index" bindtap="ViewImage">
@@ -78,9 +83,12 @@
       </div> -->
   </view>
 </block>
-</view>
 
 </view>
+</view>
+<!-- </swiper-item>
+</swiper> -->
+
 <include src="/pages/bottom_menu/bottom_menu" />
 
 
