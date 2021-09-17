@@ -303,7 +303,6 @@ Page({
             key: 'list',
             data: res.data.data,
             success(res){
-              console.log(res)
               that.setData({
                 isloadfinished: true,
               })
@@ -400,7 +399,6 @@ Page({
    */
   onReachBottom: function() {
     console.log("reach bottom")
-    console.log(this.data.isloadfinished)
     wx.showToast({
       title: '加载中～',
       icon: 'none',
