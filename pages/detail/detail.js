@@ -330,6 +330,7 @@ Page({
     var that = this;
     var msg_id = ""
     //first load 
+      
     if (this.data.message_id == ""){
       msg_id = options.message_id
       this.setData({

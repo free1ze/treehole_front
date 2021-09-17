@@ -1,8 +1,12 @@
 <!--pages/detail/detail.wxml-->
 <wxs src='/wxs/time.wxs' module="tools"/>
 <!-- <wxs src='/wxs/reply.wxs' module="tools"/> -->
-<view class='scbg' scroll-y='true' >
-<block wx:for="{{list}}" wx:for-item="item" wx:for-index="id" wx:key='id'>
+
+<import src="detail.skeleton.wxml"/>
+<template is="skeleton" wx:if="{{list.length == 0}}"  />
+
+<view class='scbg' scroll-y='true' wx:if="{{list.length > 0}}">
+<block wx:for="{{list}}" wx:for-item="item" wx:for-index="id" wx:key='id' >
   <view class='box'>
     <view class='firstblock'>
       <view class='person'>
@@ -21,7 +25,7 @@
     <view class='secondblock'>
       <text class='content'>{{item.content}}</text>
     </view>
-    <view class="cu-form-group">
+    <view class="cu-form-group" wx:if="{{item.imgs.length > 0}}">
     <!-- 1 -->
       <view class="grid col-1 flex-sub" wx:if="{{item.imgs.length == 1}}">
         <view class="bg-img" wx:for="{{item.imgs}}" wx:for-item="img"  wx:for-index="index" bindtap="ViewImage">

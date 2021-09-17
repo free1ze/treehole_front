@@ -1,0 +1,70 @@
+<!--
+此文件为开发者工具生成，生成时间: 2021/9/17 下午6:27:16
+使用方法：
+在 /Users/bytedance/Desktop/树洞/treehole/pages/detail/detail.wxml 引入模板
+
+```
+<import src="detail.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 /Users/bytedance/Desktop/树洞/treehole/pages/detail/detail.wxss 中引入样式
+```
+@import "./detail.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="scbg">
+      <view class="box" style="border: none;">
+        <view class="firstblock">
+          <view class="person">
+            <view class="name">
+              <text class="showname sk-transparent sk-text-14-2857-185 sk-text"># 52</text>
+            </view>
+            <view class="tel">
+              <text class="showtime sk-transparent sk-text-14-2857-552 sk-text">3天前</text>
+            </view>
+          </view>
+        </view>
+        <view class="secondblock">
+          <text class="content sk-transparent sk-text-14-2857-531 sk-text">芜湖我已经爱上这个软件了，期待公测。芜湖我已经爱上这个软件了，期待公测。芜湖我已经爱上这个软件了，期待公测。芜湖我已经爱上这个软件了，期待公测。</text>
+        </view>
+        <view class="thirdblock">
+          <image class="more sk-image" data-_id="613f83d6433f2d8501c3bd0d" data-openid="opatN4yx1omC1uneaYKjNFS59TnY"></image>
+          <image class="like sk-image" data-_id="613f83d6433f2d8501c3bd0d"></image>
+          <text class="num_like sk-transparent sk-text-13-6364-855 sk-text">1</text>
+          <image class="comment sk-image" data-message_id="613f83d6433f2d8501c3bd0d" id="replycontent"></image>
+          <text class="num_comment sk-transparent sk-text-13-6364-504 sk-text">1</text>
+        </view>
+      </view>
+      <view class="commentbox" style="border: none;">
+        <view>
+          <view class="commentfirstblock">
+            <view class="commentperson">
+              <view class="commentname">
+                <text class="commentnametxt"></text>
+              </view>
+              <view class="commenttel">
+                <text class="commenttime sk-transparent sk-text-14-2857-83 sk-text">3天前</text>
+              </view>
+            </view>
+            <view class="thirdblock">
+              <image class="like sk-image" data-_id="613f8424433f2d8501c3bd0f"></image>
+              <text class="num_like sk-transparent sk-text-13-6364-683 sk-text">0</text>
+            </view>
+          </view>
+          <view class="commentcontentblock">
+            <text class="commentcontent sk-transparent sk-text-14-2857-870 sk-text">在努力中🥰在努力中🥰在努力中🥰在努力中🥰在努力中🥰在努力中🥰</text>
+          </view>
+          <view class="bottom" style="border: none;">
+            <image class="commentmore sk-image" data-_id="613f8424433f2d8501c3bd0f" data-openid="opatN42cFERRasr8h0rsWULykEVw"></image>
+            <text class="replycontent sk-transparent sk-text-14-2857-795 sk-text" data-message_id="613f83d6433f2d8501c3bd0d" data-reply_to="在努力中🥰" id="replycontent">回复</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
