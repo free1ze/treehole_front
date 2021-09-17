@@ -105,7 +105,7 @@
 </view>
 </view>
 
-<view catchtap="hideKeyboard" class="back-page" hidden="{{!releaseFocus}}">
+<view catchtap="hideKeyboard" class="back-page" wx:if="{{releaseFocus==true}}">
     <view class="release">
         <textarea autoFocus="true" autoHeight="true" bindblur="hideKeyboard" bindinput="setValue" catchtap="catchBubble" class="text" cursorSpacing="20" fixed="true" focus="true" placeholder="{{placeholder?placeholder:'写评论'}}" placeholderClass="input_null" showConfirmBar="" value="{{commentValue}}" maxlength="600"></textarea>
         <view catchtap="reply_by_type" class="submit">发送</view>

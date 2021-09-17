@@ -6,6 +6,6 @@
   <button class='but'  open-type="getUserInfo" bindtap="getUserProfile">授权登录</button>
   <!-- <button class='but' open-type="getUserInfo" bindgetuserinfo="getUserProfile">授权登录</button> -->
   <view class='med'>————— · —————</view>
-  <view class='txt'>\t\t\t欢迎使用小程序，我们需要一些您的公开信息，包括微信昵称、头像等。请放心，我们会妥善保管您的信息~</view>
+  <view class='txt'>\t\t\t欢迎使用西交树洞！我们需要一些您的公开信息。请放心，树洞会妥善保管您的信息~</view>
 </view>
 <!-- <view wx:else>请升级微信版本</view> -->
