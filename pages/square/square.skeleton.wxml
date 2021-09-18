@@ -24,7 +24,6 @@
             <view class="person">
               <view class="name">
                 <text class="showname sk-transparent sk-text-14-2857-124 sk-text"># 61</text>
-                <text class="tag sk-transparent sk-text-14-2857-837 sk-text" style="background-color: rgb(255, 175, 153); background-position-x: 50%;">吐槽</text>
               </view>
               <view class="tel">
                 <text class="showtime sk-transparent sk-text-14-2857-726 sk-text">1天前</text>
@@ -35,11 +34,11 @@
             <text class="content sk-transparent sk-text-14-2857-459 sk-text">气死我了气死我了气死我了，我一直用的一个树洞类的APP，他竟然说我的发言在雷区里，还把我发的给删了，气死我了，什么烂算法。我夸下喜欢的人咋就进入雷区了？所以咸宝谭宝加油！期待西交树洞发布！要做出比它们牛逼好多的小程序！</text>
           </view>
           <view class="thirdblock">
-            <image class="more sk-image" data-_id="6142270e3c7b08bdc3c62e01" data-openid="opatN4yx1omC1uneaYKjNFS59TnY"></image>
-            <image class="like sk-image" data-_id="6142270e3c7b08bdc3c62e01" data-openid="opatN4yx1omC1uneaYKjNFS59TnY"></image>
-            <text class="num_like sk-transparent sk-text-15-9091-63 sk-text">1</text>
-            <image class="comment sk-image" data-_id="6142270e3c7b08bdc3c62e01"></image>
-            <text class="num_comment"></text>
+            <!-- <image class="more sk-image" data-_id="6142270e3c7b08bdc3c62e01" data-openid="opatN4yx1omC1uneaYKjNFS59TnY"></image>
+            <image class="like sk-image" data-_id="6142270e3c7b08bdc3c62e01" data-openid="opatN4yx1omC1uneaYKjNFS59TnY"></image> -->
+            <!-- <text class="num_like sk-transparent sk-text-15-9091-63 sk-text">1</text> -->
+            <!-- <image class="comment sk-image" data-_id="6142270e3c7b08bdc3c62e01"></image>
+            <text class="num_comment"></text> -->
           </view>
         </view>
         <view class="box" data-_id="6141d2b393c4bc7d2ade3a35" style="border: none;">
@@ -57,11 +56,6 @@
             <text class="content sk-transparent sk-text-14-2857-761 sk-text">想咸宝想咸宝想咸宝想咸宝想咸宝想咸宝想咸宝想咸宝想咸宝</text>
           </view>
           <view class="thirdblock">
-            <image class="more sk-image" data-_id="6141d2b393c4bc7d2ade3a35" data-openid="opatN42f9FYS1zTXGMt3oTfVKXHI"></image>
-            <image class="like sk-image" data-_id="6141d2b393c4bc7d2ade3a35" data-openid="opatN42f9FYS1zTXGMt3oTfVKXHI"></image>
-            <text class="num_like sk-transparent sk-text-15-9091-671 sk-text">2</text>
-            <image class="comment sk-image" data-_id="6141d2b393c4bc7d2ade3a35"></image>
-            <text class="num_comment"></text>
           </view>
         </view>
         <view class="box" data-_id="6141d2b393c4bc7d2ade3a35" style="border: none;">
@@ -79,11 +73,6 @@
             <text class="content sk-transparent sk-text-14-2857-761 sk-text">想咸宝想咸宝想咸宝想咸宝想咸宝想咸宝想咸宝想咸宝想咸宝</text>
           </view>
           <view class="thirdblock">
-            <image class="more sk-image" data-_id="6141d2b393c4bc7d2ade3a35" data-openid="opatN42f9FYS1zTXGMt3oTfVKXHI"></image>
-            <image class="like sk-image" data-_id="6141d2b393c4bc7d2ade3a35" data-openid="opatN42f9FYS1zTXGMt3oTfVKXHI"></image>
-            <text class="num_like sk-transparent sk-text-15-9091-671 sk-text">2</text>
-            <image class="comment sk-image" data-_id="6141d2b393c4bc7d2ade3a35"></image>
-            <text class="num_comment"></text>
           </view>
         </view>
         <view class="box" data-_id="6141d2b393c4bc7d2ade3a35" style="border: none;">
@@ -101,11 +90,6 @@
             <text class="content sk-transparent sk-text-14-2857-761 sk-text">想咸宝想咸宝想咸宝想咸宝想咸宝想咸宝想咸宝想咸宝想咸宝</text>
           </view>
           <view class="thirdblock">
-            <image class="more sk-image" data-_id="6141d2b393c4bc7d2ade3a35" data-openid="opatN42f9FYS1zTXGMt3oTfVKXHI"></image>
-            <image class="like sk-image" data-_id="6141d2b393c4bc7d2ade3a35" data-openid="opatN42f9FYS1zTXGMt3oTfVKXHI"></image>
-            <text class="num_like sk-transparent sk-text-15-9091-671 sk-text">2</text>
-            <image class="comment sk-image" data-_id="6141d2b393c4bc7d2ade3a35"></image>
-            <text class="num_comment"></text>
           </view>
         </view>
       

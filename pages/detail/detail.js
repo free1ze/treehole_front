@@ -371,6 +371,7 @@ Page({
         })
       }
     })
+
   },
 
   reload_comment: function(e){

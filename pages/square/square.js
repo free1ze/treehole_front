@@ -102,6 +102,7 @@ Page({
    */
   onLoad: function(options) {
     var that = this
+      
     if(this.data.startwindow == false){
     wx.showModal({
       title: "树洞须知",
@@ -132,7 +133,6 @@ Page({
         })
       },  
     })
-    
   },
 
   onImageLoad: function(e){
