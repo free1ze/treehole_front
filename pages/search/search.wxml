@@ -1,0 +1,20 @@
+<!--pages/search/search.wxml-->
+<view class="totsearch">
+  <view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <!-- 搜索框 -->
+      <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="请输入搜索内容"/>
+  </view>
+  <view>
+  </view>
+  </view>
+    <!-- 搜索按钮,调用搜索查询方法 -->
+  <view class="weui-search-bar__cancel-btn" bindtap='xxxxxx'>搜索</view>
+  </view>
+  <view class="tagsbar">
+      <view class="tag" bindtap="tag1" style="{{tag==1? 'background-color: #1aa3ff': ''}}">最热评论</view>
+      <view class="tag" bindtap="tag2" style="{{tag==2? 'background-color: #1aa3ff': ''}}">时间顺序</view>
+   </view>
+</view>

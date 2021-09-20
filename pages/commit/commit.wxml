@@ -36,7 +36,7 @@
       <view class="tag" bindtap="tag2" style="{{tag==2? 'background-color: #9999ff': ''}}">交友</view>
       <view class="tag" bindtap="tag3" style="{{tag==3? 'background-color: #00cc44': ''}}">寻物</view>
       <view class="tag" bindtap="tag4" style="{{tag==4? 'background-color: #ffaf99': ''}}">吐槽</view>
-      </view>
+   </view>
 </view>
 
 <view id='btn' class='click' bindtap='send'>发送</view>

@@ -14,10 +14,39 @@ Page({
     listisempty:false,
     startwindow: true,
     isloadfinished:false,
+    tag:0,  //search tag
     // ScreenTotalW: SCREEN_WIDTH,
     // ScreenTotalH: SCREEN_WIDTH * RATE * 5,
   },
+  tag1: function(e){
+    if (this.data.tag!=1)
+    {
+      this.setData({
+        tag: 1,
+      })
+    }
+    else 
+    {
+      this.setData({
+        tag: 0,
+      })
+    }
+  },
 
+  tag2: function(e){
+    if (this.data.tag!=2)
+    {
+      this.setData({
+        tag: 2,
+      })
+    }
+    else 
+    {
+      this.setData({
+        tag: 0,
+      })
+    }
+  },
   like: function(e){
     var that = this
     var list = this.data.list 

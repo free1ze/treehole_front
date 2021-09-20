@@ -1,10 +1,9 @@
 <!--pages/square/square.wxml-->
 <wxs src='/wxs/time.wxs' module="tools"/>
 
-
+<include src="/pages/search/search" />
 <import src="square.skeleton.wxml"/>
 <template is="skeleton" wx:if="{{list.length == 0}}" />
-
 <!-- <swiper style="height:{{ScreenTotalH}}rpx" id="swiper"> 
 <swiper-item> -->
 <view class="fatherview">

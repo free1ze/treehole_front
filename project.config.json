@@ -4,7 +4,7 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": false,
+    "urlCheck": true,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -46,21 +46,6 @@
     "hidedInDevtools": []
   },
   "isGameTourist": false,
-  "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
-    "game": {
-      "currentL": -1,
-      "list": []
-    },
-    "miniprogram": {
-      "list": []
-    }
-  },
   "skeleton-config": {
     "global": {
       "loading": "",
@@ -94,8 +79,22 @@
       "decimal": 4
     },
     "pages": {
-      "pages/index/index": {
-      }
+      "pages/index/index": {}
+    }
+  },
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "list": []
     }
   }
 }
