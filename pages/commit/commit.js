@@ -16,7 +16,7 @@ Page({
     sent: false,
     tag: 0,
     imgList: [],
-    imgMaxNumber: 9,
+    imgMaxNumber: 4,
     compressedImgList:[],
   },
 
