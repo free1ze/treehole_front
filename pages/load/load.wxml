@@ -3,9 +3,13 @@
 <!-- 需要使用 button 来授权登录 -->
 <view  class='mai'>
   <!-- <button class='but' wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile">授权登录</button> -->
+  <view class="topofpage">
+    <view class="toptxt">Welcome to XJTU treehole!</view>
+    <image class="pic" src="/images/purpose.png"></image>
+  </view>
   <button class='but'  open-type="getUserInfo" bindtap="getUserProfile">授权登录</button>
   <!-- <button class='but' open-type="getUserInfo" bindgetuserinfo="getUserProfile">授权登录</button> -->
-  <view class='med'>————— · —————</view>
+  <!-- <view class='med'>————— · —————</view> -->
   <view class='txt'>\t\t\t欢迎使用西交树洞！我们需要一些您的公开信息。请放心，树洞会妥善保管您的信息~</view>
 </view>
 <!-- <view wx:else>请升级微信版本</view> -->

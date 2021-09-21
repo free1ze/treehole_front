@@ -17,7 +17,7 @@
     <image class="arrow" src="/images/rightarrow.png"></image>
     </view>
   </view> -->
-  <view class='box'>
+  <view>
     <view class="setbar" bindtap='topage1'>
     <text class="settxt"  >社区规范</text>
     <image class="arrow" src="/images/rightarrow.png"></image>

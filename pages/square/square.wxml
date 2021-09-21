@@ -1,7 +1,28 @@
 <!--pages/square/square.wxml-->
 <wxs src='/wxs/time.wxs' module="tools"/>
 
-<include src="/pages/search/search" />
+<!--pages/search/search.wxml-->
+<view class="totsearch">
+  <view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <!-- 搜索框 -->
+      <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="搜树洞"/>
+  </view>
+  <view>
+  </view>
+  </view>
+    <!-- 搜索按钮,调用搜索查询方法 -->
+  <view class="weui-search-bar__cancel-btn" bindtap='xxxxxx'>搜索</view>
+  </view>
+  <view class="tagsbar">
+      <view class="tag" bindtap="tag1" style="{{tag==1? 'background-color: #1aa3ff': ''}}">最热评论</view>
+      <view class="tag" bindtap="tag2" style="{{tag==2? 'background-color: #1aa3ff': ''}}">时间顺序</view>
+      <!-- <view class="tag" bindtap="tag2" style="{{tag==2? 'background-color: #1aa3ff': ''}}">与我相关</view> -->
+   </view>
+</view>
+
 <import src="square.skeleton.wxml"/>
 <template is="skeleton" wx:if="{{list.length == 0}}" />
 <!-- <swiper style="height:{{ScreenTotalH}}rpx" id="swiper"> 

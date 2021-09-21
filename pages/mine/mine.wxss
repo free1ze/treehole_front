@@ -6,7 +6,7 @@ page {
 }
 
 .personalInf {
-  margin: 20rpx 50rpx;
+  margin: 40rpx 10%;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -14,6 +14,7 @@ page {
   align-items: center;
   border-bottom: 10rpx solid #efefef;
   border-radius: 20rpx;
+  width: 80%;
 }
 
 .scbg {
@@ -49,14 +50,6 @@ page {
   font-size: 38rpx;
   color: black;
   padding-bottom: 40rpx;
-}
-
-.box {
-  margin: 20rpx 50rpx;
-  background-color: white;
-  /* padding-top: 30rpx; */
-  border-bottom: 10rpx solid #efefef;
-  border-radius: 20rpx;
 }
 
 .firstblock {
@@ -165,7 +158,7 @@ page {
 }
 
 .cu{
-  margin-top: 25rpx;
+  margin-top: 40%;
   margin-left: 10%;
   width: 80%;
   height: 50rpx;
@@ -179,16 +172,27 @@ page {
   align-items: center;
 }
 
+.box {
+  margin: 20rpx 10%;
+  background-color: white;
+  width: 80%;
+  /* padding-top: 30rpx; */
+  border-bottom: 10rpx solid #efefef;
+  border-radius: 20rpx;
+}
+
 .setbar{
-  width: 90%;
-  height: 70rpx;
+  margin: 25rpx 10%;
+  background-color: white;
+  width: 80%;
+  border-radius: 20rpx;
+  height: 90rpx;
   padding-left: 30rpx;
   padding-right: 30rpx;
-  margin-right: 30rpx;
   text-align: left;
   align-items: center;
   justify-content: center;
-  border-bottom: 3rpx solid #BBB;
+  border: 3rpx solid #BBB;
   
 }
 
@@ -204,7 +208,7 @@ page {
 .arrow{
   width: 50rpx;
   height: 50rpx;
-  margin-left: 30%;
+  margin-left: 40%;
   margin-top:15rpx;
   overflow: hidden;
 }
