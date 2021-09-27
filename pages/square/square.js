@@ -10,6 +10,7 @@ Page({
     firco: "#000000",
     secco: "#979797",
     last_visit_msg_id: "",
+    search_content: "",
     list: [],
     time_list: [],
     mine_list: [],
@@ -27,14 +28,11 @@ Page({
     // ScreenTotalW: SCREEN_WIDTH,
     // ScreenTotalH: SCREEN_WIDTH * RATE * 5,
   },
-  search: function(e){
-    wx.showModal({
-      title: "树洞须知",
-      content: "欢迎光临～",
-      showCancel: false,
-      confirmText:'知道了',
-    })
+  
+  bindTextAreaBlur: function(e) {
+    this.data.search_content = e.detail.value
   },
+
   mode1: function(e){
     //time order
     var that = this
@@ -61,7 +59,38 @@ Page({
   },
 
   mode4: function(e){
+    var that = this
+    wx.showToast({
+      title: '搜索中~',
+      icon:'none',
+    })
+    wx.request({
+      url: getApp().globalData.url + '/search',
+      method: 'POST',
+      data:{
+        pattern: that.data.search_content
+      },
+      success(res){
+        if(res.data.data.length == 0){
+          wx.showToast({
+            title: '没有找到。。',
+            icon:'none',
+            duration:500
+          })
+        }
+        else{
+          that.setData({
+            list: res.data.data,
+            showmode: 4,
+            isloadfinished:true
+          },()=>{
+            wx.hideToast()
+          })
+        }
+      },
+    })
   },
+
 
   like: function(e){
     var that = this
@@ -142,6 +171,7 @@ Page({
       // '?message_id=' + _id )
     },
 
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -176,6 +206,13 @@ Page({
           that.mode1()
         })
       },  
+      fail(){
+        wx.showToast({
+          title: '加载失败，请重试',
+          icon:'none',
+          duration: 500
+        })
+      }
     })
     wx.request({
       url: getApp().globalData.url + '/get_all_artical_by_heat',
@@ -191,7 +228,7 @@ Page({
       }
     })
     wx.request({
-      url: getApp().globalData.url + '/get_me_involved_message',
+      url: getApp().globalData.url + '/get_all_artical_by_me',
       method: "POST",
       data: {
         openid: getApp().globalData.user.openid,
@@ -435,9 +472,7 @@ Page({
     wx.showToast({
       title: '玩命加载中~',
       icon:'none',
-    })
-    this.setData({
-      isloadfinished:false,
+      duration:5000,
     })
     if(that.data.showmode == 1){
       this.onPullDownRefreshGetNewArtical(that, 1)  
@@ -445,6 +480,9 @@ Page({
       this.onPullDownRefreshGetNewArtical(that, 2)     
     }else if(that.data.showmode == 3){
       this.onPullDownRefreshGetNewArtical(that, 3)  
+    }else if(that.data.showmode == 4){
+      wx.hideLoading()
+      return
     }
   
   },
@@ -476,6 +514,14 @@ Page({
             duration:1000,
           })
         })
+      },
+      fail(){
+        wx.showToast({
+          title: '加载失败，请重试',
+          icon:'none',
+          duration:500,
+        })
+        wx.stopPullDownRefresh()
       }
     })
   },
@@ -494,25 +540,25 @@ Page({
       wx.showToast({
         title: '加载中～',
         icon: 'none',
+        duration:5000,
       })
       var that = this
-      that.setData({
-        isloadfinished:false
-      })
       if(that.data.showmode == 1){
           this.onReachBottomGetNewArtical(that, 1)  
       }else if(that.data.showmode == 2){
           this.onReachBottomGetNewArtical(that, 2)     
       }else if(that.data.showmode == 3){
           this.onReachBottomGetNewArtical(that, 3)  
+      }else if(that.data.showmode == 4){
+        this.onReachBottomGetNewArtical(that, 4)  
       }
+      
     }
   },
 
   onReachBottomGetNewArtical: function(that, type){
     var ret = this.getAimeListAndAimFunc(type)
     var aim_list = ret[0], aim_func = ret[1]
-    //返回双参数出问题
 
     console.log(aim_list,aim_func)
     if(that.data[aim_list+"_empty_flag"] == 1){
@@ -522,7 +568,13 @@ Page({
         duration:500,
       })
       return
+    }else{
+      that.setData({
+        isloadfinished:false
+      })
     }
+
+    if(type != 4){
     wx.request({
       url: getApp().globalData.url + aim_func,
       method: "POST",
@@ -539,43 +591,55 @@ Page({
         })
         if(res.data.data.length == 0){
           that.setData({
-            [aim_list+"_empty_flag"]:1
+            [aim_list+"_empty_flag"]:1,
+            isloadfinished: true
           })
         }
+        wx.hideToast()
+      },
+      fail(){
+        wx.showToast({
+          title: '加载失败，请重试',
+          icon:'none',
+          duration:500,
+        })
+        this.setData({isloadfinished:true})
       }
-    })
-
-    // if(that.data.isloadfinished == true){
-    //   wx.getStorage({
-    //     key: 'list',
-    //     success(res){
-    //       if(that.data.list[that.data.list.length-1].id == 1){
-    //         wx.showToast({
-    //           title: '已经到底了～',
-    //           icon: 'none',
-    //           duration:1000,
-    //         })
-    //         return;
-    //       }
-    //       else{
-    //         that.setData({
-    //           list: that.data.list.concat(res.data),
-    //           isloadfinished: false,
-    //         }, ()=>{
-    //           that.loadStorgeArtical(that)
-    //           wx.hideToast()
-    //           } 
-    //         )
-    //       }
-    //     }
-    //   })
-    // }
-    // else{
-    //   setTimeout(() => {
-    //     that.onReachBottom()
-    //   }, 200);
-    //   return;
-    // }
+    })   
+  }else{
+    //对于search直接用list存放数据、判断长度，不进行数据的保存
+    wx.request({
+      url: getApp().globalData.url + aim_func,
+      method: "POST",
+      data: {
+        openid: getApp().globalData.user.openid,
+        loaded: that.data.list.length,
+        pattern: that.data.search_content
+      },
+      success(res){
+        console.log("getnew",res.data)
+        that.setData({
+          list: that.data.list.concat(res.data.data),
+          isloadfinished: true
+        })
+        if(res.data.data.length == 0){
+          that.setData({
+            [aim_list+"_empty_flag"]:1,
+            isloadfinished: true
+          })
+        }
+        wx.hideToast()
+      },
+      fail(){
+        wx.showToast({
+          title: '加载失败，请重试',
+          icon:'none',
+          duration:500,
+        })
+        this.setData({isloadfinished:true})
+      }
+    }) 
+  }
   },
 
   
@@ -589,7 +653,11 @@ Page({
       aim_func = "/get_all_artical_by_heat"
     }else if(type == 3){
       aim_list = "mine_list"
-      aim_func = "/get_me_involved_message"
+      aim_func = "/get_all_artical_by_me"
+    }
+    else if(type == 4){
+      aim_list = "search_list"
+      aim_func = "/search"
     }
     return [aim_list, aim_func]
   },

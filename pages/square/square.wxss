@@ -279,3 +279,7 @@
   color: white;
   padding-top: 9rpx;
 }
+
+.imgholder{
+  width: 100%;
+}

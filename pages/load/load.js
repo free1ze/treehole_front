@@ -44,6 +44,14 @@ Page({
               buttonClickable:true
             })
           }
+        },
+        fail(){
+          wx.showToast({
+            title: '请求失败，重试中。。',
+            icon:'none',
+            duration:'15000'
+          })
+          that.onLoad()
         }
       })
     }
