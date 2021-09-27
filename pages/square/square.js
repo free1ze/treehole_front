@@ -27,6 +27,14 @@ Page({
     // ScreenTotalW: SCREEN_WIDTH,
     // ScreenTotalH: SCREEN_WIDTH * RATE * 5,
   },
+  search: function(e){
+    wx.showModal({
+      title: "树洞须知",
+      content: "欢迎光临～",
+      showCancel: false,
+      confirmText:'知道了',
+    })
+  },
   mode1: function(e){
     //time order
     var that = this

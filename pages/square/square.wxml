@@ -2,25 +2,27 @@
 <wxs src='/wxs/time.wxs' module="tools"/>
 
 <!--pages/search/search.wxml-->
-<view class="totsearch">
+<view class="searchbox">
+  <view class="totsearch">
   <view class="weui-search-bar">
   <view class="weui-search-bar__form">
     <!-- 搜索框 -->
       <view class="weui-search-bar__box">
       <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-      <input type="text" class="weui-search-bar__input" placeholder="搜树洞"/>
+      <input type="text" confirm-type="search" bindconfirm="search" class="weui-search-bar__input" placeholder="搜树洞"/>
   </view>
   <view>
   </view>
   </view>
     <!-- 搜索按钮,调用搜索查询方法 -->
-  <view class="weui-search-bar__cancel-btn" bindtap='mode4'>搜索</view>
+  <!-- <view class="weui-search-bar__cancel-btn" bindtap='mode4'>搜索</view> -->
   </view>
   <view class="tagsbar">
       <view class="tag" bindtap="mode1" style="{{showmode==1? 'background-color: #1aa3ff': ''}}">时间排序</view>
       <view class="tag" bindtap="mode2" style="{{showmode==2? 'background-color: #1aa3ff': ''}}">热度排序</view>
       <view class="tag" bindtap="mode3" style="{{showmode==3? 'background-color: #1aa3ff': ''}}">与我相关</view>
    </view>
+</view>
 </view>
 
 <import src="square.skeleton.wxml"/>
@@ -29,7 +31,6 @@
 <swiper-item> -->
 <view class="fatherview">
 <view class='scbg'  scroll-y='true'>
-
 <!-- 弹窗
 <block  wx:if="{{startwindow}}">
   <view class="startwindow">
@@ -37,7 +38,6 @@
   <button class="okbutton"></button>
   </view>
 </block> -->
-
 <block wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
   <view class='box' data-_id='{{item._id}}' >
     <view class='firstblock'  bindtap="comment" data-_id='{{item._id}}'>
