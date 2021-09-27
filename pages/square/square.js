@@ -11,42 +11,50 @@ Page({
     secco: "#979797",
     last_visit_msg_id: "",
     list: [],
+    time_list: [],
+    mine_list: [],
+    heat_list: [],
+    search_list: [],
+    time_list_empty_flag: 0,
+    mine_list_empty_flag: 0,
+    heat_list_empty_flag: 0,
+    search_list_empty_flag: 0,
+    
     listisempty:false,
     startwindow: true,
-    isloadfinished:false,
-    tag:0,  //search tag
+    isloadfinished:true,
+    showmode:1,  //search tag
     // ScreenTotalW: SCREEN_WIDTH,
     // ScreenTotalH: SCREEN_WIDTH * RATE * 5,
   },
-  tag1: function(e){
-    if (this.data.tag!=1)
-    {
-      this.setData({
-        tag: 1,
-      })
-    }
-    else 
-    {
-      this.setData({
-        tag: 0,
-      })
-    }
+  mode1: function(e){
+    //time order
+    var that = this
+    this.setData({
+      list: that.data.time_list,
+      showmode:1
+    })
   },
 
-  tag2: function(e){
-    if (this.data.tag!=2)
-    {
-      this.setData({
-        tag: 2,
-      })
-    }
-    else 
-    {
-      this.setData({
-        tag: 0,
-      })
-    }
+  mode2: function(e){
+    var that = this
+    this.setData({
+      list: that.data.heat_list,
+      showmode:2
+    })
   },
+
+  mode3: function(e){
+    var that = this
+    this.setData({
+      list: that.data.mine_list,
+      showmode:3
+    })
+  },
+
+  mode4: function(e){
+  },
+
   like: function(e){
     var that = this
     var list = this.data.list 
@@ -151,16 +159,42 @@ Page({
         openid: getApp().globalData.user.openid,
         loaded: 0,
       },
-
       success(res){
         that.setData({
-          list: res.data.data,
+          time_list: res.data.data,
           isloadfinished:false,
         },()=>{
-          that.loadStorgeArtical(that)
-          console.log(that.data.list)
+          // that.loadStorgeArtical(that)
+          // console.log(that.data.list)
+          that.mode1()
         })
       },  
+    })
+    wx.request({
+      url: getApp().globalData.url + '/get_all_artical_by_heat',
+      method: "POST",
+      data: {
+        openid: getApp().globalData.user.openid,
+        loaded: 0,
+      },
+      success(res){
+        that.setData({
+          heat_list: res.data.data,
+        })
+      }
+    })
+    wx.request({
+      url: getApp().globalData.url + '/get_me_involved_message',
+      method: "POST",
+      data: {
+        openid: getApp().globalData.user.openid,
+        loaded: 0,
+      },
+      success(res){
+        that.setData({
+          mine_list: res.data.data,
+        })
+      }
     })
   },
 
@@ -311,38 +345,38 @@ Page({
     })
   },
 
-  loadStorgeArtical: function(that){
-    console.log("loading")
-    if(that.data.isloadfinished == true){
-      setTimeout(() => {
-        that.loadStorgeArtical(that)
-      }, 200);
-      return;
-    }
-    else{
-    wx.request({
-        url: getApp().globalData.url + '/get_all_artical',
-        method: "POST",
-        data: {
-          openid: getApp().globalData.user.openid,
-          loaded: that.data.list.length,
-        },
-        success(res){
-          wx.setStorage({
-            key: 'list',
-            data: res.data.data,
-            success(res){
-              that.setData({
-                isloadfinished: true,
-              })
-              return;
-            }
-          }
-          )
-        }
-      })
-    }
-  },
+  // loadStorgeArtical: function(that){
+  //   console.log("loading")
+  //   if(that.data.isloadfinished == true){
+  //     setTimeout(() => {
+  //       that.loadStorgeArtical(that)
+  //     }, 200);
+  //     return;
+  //   }
+  //   else{
+  //   wx.request({
+  //       url: getApp().globalData.url + '/get_all_artical',
+  //       method: "POST",
+  //       data: {
+  //         openid: getApp().globalData.user.openid,
+  //         loaded: that.data.list.length,
+  //       },
+  //       success(res){
+  //         wx.setStorage({
+  //           key: 'list',
+  //           data: res.data.data,
+  //           success(res){
+  //             that.setData({
+  //               isloadfinished: true,
+  //             })
+  //             return;
+  //           }
+  //         }
+  //         )
+  //       }
+  //     })
+  //   }
+  // },
 
   getImg:function(imageID){
     console.log(imageID)
@@ -388,39 +422,59 @@ Page({
    */
   onPullDownRefresh: function() {
     wx.showNavigationBarLoading()
-
+    if(this.data.isloadfinished == false){
+      return
+    }
+    else{
     console.log("pull")
     var that = this
     wx.showToast({
       title: '玩命加载中~',
       icon:'none',
     })
-    
-      wx.request({
-        url: getApp().globalData.url + '/get_all_artical',
-        method: "POST",
-        data: {
-          openid: getApp().globalData.user.openid,
-          loaded: 0,
-        },
-        success(res){
-          // 不能使用that.data.list = res.data.data，不会触发渲染
-          that.setData({
-            list: res.data.data,
-            isloadfinished: false
-          },()=>{
-            that.loadStorgeArtical(that)
-            wx.hideNavigationBarLoading();
-            wx.stopPullDownRefresh()
-            wx.showToast({
-              title: '加载完成～',
-              icon:'none',
-              duration:1000,
-            })
+    this.setData({
+      isloadfinished:false,
+    })
+    if(that.data.showmode == 1){
+      this.onPullDownRefreshGetNewArtical(that, 1)  
+    }else if(that.data.showmode == 2){
+      this.onPullDownRefreshGetNewArtical(that, 2)     
+    }else if(that.data.showmode == 3){
+      this.onPullDownRefreshGetNewArtical(that, 3)  
+    }
+  }
+  },
+
+  onPullDownRefreshGetNewArtical: function(that, type){
+    var ret = this.getAimeListAndAimFunc(type)
+    var aim_list = ret[0], aim_func = ret[1]
+
+    wx.request({
+      url: getApp().globalData.url + aim_func,
+      method: "POST",
+      data: {
+        openid: getApp().globalData.user.openid,
+        loaded: 0,
+      },
+      success(res){
+        // 不能使用that.data.list = res.data.data，不会触发渲染
+        that.setData({
+          [aim_list]:res.data.data,
+          list: res.data.data,
+          [aim_list + "_empty_flag"]: 0,
+          isloadfinished: true
+        },()=>{
+          // that.loadStorgeArtical(that)
+          wx.hideNavigationBarLoading();
+          wx.stopPullDownRefresh()
+          wx.showToast({
+            title: '加载完成～',
+            icon:'none',
+            duration:1000,
           })
-        }
-      })
-    
+        })
+      }
+    })
   },
 
   /**
@@ -433,37 +487,97 @@ Page({
       icon: 'none',
     })
     var that = this
-    if(that.data.isloadfinished == true){
-    wx.getStorage({
-      key: 'list',
+    if(that.data.showmode == 1){
+        this.onReachBottomGetNewArtical(that, 1)  
+    }else if(that.data.showmode == 2){
+        this.onReachBottomGetNewArtical(that, 2)     
+    }else if(that.data.showmode == 3){
+        this.onReachBottomGetNewArtical(that, 3)  
+    }
+  },
+
+  onReachBottomGetNewArtical: function(that, type){
+    var ret = this.getAimeListAndAimFunc(type)
+    var aim_list = ret[0], aim_func = ret[1]
+    //返回双参数出问题
+
+    console.log(aim_list,aim_func)
+    if(that.data[aim_list+"_empty_flag"] == 1){
+      wx.showToast({
+        title: '已经到底啦~',
+        icon: 'none',
+        duration:500,
+      })
+      return
+    }
+    wx.request({
+      url: getApp().globalData.url + aim_func,
+      method: "POST",
+      data: {
+        openid: getApp().globalData.user.openid,
+        loaded: that.data[aim_list].length,
+      },
       success(res){
-        if(that.data.list[that.data.list.length-1].id == 1){
-          wx.showToast({
-            title: '已经到底了～',
-            icon: 'none',
-            duration:1000,
-          })
-          return;
-        }
-        else{
+        console.log("getnew",res.data)
+        that.setData({
+          [aim_list]: that.data[aim_list].concat(res.data.data),
+          list: that.data.list.concat(res.data.data)
+        })
+        if(res.data.data.length == 0){
           that.setData({
-            list: that.data.list.concat(res.data),
-            isloadfinished: false,
-          }, ()=>{
-            that.loadStorgeArtical(that)
-            wx.hideToast()
-            } 
-          )
+            [aim_list+"_empty_flag"]:1
+          })
         }
       }
     })
-  }
-  else{
-    setTimeout(() => {
-      that.onReachBottom()
-    }, 200);
-    return;
-  }
+
+    // if(that.data.isloadfinished == true){
+    //   wx.getStorage({
+    //     key: 'list',
+    //     success(res){
+    //       if(that.data.list[that.data.list.length-1].id == 1){
+    //         wx.showToast({
+    //           title: '已经到底了～',
+    //           icon: 'none',
+    //           duration:1000,
+    //         })
+    //         return;
+    //       }
+    //       else{
+    //         that.setData({
+    //           list: that.data.list.concat(res.data),
+    //           isloadfinished: false,
+    //         }, ()=>{
+    //           that.loadStorgeArtical(that)
+    //           wx.hideToast()
+    //           } 
+    //         )
+    //       }
+    //     }
+    //   })
+    // }
+    // else{
+    //   setTimeout(() => {
+    //     that.onReachBottom()
+    //   }, 200);
+    //   return;
+    // }
+  },
+
+  
+  getAimeListAndAimFunc: function(type){
+    var aim_list="",aim_func=""
+    if(type == 1){
+      aim_list = "time_list"
+      aim_func = "/get_all_artical"
+    }else if(type == 2){
+      aim_list = "heat_list"
+      aim_func = "/get_all_artical_by_heat"
+    }else if(type == 3){
+      aim_list = "mine_list"
+      aim_func = "/get_me_involved_message"
+    }
+    return [aim_list, aim_func]
   },
 
   /**

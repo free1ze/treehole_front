@@ -14,12 +14,12 @@
   </view>
   </view>
     <!-- 搜索按钮,调用搜索查询方法 -->
-  <view class="weui-search-bar__cancel-btn" bindtap='xxxxxx'>搜索</view>
+  <view class="weui-search-bar__cancel-btn" bindtap='mode4'>搜索</view>
   </view>
   <view class="tagsbar">
-      <view class="tag" bindtap="tag1" style="{{tag==1? 'background-color: #1aa3ff': ''}}">最热评论</view>
-      <view class="tag" bindtap="tag2" style="{{tag==2? 'background-color: #1aa3ff': ''}}">时间顺序</view>
-      <!-- <view class="tag" bindtap="tag2" style="{{tag==2? 'background-color: #1aa3ff': ''}}">与我相关</view> -->
+      <view class="tag" bindtap="mode1" style="{{showmode==1? 'background-color: #1aa3ff': ''}}">时间排序</view>
+      <view class="tag" bindtap="mode2" style="{{showmode==2? 'background-color: #1aa3ff': ''}}">热度排序</view>
+      <view class="tag" bindtap="mode3" style="{{showmode==3? 'background-color: #1aa3ff': ''}}">与我相关</view>
    </view>
 </view>
 
@@ -37,7 +37,8 @@
   <button class="okbutton"></button>
   </view>
 </block> -->
-<block wx:for="{{list}}" wx:for-item="item" wx:for-index="id" wx:key='id'>
+
+<block wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
   <view class='box' data-_id='{{item._id}}' >
     <view class='firstblock'  bindtap="comment" data-_id='{{item._id}}'>
       <view class='person'>
