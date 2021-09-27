@@ -2,7 +2,7 @@
 <wxs src='/wxs/time.wxs' module="tools"/>
 
 <!--pages/search/search.wxml-->
-<!-- <view class="searchbox">
+<view class="searchbox">
   <view class="totsearch">
   <view class="weui-search-bar">
   <view class="weui-search-bar__form">
@@ -22,14 +22,14 @@
       <view class="tag" bindtap="mode3" style="{{showmode==3? 'background-color: #1aa3ff': ''}}">与我相关</view>
    </view>
 </view>
-</view> -->
+</view>
 
-<view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
+<!-- <view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
     <input type="text" placeholder="搜树洞" confirm-type="search" bindinput="searchIcon"></input>
   </view>
-</view>
+</view> -->
 
 <import src="square.skeleton.wxml"/>
 <template is="skeleton" wx:if="{{list.length == 0}}" />

@@ -39,6 +39,11 @@ Page({
     this.setData({
       list: that.data.time_list,
       showmode:1
+    },()=>{
+      wx.pageScrollTo({
+        scrollTop: 0,
+        duration: 0,
+      })
     })
   },
 
@@ -47,7 +52,13 @@ Page({
     this.setData({
       list: that.data.heat_list,
       showmode:2
+    },()=>{
+      wx.pageScrollTo({
+        scrollTop: 0,
+        duration: 0,
+      })
     })
+
   },
 
   mode3: function(e){
@@ -55,7 +66,13 @@ Page({
     this.setData({
       list: that.data.mine_list,
       showmode:3
+    },()=>{
+      wx.pageScrollTo({
+        scrollTop: 0,
+        duration: 0,
+      })
     })
+
   },
 
   mode4: function(e){
