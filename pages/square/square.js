@@ -162,7 +162,6 @@ Page({
       success(res){
         that.setData({
           time_list: res.data.data,
-          isloadfinished:false,
         },()=>{
           // that.loadStorgeArtical(that)
           // console.log(that.data.list)
@@ -422,10 +421,7 @@ Page({
    */
   onPullDownRefresh: function() {
     wx.showNavigationBarLoading()
-    if(this.data.isloadfinished == false){
-      return
-    }
-    else{
+
     console.log("pull")
     var that = this
     wx.showToast({
@@ -442,7 +438,7 @@ Page({
     }else if(that.data.showmode == 3){
       this.onPullDownRefreshGetNewArtical(that, 3)  
     }
-  }
+  
   },
 
   onPullDownRefreshGetNewArtical: function(that, type){
@@ -462,7 +458,6 @@ Page({
           [aim_list]:res.data.data,
           list: res.data.data,
           [aim_list + "_empty_flag"]: 0,
-          isloadfinished: true
         },()=>{
           // that.loadStorgeArtical(that)
           wx.hideNavigationBarLoading();
@@ -482,17 +477,27 @@ Page({
    */
   onReachBottom: function() {
     console.log("reach bottom")
-    wx.showToast({
-      title: '加载中～',
-      icon: 'none',
-    })
-    var that = this
-    if(that.data.showmode == 1){
-        this.onReachBottomGetNewArtical(that, 1)  
-    }else if(that.data.showmode == 2){
-        this.onReachBottomGetNewArtical(that, 2)     
-    }else if(that.data.showmode == 3){
-        this.onReachBottomGetNewArtical(that, 3)  
+
+    if(this.data.isloadfinished == false){
+      console.log("unfinished!")
+      return
+    }
+    else{
+      wx.showToast({
+        title: '加载中～',
+        icon: 'none',
+      })
+      var that = this
+      that.setData({
+        isloadfinished:false
+      })
+      if(that.data.showmode == 1){
+          this.onReachBottomGetNewArtical(that, 1)  
+      }else if(that.data.showmode == 2){
+          this.onReachBottomGetNewArtical(that, 2)     
+      }else if(that.data.showmode == 3){
+          this.onReachBottomGetNewArtical(that, 3)  
+      }
     }
   },
 
@@ -521,7 +526,8 @@ Page({
         console.log("getnew",res.data)
         that.setData({
           [aim_list]: that.data[aim_list].concat(res.data.data),
-          list: that.data.list.concat(res.data.data)
+          list: that.data.list.concat(res.data.data),
+          isloadfinished: true
         })
         if(res.data.data.length == 0){
           that.setData({
