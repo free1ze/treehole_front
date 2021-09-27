@@ -2,11 +2,11 @@
 <wxs src='/wxs/time.wxs' module="tools"/>
 
 <!--pages/search/search.wxml-->
-<view class="searchbox">
+<!-- <view class="searchbox">
   <view class="totsearch">
   <view class="weui-search-bar">
   <view class="weui-search-bar__form">
-    <!-- 搜索框 -->
+
       <view class="weui-search-bar__box">
       <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
       <input type="text" confirm-type="search" bindconfirm="mode4" bindinput ="bindTextAreaBlur" class="weui-search-bar__input" placeholder="搜树洞"/>
@@ -14,8 +14,7 @@
   <view>
   </view>
   </view>
-    <!-- 搜索按钮,调用搜索查询方法 -->
-  <!-- <view class="weui-search-bar__cancel-btn" bindtap='mode4'>搜索</view> -->
+
   </view>
   <view class="tagsbar">
       <view class="tag" bindtap="mode1" style="{{showmode==1? 'background-color: #1aa3ff': ''}}">时间排序</view>
@@ -23,6 +22,13 @@
       <view class="tag" bindtap="mode3" style="{{showmode==3? 'background-color: #1aa3ff': ''}}">与我相关</view>
    </view>
 </view>
+</view> -->
+
+<view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="搜树洞" confirm-type="search" bindinput="searchIcon"></input>
+  </view>
 </view>
 
 <import src="square.skeleton.wxml"/>

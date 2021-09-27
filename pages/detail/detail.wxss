@@ -388,3 +388,7 @@ page{
   color: #8585ad;
 }
 
+.imgholder{
+  width: 100%;
+}
+

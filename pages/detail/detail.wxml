@@ -27,13 +27,15 @@
     </view>
     <view class="cu-form-group" wx:if="{{item.imgs.length > 0}}">
     <!-- 1 -->
-      <view class="grid col-1 flex-sub" wx:if="{{item.imgs.length == 1}}">
+    <view class="imgholder"  wx:if="{{item.imgs.length == 1}}">
+      <view class="grid col-1 flex-sub">
         <view class="bg-img" wx:for="{{item.imgs}}" wx:for-item="img"  wx:for-index="index" bindtap="ViewImage">
         <image src='{{img}}' mode='aspectFill' 
         bindload="onImageLoad" binderror="onImageError"
         data-urls='{{item.imgs}}' data-current='{{img}}'></image>
         </view>
       </view>
+    </view>
     <!-- 2,4 -->
     <view class="grid col-2 grid-square flex-sub" wx:if="{{item.imgs.length == 2 || item.imgs.length == 4}}">
       <view class="bg-img" wx:for="{{item.imgs}}" wx:for-item="img" wx:for-index="index" bindtap="ViewImage">
