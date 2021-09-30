@@ -30,7 +30,7 @@ page {
   color: #000;
   margin: auto;
   margin-left: 20rpx;
-  width: 100%;
+  width: 90%;
 }
 
 .second {
@@ -74,4 +74,9 @@ page {
   font-size: 28rpx;
   margin-left: 15rpx;
   font-family: "PingFangSC-regular";
+}
+
+.sendbag{
+  height: 100%;
+  width: 30%;
 }

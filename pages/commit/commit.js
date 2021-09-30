@@ -190,7 +190,7 @@ Page({
   compressPhoto(filePath) {
     return wx.compressImage({
       src: filePath,
-      quality: 5,
+      quality: 30,
     })
   },
 

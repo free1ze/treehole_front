@@ -38,6 +38,12 @@ Page({
             })
             return
           }
+          else if(res.data["error_code"] == 1){
+            //未认证
+            wx.redirectTo({
+              url:  '/pages/login/login',
+            })
+          }
           else{
             wx.hideToast()
             that.setData({
