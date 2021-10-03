@@ -1,20 +1,14 @@
 <view class="background">
   <view class="first">
       <input id="name" placeholder="netid" placeholder-class='plas' class='inputs' bindinput='usernameInput' type="text" />
-      <view class="sendbag">
-        <view class="weui-vcode-btn" bindtap="bindCode">
-          {{countDown > 0 ? countDown + ' 秒': codeLabel}}
-        </view>
-      </view>
   </view>
   <view class="second">
       <!-- <input id="psw" placeholder="验证码" placeholder-class='plas' class='inputs' type="password" bindinput='passwordInput' /> -->
-      <input class='input-verify' type='number' placeholder-class='plas' placeholder='手机验证码'></input>
+      <input class='input-verify' type='number' placeholder-class='plas' placeholder='验证码'></input>
       <button class='verify-btn' disabled='{{disabled}}' bindtap="getVerificationCode">{{time}}</button>
   </view>
 
-  <view id="btn" class="click" disabled="{{is_disabled}}" bindtap="login">立即验证</view>
-
+ 
   <!-- <view class="cha" bindtap='signup'>
     <text class="no">还没有账号？点我注册</text>
   </view> -->
@@ -24,4 +18,9 @@
   <view class="bottom">
   <image class="xjtulogo" src="/images/xjtulogo.jpg"></image>
   </view>
+
+  
+  <view id="btn" class="click" disabled="{{is_disabled}}" bindtap="login">立即验证</view>
+
+
 </view>

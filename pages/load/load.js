@@ -30,6 +30,12 @@ Page({
             wx.hideToast()
             getApp().globalData.user.openid = res.data.data.openid;
           }
+          else if(res.data["error_code"] == 1){
+            //未认证
+            wx.redirectTo({
+              url:  '/pages/login/login',
+            })
+          }
           else if(res.data["error_code"] == 3){
             wx.showToast({
               title: '你已经进入黑名单！！！      申诉：xjtutreehole@qq.com',
@@ -37,12 +43,6 @@ Page({
               duration:1000000,
             })
             return
-          }
-          else if(res.data["error_code"] == 1){
-            //未认证
-            wx.redirectTo({
-              url:  '/pages/login/login',
-            })
           }
           else{
             wx.hideToast()
@@ -55,7 +55,7 @@ Page({
           wx.showToast({
             title: '请求失败，重试中。。',
             icon:'none',
-            duration:'15000'
+            duration:'150000'
           })
           that.onLoad()
         }

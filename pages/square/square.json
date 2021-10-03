@@ -3,5 +3,9 @@
   "navigationBarTitleText": "树洞广场",
   "navigationBarTextStyle": "black",
   "enablePullDownRefresh": true ,
-  "backgroundTextStyle": "dark"
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "searchbar": "../../components/searchbar/searchbar"
+  }
+  
 }

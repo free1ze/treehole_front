@@ -1,8 +1,13 @@
 <!--pages/square/square.wxml-->
 <wxs src='/wxs/time.wxs' module="tools"/>
 
+<searchbar
+  placeholder=""
+  bind:handleSearch="handleSearch"
+></searchbar>
+
 <!--pages/search/search.wxml-->
-<view class="searchbox">
+<!-- <view class="searchbox">
   <view class="totsearch">
   <view class="weui-search-bar">
   <view class="weui-search-bar__form">
@@ -22,7 +27,7 @@
       <view class="tag" bindtap="mode3" style="{{showmode==3? 'background-color: #1aa3ff': ''}}">与我相关</view>
    </view>
 </view>
-</view>
+</view> -->
 
 <!-- <view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
   <view class="search-form round">
