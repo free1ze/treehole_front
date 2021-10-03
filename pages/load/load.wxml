@@ -1,8 +1,8 @@
 
 <!-- 需要使用 button 来授权登录 -->
-<!-- <view  class='mai'> -->
-
-
+<view  class='mai'>
+  <image class='img' src="/images/purpose.png" bindtap="comment" data-_id='{{item._id}}'></image>
+<view class='text'>西交树洞      xjtutreehole@qq.com</view>
 
   <!-- <button class='but' wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile">授权登录</button> -->
   <!-- <view class="topofpage">
@@ -14,7 +14,5 @@
   <!-- <view class='med'>————— · —————</view> -->
   <!-- <view class='txt'>\t\t\t欢迎使用西交树洞！我们需要一些您的公开信息。请放心，树洞会妥善保管您的信息~</view> -->
 
-<!-- </view> -->
+</view>
 
-<image class="mai" src="/images/background.png" mode="heightFix">
-</image>
