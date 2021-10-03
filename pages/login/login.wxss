@@ -4,6 +4,7 @@ page {
   left: 0rpx;
   right: 0rpx;
   background-color: white;
+  overflow: hidden;
 }
 
 .first {
