@@ -156,9 +156,6 @@ Page({
   },
 
   first_select: function() {
-    // wx.redirectTo({
-    //   url: '../square/square'
-    // })
   },
 
   second_select: function() {

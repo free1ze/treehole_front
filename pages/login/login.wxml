@@ -1,13 +1,16 @@
 <view class="background">
   <view class="first">
-      <input id="name" placeholder="netid" placeholder-class='plas' class='inputs' bindinput='usernameInput' type="text" />
+      <input id="name" placeholder="netid" placeholder-class='plas' class='inputs' bindinput='netidInput' type="text" />
   </view>
   <view class="second">
       <!-- <input id="psw" placeholder="验证码" placeholder-class='plas' class='inputs' type="password" bindinput='passwordInput' /> -->
-      <input class='input-verify' type='number' placeholder-class='plas' placeholder='验证码'></input>
+      <input class='input-verify' type='number' placeholder-class='plas' placeholder='验证码' bindinput='codeInput'></input>
       <button class='verify-btn' disabled='{{disabled}}' bindtap="getVerificationCode">{{time}}</button>
   </view>
-
+  <view class="third">
+    <view class="hint" bindtap="hint">遇到问题？</view>
+    <view class="skip" bindtap="skip" wx:if="{{ifallowskipauth}}">跳过验证</view>
+  </view>
  
   <!-- <view class="cha" bindtap='signup'>
     <text class="no">还没有账号？点我注册</text>

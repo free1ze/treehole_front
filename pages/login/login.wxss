@@ -127,3 +127,29 @@ page {
   width: 369rpx;
   height: 99rpx;
 }
+
+.third{
+  width: 90%;
+  height: 40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: left;
+  margin-top: 30rpx;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.hint{
+  text-decoration-line: underline;
+  font-size: 20rpx;
+
+}
+
+.skip{
+  color: #003B90;
+  text-decoration-line: underline;
+  font-size: 20rpx;
+  margin-left: 70%;
+  
+}
