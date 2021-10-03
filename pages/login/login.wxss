@@ -54,10 +54,11 @@ page {
   margin-top: 100rpx;
   margin-left: 5%;
   margin-right: 5%;
-  background-color: #F76968;
+  background-color: #003B90;
   text-align: center;
   color: white;
   font-size: 33rpx;
+  border-radius: 20rpx;
 }
 
 .cha {
@@ -79,4 +80,32 @@ page {
 .sendbag{
   height: 100%;
   width: 30%;
+}
+
+.input-verify{
+  width: 67%;
+  margin-left: 10rpx;
+  float: left;
+}
+
+.verify-btn{
+  width: 30%;
+  height: 65rpx;
+  float: right;
+  line-height: 65rpx;
+  background: #fff;    
+  color: #5FD79D;
+  margin: 20rpx 10rpx;
+  font-size: 28rpx;
+}
+.bottombackground{
+  margin-top: 20rpx;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.picbackground{
+  width: 692rpx;
+  height: 400rpx;
 }

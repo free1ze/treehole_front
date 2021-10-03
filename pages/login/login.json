@@ -1,6 +1,6 @@
 {
   "usingComponents": {},
   "navigationBarBackgroundColor": "#F2F2F2",
-  "navigationBarTitleText": "验证",
+  "navigationBarTitleText": "身份验证",
   "navigationBarTextStyle": "black"
 }
