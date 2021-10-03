@@ -341,7 +341,7 @@ page{
   background: #F7F7F7;
   border-radius: 8rpx;
   width: 612rpx;
-  min-height: 40rpx;
+  min-height: 60rpx;
   max-height: 120rpx;
   border-width: 10rpx 20rpx;
   border-style: solid;
@@ -354,13 +354,16 @@ page{
 }
 
 .release .submit {
-  width: 138rpx;
+  margin-left: 15rpx;
+  width: 120rpx;
   font-family: PingFangSC-Regular;
-  font-size: 32rpx;
-  color: #1B9AF4;
+  font-size: 28rpx;
+  color: white;
+  background-color: #1B9AF4;
   text-align: center;
   height: 64rpx;
   line-height: 64rpx;
+  border-radius: 20rpx;
 }
 
 .input_null {
