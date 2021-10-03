@@ -21,4 +21,7 @@
   <view class="bottombackground">
   <image class="picbackground" src="/images/miniBg1.png"></image>
   </view>
+  <view class="bottom">
+  <image class="xjtulogo" src="/images/xjtulogo.jpg"></image>
+  </view>
 </view>
