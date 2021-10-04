@@ -1,6 +1,5 @@
 // pages/square/square.js
-let SCREEN_WIDTH = 750
-let RATE = wx.getSystemInfoSync().screenHeight / wx.getSystemInfoSync().screenWidth
+
 Page({
 
   /**
@@ -25,8 +24,7 @@ Page({
     startwindow: true,
     isloadfinished:true,
     showmode:1,  //search tag
-    // ScreenTotalW: SCREEN_WIDTH,
-    // ScreenTotalH: SCREEN_WIDTH * RATE * 5,
+    PLATFORM: "ios",
   },
   
   bindTextAreaBlur: function(e) {
@@ -213,6 +211,7 @@ Page({
     })
     this.setData({
       startwindow: true,
+      PLATFORM : wx.getSystemInfoSync().platform
     })
     }
 

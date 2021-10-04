@@ -68,7 +68,6 @@
   font-size: 22rpx;
   /* color: #797979; */
   border-radius: 30rpx;
-  text-align: center;
   color: white;
   padding-top: 9rpx;
 }
@@ -282,18 +281,4 @@
 
 .imgholder{
   width: 100%;
-}
-
-.searchplace{
-  padding-top: 10rpx;
-  position: fixed;
-  top: 0;
-  z-index: 999;
-  width: 100%;
-  height: 100rpx;
-}
-
-.searchbar{
-  margin-top: 10rpx;
-
 }

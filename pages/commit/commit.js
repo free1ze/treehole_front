@@ -117,24 +117,52 @@ Page({
   },
 
   tag1:function(){
-    this.setData({
-      tag:1
-    })
+    if(this.data.tag == 1){
+      this.setData({
+        tag:0
+      })
+    }
+    else{
+      this.setData({
+        tag:1
+      })
+    }
   },
   tag2:function(){
-    this.setData({
-      tag:2
-    })
+    if(this.data.tag == 2){
+      this.setData({
+        tag:0
+      })
+    }
+    else{
+      this.setData({
+        tag:2
+      })
+    }
   },
   tag3:function(){
-    this.setData({
-      tag:3
-    })
+    if(this.data.tag == 3){
+      this.setData({
+        tag:0
+      })
+    }
+    else{
+      this.setData({
+        tag:3
+      })
+    }
   },
   tag4:function(){
-    this.setData({
-      tag:4
-    })
+    if(this.data.tag == 4){
+      this.setData({
+        tag:0
+      })
+    }
+    else{
+      this.setData({
+        tag:4
+      })
+    }
   },
   
 
