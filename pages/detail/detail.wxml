@@ -16,6 +16,7 @@
           <text class="tag" style="background-color: #9999ff" wx:if= "{{item.tag ==2}}">交友</text>
           <text class="tag" style="background-color: #00cc44" wx:if= "{{item.tag ==3}}">寻物</text>
           <text class="tag" style="background-color: #ffaf99" wx:if= "{{item.tag ==4}}">吐槽</text>
+          <text class="tag" style="background-color: #ffd700" wx:if= "{{item.tag ==5}}">置顶</text>
         </view>
         <view class='tel'>
           <text class='showtime'>{{tools.timeFormat(item.time)}}</text>
