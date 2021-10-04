@@ -50,7 +50,9 @@
   </view>
 </block> -->
 <block wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
-  <view class='box' data-_id='{{item._id}}' >
+  <view class='box' data-_id='{{item._id}}' 
+  bindtap="onTouch"
+  style="background: {{item.istouch==ture?  '#FFFFFF' : '#F3F3F3' }};">
     <view class='firstblock'  bindtap="comment" data-_id='{{item._id}}'>
       <view class='person'>
         <view class='name'>

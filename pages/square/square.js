@@ -173,16 +173,28 @@ Page({
 
     comment: function(e){
       //这里要用currentTarget而不是target！！！
+      var that = this
+      var oldlist = this.data.list
+      var newlist = this.data.list
       var _id = e.currentTarget.dataset._id
+
+      for(var i=0;i<newlist.length;i++){
+        if (newlist[i]._id == _id){
+          newlist[i].istouch = true
+          that.setData({
+            list: newlist,
+            last_visit_msg_id : _id,
+          })
+        }
+      }
       wx.navigateTo({
         url: '/pages/detail/detail' + 
               '?message_id=' + _id,
+      },()=>{
+        that.setData({
+          list: oldlist
+        })
       })
-      this.setData({
-        last_visit_msg_id : _id,
-      })
-      // console.log('/pages/detail/detail' + 
-      // '?message_id=' + _id )
     },
 
   
