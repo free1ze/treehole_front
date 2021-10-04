@@ -1,10 +1,13 @@
 <!--pages/square/square.wxml-->
 <wxs src='/wxs/time.wxs' module="tools"/>
 
-<searchbar
+<view class="searchplace">
+  <searchbar
+  class="searchbar"
   placeholder=""
   bind:handleSearch="handleSearch"
-></searchbar>
+  ></searchbar>
+</view>
 
 <!--pages/search/search.wxml-->
 <!-- <view class="searchbox">
