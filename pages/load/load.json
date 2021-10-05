@@ -1,7 +1,8 @@
 {
   "usingComponents": {},
   "navigationBarBackgroundColor":"#F2F2F2",
-  "navigationBarTitleText": "微信授权",
+  "navigationBarTitleText": "",
   "navigationBarTextStyle":"black",
+  "navigationBarStyle":"custom",
   "enablePullDownRefresh": false
 }
