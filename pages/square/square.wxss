@@ -192,20 +192,21 @@
 .searchbox{
   background-color: #FBEDEC;
   width: 100%;
-  height: 150rpx;
+  height: 200rpx;
   align-items: center;
   justify-content: center;
+  z-index: 1024;
 }
 
 .totsearch{
   background-color:  #FFFFFF;
   display: flex;
   flex-direction: column;
-  position: fixed;
-  top: 0rpx;
-  z-index: 1;
-  width: 90%;
-  margin-left: 5%;
+  position: absolute;
+  top: 0;
+  z-index: 1024;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
   border-radius: 20rpx;
 }
 
