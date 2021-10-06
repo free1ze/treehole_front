@@ -325,6 +325,6 @@
 
 .bk_bottom{
   height: 2000rpx;
-  width: 1000rpx;
+  width: 100%;
   background-color: #FBEDEC;
 }

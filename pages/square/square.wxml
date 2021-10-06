@@ -32,7 +32,7 @@
 
 
 <import src="square.skeleton.wxml"/>
-<template is="skeleton" wx:if="{{list.length == 0}}" />
+<template is="skeleton" wx:if="{{list.length == 0&&showmode!=3}}" />
 <!-- <swiper style="height:{{ScreenTotalH}}rpx" id="swiper"> 
 <swiper-item> -->
 <view class="fatherview">
@@ -118,16 +118,18 @@
   </view>
 </block>
 </view>
-<view class="bk">
-</view>
-<view class="bkpic">
-  <view wx:if="{{showmode==3&&(list.length==0)}}" class="box">
-    <image class="nocontentpic" src="/images/nocomment.png"></image>
-    <text class="nocontenttxt">暂无内容，等你来喔~</text>
+<view wx:if="{{list.length==0 && showmode==3}}">
+  <view class="bk">
   </view>
-</view>
-<view class="bk_bottom">
-</view>
+  <view class="bkpic">
+    <view wx:if="{{showmode==3&&(list.length==0)}}" class="box">
+      <image class="nocontentpic" src="/images/nocomment.png"></image>
+      <text class="nocontenttxt">暂无内容，等你来喔~</text>
+    </view>
+  </view>
+  <view class="bk_bottom">
+  </view>
+  </view>
 </view>
 <!-- </swiper-item>
 </swiper> -->

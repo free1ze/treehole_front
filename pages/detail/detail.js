@@ -149,6 +149,9 @@ Page({
         if(list[i].islike == 1){
           list[i].islike = 0;
           list[i].likes--;
+          that.setData({
+            list: list
+          })
           wx.request({
             url: getApp().globalData.url + '/dislike',
             method: 'POST',
@@ -164,7 +167,9 @@ Page({
         else{
           list[i].islike = 1;
           list[i].likes++;
-
+          that.setData({
+            list: list
+          })
           wx.request({
             url: getApp().globalData.url + '/like',
             method: 'POST',
@@ -177,9 +182,6 @@ Page({
             },
           })
         }
-        that.setData({
-          list: list
-        })
       }
     }
   },
@@ -195,6 +197,9 @@ Page({
         if(comment_list[i].islike == 1){
           comment_list[i].islike = 0;
           comment_list[i].likes--;
+          that.setData({
+            comment: comment_list
+          })
           wx.request({
             url: getApp().globalData.url + '/dislike',
             method: 'POST',
@@ -209,6 +214,9 @@ Page({
         else{
           comment_list[i].islike = 1;
           comment_list[i].likes++;
+          that.setData({
+            comment: comment_list
+          })
 
           wx.request({
             url: getApp().globalData.url + '/like',
@@ -222,9 +230,6 @@ Page({
             },
           })
         }
-        that.setData({
-          comment: comment_list
-        })
       }
     }
   },
@@ -347,7 +352,7 @@ Page({
       method: "POST",
       data: {
         message_id: msg_id,
-        openid: getApp().globalData.openid,
+        openid: getApp().globalData.user.openid,
       },
       success(res){
         console.log(res.data)
@@ -363,9 +368,11 @@ Page({
       method: "POST",
       data: {
         message_id: msg_id,
+        openid: getApp().globalData.user.openid,
+        loaded:0,
       },
       success(res){
-        console.log(res)
+        // console.log("getcomment",res)
         that.setData({
           comment: res.data.data,
         })
@@ -386,6 +393,7 @@ Page({
       data: {
         message_id: msg_id,
         loaded: that.data.comment.length,
+        openid: getApp().globalData.user.openid
       },
       success(res){
         console.log(res)
@@ -413,8 +421,6 @@ Page({
         keyboardHeight: res.height
       })
     })
-    console.log("height")
-    console.log(this.data.keyboardHeight)
   },
 
   /**
@@ -461,10 +467,11 @@ Page({
       data: {
         message_id: that.data.message_id,
         loaded: that.data.comment.length,
+        openid: getApp().globalData.user.openid,
       },
       success(res){
         // 不能使用that.data.list = res.data.data，不会触发渲染
-        console.log(res.data)
+        console.log(res)
         that.setData({
           comment: that.data.comment.concat(res.data.data)
         },()=>{
