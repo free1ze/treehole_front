@@ -1,15 +1,15 @@
 <!--pages/square/square.wxml-->
 <wxs src='/wxs/time.wxs' module="tools"/>
 
-<view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px" wx:if="{{PLATFORM == 'ios'}}">
+<!-- <view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px" wx:if="{{PLATFORM != 'ios'}}">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
     <input type="text" placeholder="搜树洞" confirm-type="search" bindinput="searchIcon"></input>
   </view>
-</view>
+</view> -->
 
-<view wx:else>
-  <view class="totsearch">
+<view class="totsearch">
+  <view class="searchbox">
   <view class="weui-search-bar">
   <view class="weui-search-bar__form">
       <view class="weui-search-bar__box">
@@ -51,11 +51,11 @@
       <view class='person'>
         <view class='name'>
           <text class='showname'># {{item.id}}</text>
-          <text class="tag" style="background-color: #ffaf99" wx:if= "{{item.tag ==1}}">情感</text>
-          <text class="tag" style="background-color: #9999ff" wx:if= "{{item.tag ==2}}">交友</text>
-          <text class="tag" style="background-color: #00cc44" wx:if= "{{item.tag ==3}}">寻物</text>
-          <text class="tag" style="background-color: #ff9900" wx:if= "{{item.tag ==4}}">吐槽</text>
-          <text class="tag" style="background-color: #ffd700" wx:if= "{{item.tag ==5}}">置顶</text>
+          <text class="ttag" style="background-color: #ffaf99" wx:if= "{{item.tag ==1}}">情感</text>
+          <text class="ttag" style="background-color: #9999ff" wx:if= "{{item.tag ==2}}">交友</text>
+          <text class="ttag" style="background-color: #00cc44" wx:if= "{{item.tag ==3}}">寻物</text>
+          <text class="ttag" style="background-color: #ff9900" wx:if= "{{item.tag ==4}}">吐槽</text>
+          <text class="ttag" style="background-color: #ffd700" wx:if= "{{item.tag ==5}}">置顶</text>
         </view>
         <view class='tel'>
           <text class='showtime'>{{tools.timeFormat(item.time)}}</text>
@@ -117,12 +117,20 @@
       </div> -->
   </view>
 </block>
-
+</view>
+<view class="bk">
+</view>
+<view class="bkpic">
+  <view wx:if="{{showmode==3&&(list.length==0)}}" class="box">
+    <image class="nocontentpic" src="/images/nocomment.png"></image>
+    <text class="nocontenttxt">暂无内容，等你来喔~</text>
+  </view>
+</view>
+<view class="bk_bottom">
 </view>
 </view>
 <!-- </swiper-item>
 </swiper> -->
-
 <include src="/pages/bottom_menu/bottom_menu" />
 
 
