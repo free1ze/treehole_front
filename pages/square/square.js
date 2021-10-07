@@ -99,7 +99,11 @@ Page({
             showmode: 4,
             isloadfinished:true
           },()=>{
-            wx.hideToast()
+            wx.showToast({
+              title: '搜索完成~',
+              icon: 'none',
+              duration:500,
+            })
           })
         }
       },
@@ -506,7 +510,9 @@ Page({
     }else if(that.data.showmode == 3){
       this.onPullDownRefreshGetNewArtical(that, 3)  
     }else if(that.data.showmode == 4){
-      wx.hideLoading()
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
+      wx.hideToast();
       return
     }
   

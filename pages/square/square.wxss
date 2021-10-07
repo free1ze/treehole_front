@@ -4,6 +4,8 @@
 
 .page{
   background-color: #FBEDEC;
+  position: fixed;
+  left:0; top:0; bottom:0; right:0;
 }
 
 .fatherview{
@@ -207,6 +209,16 @@
   position: fixed;
   top: 0;
   z-index: 1024;
+  border-radius: 20rpx;
+}
+
+.totsearchback{
+  width: 100%;
+  height:630rpx;
+  background-color:  #FBEDEC;
+  position: relative;
+  top: 0;
+  z-index: -1;
   border-radius: 20rpx;
 }
 

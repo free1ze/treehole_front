@@ -3,6 +3,6 @@
   "navigationBarTitleText": "树洞广场",
   "navigationBarTextStyle": "black",
   "enablePullDownRefresh": true ,
-  "backgroundTextStyle": "dark"
-  
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#FBEDEC"
 }
