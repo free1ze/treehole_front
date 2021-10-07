@@ -150,6 +150,13 @@ page {
   color: #003B90;
   text-decoration-line: underline;
   font-size: 20rpx;
-  margin-left: 70%;
-  
+  margin-left: 70%; 
+}
+
+.email{
+  color: #666666;
+  font-size: 28rpx;
+  margin-left: 15rpx;
+  margin-right: 20rpx;
+  font-family: PingFangSC-regular;
 }

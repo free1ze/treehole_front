@@ -1,6 +1,7 @@
 <view class="background">
   <view class="first">
       <input id="name" placeholder="netid" placeholder-class='plas' class='inputs' bindinput='netidInput' type="text" />
+      <text class="email">@stu.xjtu.edu.cn  </text>
   </view>
   <view class="second">
       <!-- <input id="psw" placeholder="验证码" placeholder-class='plas' class='inputs' type="password" bindinput='passwordInput' /> -->
