@@ -8,7 +8,6 @@ Page({
   onLoad() {
     var that = this
     var user_code 
-    wx.hideTabBar()
 
     wx.login({
       success(res){

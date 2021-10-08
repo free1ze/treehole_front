@@ -8,7 +8,7 @@ Page({
   data: {
     htmlText:
     '<h2>\
-    Q&A\
+    遇到问题？\
   </h2>\
   <p>\
     <hr />\
@@ -18,13 +18,32 @@ Page({
   ● 验证码发送到哪里？\
   </h3>\
   <p>\
-  验证码发送到学校预留的邮箱，网页输入“你的netid”+“@stu.xjtu.edu.cn”登录邮箱查看。\
+  验证码发送到学校邮箱，请复制链接，用浏览器登录邮箱查看。\
+  \n验证码发送后，学校邮箱地址会自动复制到剪切板里。\
+  \n学校邮箱：\
+  <span style="color:#4C33E5;">https://stu.xjtu.edu.cn/</span>\
+  <\p>\
+  <h3>\
+  ● 忘记netid？\
+  </h3>\
+  <p>\
+  请使用移动交大app查看netid。\
+    \n• 1\
+    <img src="/images/s1.jpg" title="img" alt="img" /> \
+    • 2\
+    <img src="/images/s2.jpg" title="img" alt="img" /> \
+    • 3\
+    <img src="/images/s3.jpg" title="img" alt="img" /> \
+    • 4\
+    <img src="/images/s4.jpg" title="img" alt="img" /> \
+    • 5\
+    <img src="/images/s5.jpg" title="img" alt="img" /> \
   <\p>\
   <h3>\
   ● 收不到验证码？\
   </h3>\
   <p>\
-  请尽量填写netid而不是学号，因为这会导致邮件被屏蔽。除此之外，您可以尝试检查邮件是否被屏蔽，并修改邮箱的屏蔽等级。\
+  请填写netid而不是学号，因为这会导致邮件被屏蔽。除此之外，您可以尝试检查垃圾邮件，并修改邮箱的屏蔽等级。\
   <\p>\
   <h3>\
   ● 我不是本校学生？\
@@ -36,7 +55,7 @@ Page({
   ● 其他问题？\
   </h3>\
   <p>\
-  请联系管理员 xjtutreehole@qq.com \
+  请联系管理员 xjtutreehole@qq.com \n您的问题会很快得到响应。\
   <\p>\
   <br\>\
   <br\>\
@@ -71,4 +90,19 @@ Page({
   onUnload: function () {
 
   },
+
+  copy1: function(){
+    wx.setClipboardData({
+      data: 'https://stu.xjtu.edu.cn', 
+      success: function () {
+      	// 添加下面的代码可以复写复制成功默认提示文本`内容已复制` 
+        wx.showToast({
+          title: '已复制邮箱地址，请用浏览器打开',
+          duration: 3000,
+          icon:'none'
+        })
+      }
+    })
+},
+
 })

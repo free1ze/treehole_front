@@ -43,6 +43,7 @@ Page({
       })
       return
     }
+    that.copy1()
     wx.request({
       url: getApp().globalData.url + '/send_code',
       method:'POST',
@@ -126,6 +127,20 @@ Page({
   codeInput: function (e) {
     this.data.code = e.detail.value
   },
+
+  copy1: function(){
+    wx.setClipboardData({
+      data: 'https://stu.xjtu.edu.cn', 
+      success: function () {
+      	// 添加下面的代码可以复写复制成功默认提示文本`内容已复制` 
+        wx.showToast({
+          title: '已复制邮箱地址，请用浏览器打开',
+          duration: 500,
+          icon:'none'
+        })
+      }
+    })
+},
 
   /**
    * 生命周期函数--监听页面加载
