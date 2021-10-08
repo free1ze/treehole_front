@@ -98,6 +98,7 @@ page{
 }
 
 .content{
+  margin-left: 4%;
   font-size: 30rpx;
   color: #101010;
   word-break: break-all;
@@ -165,7 +166,7 @@ page{
 .commentfirstblock{
   height: 60rpx;
   width: 92%;
-  margin-left: 4%;
+  margin-left: 3%;
   margin-right: 4%;
   display: flex;
   justify-content: flex-start;
@@ -174,7 +175,7 @@ page{
 
 .commentcontentblock{
   margin-top: 2%;
-  margin-left: 8%;
+  margin-left: 4%;
   margin-right: 8%;
   padding-bottom: 10rpx;
   margin-bottom: 4%;
@@ -202,6 +203,7 @@ page{
 }
 
 .commenttime{
+  margin-left: 0;
   font-size: 25rpx;
   color: #5E5D5D;
   font-family: PingFangSC-regular;
@@ -226,6 +228,7 @@ page{
   font-size: 29rpx;
   color: #101010;
   word-break: break-all;
+  margin-left: 3%;
 }
 
 .replyview{
@@ -300,7 +303,7 @@ page{
 
 .commentmore{
   margin-right: 75%;
-  margin-left: 2%;
+  margin-left: 4%;
   width: 40rpx;
   height: 40rpx;
 }
