@@ -96,7 +96,9 @@
       </view>
     </view>
     <view class='commentcontentblock' >
-      <text class='commentcontent'>{{item.content}}</text>
+      <view class="commentcontentbk">
+        <text class='commentcontent'>{{item.content}}</text>
+      </view>
     </view>
     <view class='bottom'>
       <image class='commentmore' src="/images/more.png" data-openid='{{item.openid}}' bindtap="onTapMore" data-_id='{{item._id}}'></image>

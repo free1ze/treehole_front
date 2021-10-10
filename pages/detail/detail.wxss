@@ -107,8 +107,7 @@ page{
 .thirdblock{
   height: 50rpx;
   margin-top: 10rpx;
-  margin-left: 4%;
-  margin-right: 4%;
+  margin-right: 0;
   display: flex;
   justify-content: flex-end;
 }
@@ -165,12 +164,10 @@ page{
 
 .commentfirstblock{
   height: 60rpx;
-  width: 92%;
-  margin-left: 3%;
-  margin-right: 4%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-direction: row;
 }
 
 .commentcontentblock{
@@ -186,6 +183,7 @@ page{
   height: 100rpx;
   margin-left: 30rpx;
   margin-top: 5rpx;
+  margin-right: 200rpx;
 }
 
 .commentbox{
@@ -213,6 +211,7 @@ page{
   display: flex;
   justify-content: flex-start;
   margin-top: 5rpx;
+  margin-left: 5%;
   flex-direction: row;
 }
 
@@ -224,11 +223,14 @@ page{
   flex-direction: row;
 }
 
+.commentcontentbk{
+  margin-left: 3%;
+}
+
 .commentcontent{
   font-size: 29rpx;
   color: #101010;
   word-break: break-all;
-  margin-left: 3%;
 }
 
 .replyview{
@@ -302,7 +304,7 @@ page{
 }
 
 .commentmore{
-  margin-right: 75%;
+  margin-right: 80%;
   margin-left: 4%;
   width: 40rpx;
   height: 40rpx;
