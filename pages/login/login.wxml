@@ -10,7 +10,7 @@
   </view>
   <view class="third">
     <view class="hint" bindtap="hint">遇到问题？</view>
-    <view class="skip" bindtap="skip" wx:if="{{ifallowskipauth}}">跳过验证</view>
+    <view class="skip" bindtap="skip" wx:if="{{ifallowskipauth==true}}">跳过验证</view>
   </view>
  
   <!-- <view class="cha" bindtap='signup'>

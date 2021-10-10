@@ -135,7 +135,7 @@ Page({
       	// 添加下面的代码可以复写复制成功默认提示文本`内容已复制` 
         wx.showToast({
           title: '已复制邮箱地址，请用浏览器打开',
-          duration: 500,
+          duration: 2000,
           icon:'none'
         })
       }
@@ -146,8 +146,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     this.setData({
-      ifallowskipauth: options.ifallowskipauth
+      ifallowskipauth: (options.ifallowskipauth == "true" ? true : false)
     })
   },
 

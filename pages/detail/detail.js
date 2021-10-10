@@ -68,7 +68,7 @@ Page({
     }
     //这里应该处理异步，不过不知道为什么没有BUG，所以没管
     this.setData({
-      commentValue: ""
+      detail: ""
     })
   },
 
