@@ -10,7 +10,7 @@ Page({
     netid: "",
     code: "",
     time: '获取验证码', //倒计时 
-    currentTime: 60,
+    currentTime: 20,
     ifallowskipauth: false,
   },
 //控制倒计时
@@ -26,7 +26,7 @@ Page({
         clearInterval(interval)
         that.setData({
           time: '重新发送',
-          currentTime:60,
+          currentTime:20,
           disabled: false   
         })
       }
@@ -132,11 +132,12 @@ Page({
     wx.setClipboardData({
       data: 'https://stu.xjtu.edu.cn', 
       success: function () {
-      	// 添加下面的代码可以复写复制成功默认提示文本`内容已复制` 
-        wx.showToast({
-          title: '已复制邮箱地址，请用浏览器打开',
-          duration: 2000,
-          icon:'none'
+        // 添加下面的代码可以复写复制成功默认提示文本`内容已复制` 
+        wx.hideToast()
+        wx.showModal({
+          confirmText:'知道了',
+          content:'已复制邮箱地址，请用浏览器打开。\r\n遇到问题请点击左下角',
+          showCancel: false,
         })
       }
     })

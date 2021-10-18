@@ -26,12 +26,14 @@ Page({
           if(res.data["error_code"] == 0){
             that.next();
             getApp().globalData.user.openid = res.data.data.openid;
+            getApp().globalData.user.isverified = true;
           }
           else if(res.data["error_code"] == 1){
             //未认证
             wx.redirectTo({
               url:  '/pages/login/login' + '?ifallowskipauth=' + res.data.ifallowskipauth,
             })
+            getApp().globalData.user.isverified = false;
           }
           else if(res.data["error_code"] == 3){
             wx.showToast({

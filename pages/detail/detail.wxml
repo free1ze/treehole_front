@@ -75,10 +75,7 @@
 <view class="commentbox">
   <block wx:for="{{comment}}" wx:for-item="item" wx:for-index="id">
   <view>
-    <view class="replyview" wx:if="{{item.reply_to}}">
-      <!-- <text class="replytxt" wx:if="{{item.reply_to}}"></text> -->
-      <text class="replytxt"> 回复: {{tools.contentFormat(item.reply_to)}}</text>
-    </view>
+
     <view class='commentfirstblock' >
       <view class='commentperson'>
         <view class='commentname'>
@@ -99,6 +96,10 @@
       <view class="commentcontentbk">
         <text class='commentcontent'>{{item.content}}</text>
       </view>
+    </view>
+    <view class="replyview" wx:if="{{item.reply_to}}">
+      <!-- <text class="replytxt" wx:if="{{item.reply_to}}"></text> -->
+      <text class="replytxt"> 回复: {{tools.contentFormat(item.reply_to)}}</text>
     </view>
     <view class='bottom'>
       <image class='commentmore' src="/images/more.png" data-openid='{{item.openid}}' bindtap="onTapMore" data-_id='{{item._id}}'></image>

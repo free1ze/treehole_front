@@ -15,11 +15,11 @@ var timeFormat = function (timestamp) {
 
 //这里输入被回复的内容
 var contentFormat = function (content) {
-    if(content.length<10){
+    if(content.length<15){
       return content;
     }
     else{
-      return content.substring(0,8)+"..."
+      return content.substring(0,14)+"..."
     }
   }
   

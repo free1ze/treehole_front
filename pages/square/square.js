@@ -161,9 +161,16 @@ Page({
   },
 
   second_select: function() {
-    wx.navigateTo({
-      url: '/pages/commit/commit'
-    })
+    if(getApp().globalData.user.isverified == true){
+      wx.navigateTo({
+        url: '/pages/commit/commit'
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+    }
   },
 
   third_select: function() {

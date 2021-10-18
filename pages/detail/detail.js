@@ -42,20 +42,33 @@ Page({
   },
 
   reply0:function(e){
-
-    this.setData({
-      message_id: e.target.dataset.message_id,
-      reply_type:0,
-      releaseFocus:true,
-    })
+    if(getApp().globalData.user.isverified == true){
+      this.setData({
+        message_id: e.target.dataset.message_id,
+        reply_type:0,
+        releaseFocus:true,
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+    }
   },
   reply1:function(e){
-    this.setData({
-      message_id: e.target.dataset.message_id,
-      reply_to: e.target.dataset.reply_to,
-      reply_type:1,
-      releaseFocus:true,
-    })
+    if(getApp().globalData.user.isverified == true){
+      this.setData({
+        message_id: e.target.dataset.message_id,
+        reply_to: e.target.dataset.reply_to,
+        reply_type:1,
+        releaseFocus:true,
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+    }
   },
 
   reply_by_type: function(e){
