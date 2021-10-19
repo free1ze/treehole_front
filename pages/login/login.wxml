@@ -5,7 +5,7 @@
   </view>
   <view class="second">
       <!-- <input id="psw" placeholder="验证码" placeholder-class='plas' class='inputs' type="password" bindinput='passwordInput' /> -->
-      <input class='inputs' type='number' placeholder-class='plas' placeholder='邮箱' bindinput='emailInput'></input>
+      <input class='inputs' type='text' placeholder-class='plas' placeholder='邮箱' bindinput='emailInput'></input>
   </view>
   <view class="second">
       <!-- <input id="psw" placeholder="验证码" placeholder-class='plas' class='inputs' type="password" bindinput='passwordInput' /> -->

@@ -16,10 +16,17 @@ Page({
     })
   },
 
-  second_select: function () {
-    wx.navigateTo({
-      url: '../commit/commit'
-    })
+  second_select: function() {
+    if(getApp().globalData.user.isverified == true){
+      wx.navigateTo({
+        url: '/pages/commit/commit'
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+    }
   },
 
   third_select: function () {

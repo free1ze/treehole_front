@@ -41,7 +41,7 @@ Page({
       wx.showToast({
         title: '请输入学号~',
         icon:'none',
-        duration: 500,
+        duration: 1200,
       })
       return
     }
@@ -49,7 +49,7 @@ Page({
       wx.showToast({
         title: '请输入邮箱~',
         icon:'none',
-        duration: 500,
+        duration: 1200,
       })
       return
     }
@@ -67,7 +67,7 @@ Page({
           wx.showToast({
             title: '未知错误',
             icon: 'none',
-            duration: 500,
+            duration: 1200,
           })
         }
       }
@@ -86,7 +86,7 @@ Page({
       wx.showToast({
         title: '请输入学号~',
         icon:'none',
-        duration: 500,
+        duration: 1200,
       })
       return
     }
@@ -94,7 +94,7 @@ Page({
       wx.showToast({
         title: '请输入验证码~',
         icon:'none',
-        duration: 500,
+        duration: 1200,
       })
       return
     }
@@ -102,7 +102,7 @@ Page({
       wx.showToast({
         title: '请输入邮箱~',
         icon:'none',
-        duration: 500,
+        duration: 1200,
       })
       return
     }
@@ -122,6 +122,7 @@ Page({
             icon: 'none',
             duration: 1000,
           })
+          getApp().globalData.user.isverified = true;
           setTimeout(() => {
             wx.redirectTo({
               url: '/pages/square/square',
