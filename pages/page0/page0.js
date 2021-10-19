@@ -15,35 +15,10 @@ Page({
   </p>\
   <br />\
   <h3>\
-  ● 验证码发送到哪里？\
-  </h3>\
-  <p>\
-  验证码发送到学校邮箱，请复制链接，用浏览器登录邮箱查看。\
-  \n验证码发送后，学校邮箱地址会自动复制到剪切板里。\
-  \n学校邮箱：\
-  <span style="color:#4C33E5;">https://stu.xjtu.edu.cn/</span>\
-  <\p>\
-  <h3>\
-  ● 忘记netid？\
-  </h3>\
-  <p>\
-  请使用移动交大app查看netid。\
-    \n• 1\
-    <img src="/images/s1.jpg" title="img" alt="img" /> \
-    • 2\
-    <img src="/images/s2.jpg" title="img" alt="img" /> \
-    • 3\
-    <img src="/images/s3.jpg" title="img" alt="img" /> \
-    • 4\
-    <img src="/images/s4.jpg" title="img" alt="img" /> \
-    • 5\
-    <img src="/images/s5.jpg" title="img" alt="img" /> \
-  <\p>\
-  <h3>\
   ● 收不到验证码？\
   </h3>\
   <p>\
-  请填写netid而不是学号，因为这会导致邮件被屏蔽。除此之外，您可以尝试检查垃圾邮件，并修改邮箱的屏蔽等级。\
+  请尝试检查垃圾邮件，并修改邮箱的屏蔽等级。 您也可以选择其它邮箱验证。\
   <\p>\
   <h3>\
   ● 我不是本校学生？\

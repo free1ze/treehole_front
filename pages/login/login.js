@@ -7,8 +7,10 @@ Page({
    */
   data: {
     is_disabled: false,
-    netid: "",
+    stuid: "",
     code: "",
+    phonenumber: "",
+    email:"",
     time: '获取验证码', //倒计时 
     currentTime: 20,
     ifallowskipauth: false,
@@ -35,21 +37,29 @@ Page({
   getVerificationCode: function(){
     var that = this
     console.log(getApp().globalData.user.openid )
-    if(!this.data.netid){
+    if(!this.data.stuid){
       wx.showToast({
-        title: '请输入netid~',
+        title: '请输入学号~',
         icon:'none',
         duration: 500,
       })
       return
     }
-    that.copy1()
+    if(!this.data.email){
+      wx.showToast({
+        title: '请输入邮箱~',
+        icon:'none',
+        duration: 500,
+      })
+      return
+    }
     wx.request({
       url: getApp().globalData.url + '/send_code',
       method:'POST',
       data:{
         openid: getApp().globalData.user.openid,
-        netid: that.data.netid,
+        stuid: that.data.stuid,
+        email: that.data.email,
       },
       success(res){
         console.log(res)
@@ -72,9 +82,9 @@ Page({
 
   login: function () {
     var that = this
-    if(!this.data.netid){
+    if(!this.data.stuid){
       wx.showToast({
-        title: '请输入netid~',
+        title: '请输入学号~',
         icon:'none',
         duration: 500,
       })
@@ -88,13 +98,22 @@ Page({
       })
       return
     }
+    if(!this.data.email){
+      wx.showToast({
+        title: '请输入邮箱~',
+        icon:'none',
+        duration: 500,
+      })
+      return
+    }
     wx.request({
       url: getApp().globalData.url + '/verify',
       method: "POST",
       data: {
         openid: getApp().globalData.user.openid,
-        netid: this.data.netid,
-        code: this.data.code,
+        stuid: that.data.stuid,
+        code: that.data.code,
+        email: that.data.email,
       },
       success(res){
         if(res.data.error_code == 0){
@@ -120,28 +139,36 @@ Page({
     })
     
   },
-  netidInput: function (e) {
-    this.data.netid = e.detail.value
+  stuidInput: function (e) {
+    this.data.stuid = e.detail.value
   },
 
   codeInput: function (e) {
     this.data.code = e.detail.value
   },
 
-  copy1: function(){
-    wx.setClipboardData({
-      data: 'https://stu.xjtu.edu.cn', 
-      success: function () {
-        // 添加下面的代码可以复写复制成功默认提示文本`内容已复制` 
-        wx.hideToast()
-        wx.showModal({
-          confirmText:'知道了',
-          content:'已复制邮箱地址，请用浏览器打开。\r\n遇到问题请点击左下角',
-          showCancel: false,
-        })
-      }
-    })
-},
+  phonenumberInput: function (e) {
+    this.data.phonenumber = e.detail.value
+  },
+  emailInput: function(e){
+    this.data.email = e.detail.value
+  },
+
+
+//   copy1: function(){
+//     wx.setClipboardData({
+//       data: 'https://stu.xjtu.edu.cn', 
+//       success: function () {
+//         // 添加下面的代码可以复写复制成功默认提示文本`内容已复制` 
+//         wx.hideToast()
+//         wx.showModal({
+//           confirmText:'知道了',
+//           content:'已复制邮箱地址，请用浏览器打开。\r\n遇到问题请点击左下角',
+//           showCancel: false,
+//         })
+//       }
+//     })
+// },
 
   /**
    * 生命周期函数--监听页面加载
