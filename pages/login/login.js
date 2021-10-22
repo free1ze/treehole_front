@@ -7,7 +7,7 @@ Page({
    */
   data: {
     is_disabled: false,
-    stuid: "",
+    // stuid: "",
     code: "",
     phonenumber: "",
     email:"",
@@ -37,14 +37,14 @@ Page({
   getVerificationCode: function(){
     var that = this
     console.log(getApp().globalData.user.openid )
-    if(!this.data.stuid){
-      wx.showToast({
-        title: '请输入学号~',
-        icon:'none',
-        duration: 1200,
-      })
-      return
-    }
+    // if(!this.data.stuid){
+    //   wx.showToast({
+    //     title: '请输入学号~',
+    //     icon:'none',
+    //     duration: 1200,
+    //   })
+    //   return
+    // }
     if(!this.data.email){
       wx.showToast({
         title: '请输入邮箱~',
@@ -58,7 +58,7 @@ Page({
       method:'POST',
       data:{
         openid: getApp().globalData.user.openid,
-        stuid: that.data.stuid,
+        // stuid: that.data.stuid,
         email: that.data.email,
       },
       success(res){
@@ -82,14 +82,14 @@ Page({
 
   login: function () {
     var that = this
-    if(!this.data.stuid){
-      wx.showToast({
-        title: '请输入学号~',
-        icon:'none',
-        duration: 1200,
-      })
-      return
-    }
+    // if(!this.data.stuid){
+    //   wx.showToast({
+    //     title: '请输入学号~',
+    //     icon:'none',
+    //     duration: 1200,
+    //   })
+    //   return
+    // }
     if(!this.data.code){
       wx.showToast({
         title: '请输入验证码~',
@@ -111,7 +111,7 @@ Page({
       method: "POST",
       data: {
         openid: getApp().globalData.user.openid,
-        stuid: that.data.stuid,
+        // stuid: that.data.stuid,
         code: that.data.code,
         email: that.data.email,
       },
@@ -140,9 +140,9 @@ Page({
     })
     
   },
-  stuidInput: function (e) {
-    this.data.stuid = e.detail.value
-  },
+  // stuidInput: function (e) {
+  //   this.data.stuid = e.detail.value
+  // },
 
   codeInput: function (e) {
     this.data.code = e.detail.value

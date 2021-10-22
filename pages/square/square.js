@@ -194,16 +194,19 @@ Page({
             list: newlist,
             last_visit_msg_id : _id,
           })
+          wx.navigateTo({
+            url: '/pages/detail/detail' + 
+                  '?message_id=' + _id,
+          })
+          newlist[i].istouch = ""
+          setTimeout(() => {
+            that.setData({
+              list: newlist,
+            })
+          }, 300);
         }
       }
-      wx.navigateTo({
-        url: '/pages/detail/detail' + 
-              '?message_id=' + _id,
-      },()=>{
-        that.setData({
-          list: oldlist
-        })
-      })
+
     },
 
   
@@ -544,8 +547,7 @@ Page({
           [aim_list + "_empty_flag"]: 0,
         },()=>{
           // that.loadStorgeArtical(that)
-          wx.hideNavigationBarLoading();
-          wx.stopPullDownRefresh()
+
           wx.showToast({
             title: '加载完成～',
             icon:'none',
@@ -559,6 +561,9 @@ Page({
           icon:'none',
           duration:500,
         })
+      },
+      complete(){
+        wx.hideNavigationBarLoading()
         wx.stopPullDownRefresh()
       }
     })

@@ -4,5 +4,8 @@
   "navigationBarTitleText": "",
   "navigationBarTextStyle":"black",
   "navigationBarStyle":"custom",
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": false,
+  "networkTimeout": {
+    "request": 8000
+    }
 }

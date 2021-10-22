@@ -3,7 +3,6 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUseGetUserProfile: false,
-    buttonClickable:false,
   },
   onLoad() {
     var that = this
@@ -22,6 +21,17 @@ Page({
         },
         success (res){
           console.log(res)
+          setTimeout(() => {
+           if(!getApp().globalData.user.openid){
+            console.log("TIMEOUT!!!")
+            wx.showToast({
+              title: '请求失败，重试中。。',
+              icon:'none',
+              duration:6000
+            })
+             that.onLoad()
+            }
+          }, 8000);
           getApp().globalData.user.openid = res.data.data.openid;
           if(res.data["error_code"] == 0){
             that.next();
@@ -37,23 +47,19 @@ Page({
           }
           else if(res.data["error_code"] == 3){
             wx.showToast({
-              title: '你已经进入黑名单！！！      申诉：xjtutreehole@qq.com',
+              title: '你已经进入黑名单！！！    联系管理员申诉',
               icon:'none',
               duration:1000000,
             })
             return
           }
-          else{
-            that.setData({
-              buttonClickable:true
-            })
-          }
         },
         fail(){
+          console.log("TIMEOUT!!!")
           wx.showToast({
             title: '请求失败，重试中。。',
             icon:'none',
-            duration:'150000'
+            duration:150000
           })
           that.onLoad()
         }

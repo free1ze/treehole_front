@@ -22,6 +22,7 @@
   },
   "sitemapLocation": "sitemap.json",
   "networkTimeout": {
-    "request": 20000
+    "request": 8000,
+    "connectSocket": 8000
   }
 }

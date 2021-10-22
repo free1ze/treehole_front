@@ -34,8 +34,7 @@
 
 <import src="square.skeleton.wxml"/>
 <template is="skeleton" wx:if="{{list.length == 0&&showmode!=3}}" />
-<!-- <swiper style="height:{{ScreenTotalH}}rpx" id="swiper"> 
-<swiper-item> -->
+
 <view class="fatherview">
 <view class='scbg'  scroll-y='true'>
 <!-- 弹窗
@@ -47,7 +46,7 @@
 </block> -->
 <block wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
   <view class='box' data-_id='{{item._id}}' 
-  style="background: {{item.istouch==ture?  '#FFFFFF' : '#F3F3F3' }};">
+  style="background: {{item.istouch?   '#F3F3F3':'#FFFFFF'}};">
     <view class='firstblock'  bindtap="comment" data-_id='{{item._id}}'>
       <view class='person'>
         <view class='name'>
@@ -113,17 +112,13 @@
       <text class='num_comment' wx:elif="{{item.comments > 999}}" style="width: 70rpx">999+</text>
 
       </view>
-      <!-- <div class="moreblock">
 
-      </div> -->
   </view>
 </block>
-</view>
+
 <view wx:if="{{list.length==0 && showmode==3}}">
-  <view class="bk">
-  </view>
   <view class="bkpic">
-    <view wx:if="{{showmode==3&&(list.length==0)}}" class="box">
+    <view class="box">
       <image class="nocontentpic" src="/images/nocomment.png"></image>
       <text class="nocontenttxt">暂无内容，等你来喔~</text>
     </view>
@@ -132,8 +127,8 @@
   </view>
   </view>
 </view>
-<!-- </swiper-item>
-</swiper> -->
+</view>
+
 <include src="/pages/bottom_menu/bottom_menu" />
 
 
