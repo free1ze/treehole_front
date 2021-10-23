@@ -1,6 +1,6 @@
 <!--pages/commit/commit.wxml-->
 <view class='textarea'>
-   <textarea placeholder="发条树洞吧~(不得超过1000字)" placeholder-style="color:#888888" class='textinput' maxlength='1000' bindinput ="bindTextAreaBlur" show-confirm-bar="{{false}}" ></textarea>
+   <textarea placeholder="{{placeholdertext}}" placeholder-style="color:#888888" class='textinput' maxlength='1000' bindinput ="bindTextAreaBlur" show-confirm-bar="{{false}}" ></textarea>
 
    <!-- <form report-submit='true' onsubmit="uploadImgs"> -->
    <view class="cu-bar bg-white margin-top">

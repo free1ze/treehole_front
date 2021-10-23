@@ -18,6 +18,7 @@ Page({
     imgList: [],
     imgMaxNumber: 4,
     compressedImgList:[],
+    placeholdertext:"发条树洞吧~\n"+"(每天最多3条，不得超过1000字)"
   },
 
   bindTextAreaBlur: function(e) {
@@ -83,12 +84,20 @@ Page({
         imgs: fileIDList
       },
       success(res){
-          if(res.data.result.error_code == 0){
+        console.log(res)
+          if(res.data.error_code == 0){
             wx.showToast({
               title: '发送成功',
               icon: 'success',
               duration: 1000
             })
+        }
+        else if(res.data.error_code == 4){
+          wx.showToast({
+            title: '明天再来吧~',
+            icon: 'error',
+            duration: 2000
+          })
         }
         else{
           wx.showToast({
@@ -111,7 +120,7 @@ Page({
           wx.reLaunch({
             url: '/pages/square/square',
           })
-        }, 300);
+        }, 1000);
       } 
     })
   },
