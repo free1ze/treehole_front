@@ -92,18 +92,17 @@ page{
 
 .secondblock{
   margin-top: 10rpx;
-  margin-left: 4%;
+  margin-left: 8%;
   margin-right: 4%;
   padding-bottom: 20rpx;
 }
 
 .content{
-  margin-left: 4%;
+  /* margin-left: 4%; */
   font-size: 30rpx;
   color: #101010;
   word-break: break-all;
 }
-
 .thirdblock{
   height: 50rpx;
   margin-top: 10rpx;

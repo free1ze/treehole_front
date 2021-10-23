@@ -16,7 +16,7 @@ page{
 
 .textinput{
   width: 96%;
-  height: 200rpx;
+  height: 320rpx;
   margin-left: 2%;
   margin-right: 2%;
   padding-top: 20rpx;
