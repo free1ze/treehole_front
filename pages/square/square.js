@@ -27,6 +27,10 @@ Page({
     PLATFORM: "ios",
   },
   
+  onPageScroll: function(e){
+  
+  },
+
   bindTextAreaBlur: function(e) {
     this.data.search_content = e.detail.value
   },
@@ -34,41 +38,38 @@ Page({
   mode1: function(e){
     //time order
     var that = this
-    this.setData({
-      list: that.data.time_list,
-      showmode:1
-    },()=>{
       wx.pageScrollTo({
         scrollTop: 0,
         duration: 0,
       })
-    })
-  },
+      this.setData({
+        list: that.data.time_list,
+        showmode:1
+      })
+},
 
   mode2: function(e){
     var that = this
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 0,
+    })
     this.setData({
       list: that.data.heat_list,
       showmode:2
-    },()=>{
-      wx.pageScrollTo({
-        scrollTop: 0,
-        duration: 0,
-      })
     })
 
   },
 
   mode3: function(e){
     var that = this
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 0,
+    })
     this.setData({
       list: that.data.mine_list,
       showmode:3
-    },()=>{
-      wx.pageScrollTo({
-        scrollTop: 0,
-        duration: 0,
-      })
     })
 
   },
