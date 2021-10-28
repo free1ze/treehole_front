@@ -36,8 +36,7 @@ Page({
 
   ScrollRefresh: function(e){
     var scroll_y=e.detail.scrollTop
-    var scroll_height=e.detail.scrollHeight
-    if (scroll_y>100)
+    if (scroll_y>10)
     {
       this.setData({
         enRefreshing: false,
@@ -612,9 +611,13 @@ Page({
     this.setData({
       scroll_animation: true
     })
-    this.setData({
-      topNum: tmp
-    })
+    var platform_info=wx.getSystemInfoSync().system
+    if (platform_info.indexOf("Android")!=-1)
+    {
+      this.setData({
+        topNum: tmp
+      })
+    }
     this.setData({
       scroll_animation:false
     })
@@ -640,6 +643,13 @@ Page({
     }
   },
 
+  iosReachBottomHideLoading: function(){
+    setTimeout(() => {
+      this.setData({
+        isloading: false
+      })}, 300);
+  },
+
   onReachBottomGetNewArtical: function(that, type){
     var ret = this.getAimeListAndAimFunc(type)
     var aim_list = ret[0], aim_func = ret[1]
@@ -656,9 +666,17 @@ Page({
       this.setData({
         scroll_animation: true
       })
-      this.setData({
-        topNum: tmp
-      })
+      var platform_info=wx.getSystemInfoSync().system
+      console.log(platform_info)
+      if (platform_info.indexOf("Android")!=-1)
+      {
+        this.setData({
+          topNum: tmp
+        })
+      }
+      else{
+        this.iosReachBottomHideLoading();
+      }
       this.setData({
         scroll_animation:false
       })
@@ -724,6 +742,10 @@ Page({
             [aim_list+"_empty_flag"]:1,
             isloadfinished: true
           })
+        var platform_info=wx.getSystemInfoSync().system
+        if(platform_info.indexOf("Andriod")==-1){
+          that.iosReachBottomHideLoading();
+        }
         }
         wx.hideToast()
       },

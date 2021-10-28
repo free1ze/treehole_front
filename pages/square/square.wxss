@@ -243,9 +243,11 @@
   -webkit-box-flex: 1;
   -webkit-flex: auto;
           flex: auto;
-  border-radius: 10rpx;
-  background: #FFFFFF;
-  border: 3rpx solid #E6E6EA;
+  border-radius: 40rpx;
+  background: #f0f0f5;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border: 3.5rpx solid #E6E6EA;
 }
 .weui-search-bar__box {
   position: relative;
