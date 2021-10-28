@@ -9,7 +9,7 @@
 </view> -->
 
 <view class="totsearch">
-  <view class="searchbox">
+  <!-- <view class="searchbox"> -->
   <view class="weui-search-bar">
   <view class="weui-search-bar__form">
       <view class="weui-search-bar__box">
@@ -26,17 +26,27 @@
       <view class="tag" bindtap="mode2" style="{{showmode==2? 'background-color: #1aa3ff': ''}}">热度排序</view>
       <view class="tag" bindtap="mode3" style="{{showmode==3? 'background-color: #1aa3ff': ''}}">与我相关</view>
    </view>
-  </view>
+  
 </view>
-<view class="totsearchback"></view>
+<view class="searchbk"></view>
 
 
 
 <import src="square.skeleton.wxml"/>
-<template is="skeleton" wx:if="{{list.length == 0&&showmode!=3}}" />
-
+<!-- <template is="skeleton" wx:if="{{list.length == 0&&showmode!=3}}" /> -->
+<template is="skeleton" wx:if="{{list.length==0&&showmode!=3}}" />
+<!-- list.length==0 -->
 <view class="fatherview">
-<view class='scbg'  scroll-y='true'>
+<scroll-view class='scbg' scroll-y="true"
+bindscroll="ScrollRefresh"
+lower-threshold="40"
+wx:if="{{list.length!=0}}"
+scroll-top="{{topNum}}"
+scroll-with-animation="{{scroll_animation}}"
+refresher-enabled="{{enRefreshing}}"
+refresher-triggered="{{isRefreshing}}"
+bindscrolltolower="MyOnReachBottom"
+bindrefresherrefresh="onPullDownRefresh">
 <!-- 弹窗
 <block  wx:if="{{startwindow}}">
   <view class="startwindow">
@@ -56,6 +66,7 @@
           <text class="ttag" style="background-color: #00cc44" wx:if= "{{item.tag ==3}}">寻物</text>
           <text class="ttag" style="background-color: #ff9900" wx:if= "{{item.tag ==4}}">吐槽</text>
           <text class="ttag" style="background-color: #ffd700" wx:if= "{{item.tag ==5}}">置顶</text>
+          <text class="advertisement_tag" wx:if= "{{item.tag ==6}}">广告</text>
         </view>
         <view class='tel'>
           <text class='showtime'>{{tools.timeFormat(item.time)}}</text>
@@ -125,8 +136,22 @@
   </view>
   <view class="bk_bottom">
   </view>
+</view>
+<view class='data-loading' wx:if="{{isloading}}">  
+  <view class="tui-loading-cell">
+    <view class="circle-line">
+      <text></text>
+      <text></text>
+      <text></text>
+      <text></text>
+      <text></text>
+      <text></text>
+      <text></text>
+      <text></text>
+    </view>
   </view>
 </view>
+</scroll-view>
 </view>
 
 <include src="/pages/bottom_menu/bottom_menu" />

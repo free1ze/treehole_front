@@ -6,6 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    scroll_animation: false,
+    record_scroll_position: 0,
+    en_toTop: false,
+    isloading: true,
+    topNum: 0,
+    enRefreshing: true,
+    isRefreshing: false,
     firco: "#000000",
     secco: "#979797",
     last_visit_msg_id: "",
@@ -26,9 +33,23 @@ Page({
     showmode:1,  //search tag
     PLATFORM: "ios",
   },
-  
-  onPageScroll: function(e){
-  
+
+  ScrollRefresh: function(e){
+    var scroll_y=e.detail.scrollTop
+    var scroll_height=e.detail.scrollHeight
+    if (scroll_y>100)
+    {
+      this.setData({
+        enRefreshing: false,
+        record_scroll_position: scroll_y
+      })
+    }
+    else 
+    {
+      this.setData({
+        enRefreshing: true
+      })
+    }
   },
 
   bindTextAreaBlur: function(e) {
@@ -43,6 +64,7 @@ Page({
         duration: 0,
       })
       this.setData({
+        topNum: 0,
         list: that.data.time_list,
         showmode:1
       })
@@ -55,6 +77,7 @@ Page({
       duration: 0,
     })
     this.setData({
+      topNum: 0,
       list: that.data.heat_list,
       showmode:2
     })
@@ -68,6 +91,7 @@ Page({
       duration: 0,
     })
     this.setData({
+      topNum: 0,
       list: that.data.mine_list,
       showmode:3
     })
@@ -532,6 +556,7 @@ Page({
   onPullDownRefreshGetNewArtical: function(that, type){
     var ret = this.getAimeListAndAimFunc(type)
     var aim_list = ret[0], aim_func = ret[1]
+    var that = this
 
     wx.request({
       url: getApp().globalData.url + aim_func,
@@ -566,26 +591,42 @@ Page({
       complete(){
         wx.hideNavigationBarLoading()
         wx.stopPullDownRefresh()
+        that.RefreshEnd()
       }
+    })
+  },
+
+  RefreshEnd: function(){
+    this.setData({
+      isRefreshing: false
     })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  MyOnReachBottom: function() {
     console.log("reach bottom")
-
+    // 回弹
+    var tmp=this.data.record_scroll_position-20
+    this.setData({
+      scroll_animation: true
+    })
+    this.setData({
+      topNum: tmp
+    })
+    this.setData({
+      scroll_animation:false
+    })
+    this.setData({
+      isloading: true
+    })
     if(this.data.isloadfinished == false){
       console.log("unfinished!")
       return
     }
     else{
-      wx.showToast({
-        title: '加载中～',
-        icon: 'none',
-        duration:5000,
-      })
+
       var that = this
       if(that.data.showmode == 1){
           this.onReachBottomGetNewArtical(that, 1)  
@@ -595,14 +636,14 @@ Page({
           this.onReachBottomGetNewArtical(that, 3)  
       }else if(that.data.showmode == 4){
         this.onReachBottomGetNewArtical(that, 4)  
-      }
-      
+      }      
     }
   },
 
   onReachBottomGetNewArtical: function(that, type){
     var ret = this.getAimeListAndAimFunc(type)
     var aim_list = ret[0], aim_func = ret[1]
+    var that=this
 
     console.log(aim_list,aim_func)
     if(that.data[aim_list+"_empty_flag"] == 1){
@@ -610,6 +651,16 @@ Page({
         title: '已经到底啦~',
         icon: 'none',
         duration:500,
+      })      
+      var tmp=this.data.record_scroll_position-25
+      this.setData({
+        scroll_animation: true
+      })
+      this.setData({
+        topNum: tmp
+      })
+      this.setData({
+        scroll_animation:false
       })
       return
     }else{
@@ -650,6 +701,8 @@ Page({
         this.setData({isloadfinished:true})
       }
     })   
+  
+  
   }else{
     //对于search直接用list存放数据、判断长度，不进行数据的保存
     wx.request({
@@ -681,9 +734,15 @@ Page({
           duration:500,
         })
         this.setData({isloadfinished:true})
+      },
+      complete(){
+        that.setData({
+          isloading: false
+        })
       }
     }) 
   }
+
   },
 
   
