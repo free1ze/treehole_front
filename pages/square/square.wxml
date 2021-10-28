@@ -7,128 +7,134 @@
     <input type="text" placeholder="搜树洞" confirm-type="search" bindinput="searchIcon"></input>
   </view>
 </view> -->
+<view wx:if="{{ifShowContent}}">
+  <view class="totsearch">
+    <view class="searchbox">
+    <view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" confirm-type="search" bindconfirm="mode4" bindinput ="bindTextAreaBlur" class="weui-search-bar__input" placeholder="搜树洞"/>
+        </view>
+    <view>
+    </view>
+    </view>
 
-<view class="totsearch">
-  <view class="searchbox">
-  <view class="weui-search-bar">
-  <view class="weui-search-bar__form">
-      <view class="weui-search-bar__box">
-      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-      <input type="text" confirm-type="search" bindconfirm="mode4" bindinput ="bindTextAreaBlur" class="weui-search-bar__input" placeholder="搜树洞"/>
+    </view>
+    <view class="tagsbar">
+        <view class="tag" bindtap="mode1" style="{{showmode==1? 'background-color: #1aa3ff': ''}}">时间排序</view>
+        <view class="tag" bindtap="mode2" style="{{showmode==2? 'background-color: #1aa3ff': ''}}">热度排序</view>
+        <view class="tag" bindtap="mode3" style="{{showmode==3? 'background-color: #1aa3ff': ''}}">与我相关</view>
+    </view>
+    </view>
+  </view>
+  <view class="totsearchback"></view>
+
+
+
+  <import src="square.skeleton.wxml"/>
+  <template is="skeleton" wx:if="{{list.length == 0&&showmode!=3}}" />
+
+  <view class="fatherview">
+  <view class='scbg'  scroll-y='true'>
+  <!-- 弹窗
+  <block  wx:if="{{startwindow}}">
+    <view class="startwindow">
+    <textarea class="windowtxt">abc</textarea>
+    <button class="okbutton"></button>
+    </view>
+  </block> -->
+  <block wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
+    <view class='box' data-_id='{{item._id}}' 
+    style="background: {{item.istouch?   '#F3F3F3':'#FFFFFF'}};">
+      <view class='firstblock'  bindtap="comment" data-_id='{{item._id}}'>
+        <view class='person'>
+          <view class='name'>
+            <text class='showname'># {{item.id}}</text>
+            <text class="ttag" style="background-color: #ffaf99" wx:if= "{{item.tag ==1}}">情感</text>
+            <text class="ttag" style="background-color: #9999ff" wx:if= "{{item.tag ==2}}">交友</text>
+            <text class="ttag" style="background-color: #00cc44" wx:if= "{{item.tag ==3}}">寻物</text>
+            <text class="ttag" style="background-color: #ff9900" wx:if= "{{item.tag ==4}}">吐槽</text>
+            <text class="ttag" style="background-color: #ffd700" wx:if= "{{item.tag ==5}}">置顶</text>
+          </view>
+          <view class='tel'>
+            <text class='showtime'>{{tools.timeFormat(item.time)}}</text>
+          </view>
+        </view>
       </view>
-  <view>
+      <view class='secondblock'  bindtap="comment" data-_id='{{item._id}}'>
+        <text class='content'>{{item.content}}</text>
+      </view>
+
+      <view class="cu-form-group" wx:if="{{item.imgs.length > 0}}">
+      <!-- 1 -->
+      <view class="imgholder"  wx:if="{{item.imgs.length == 1}}">
+        <view class="grid col-1 flex-sub">
+          <view class="bg-img" wx:for="{{item.imgs}}" wx:for-item="img"  wx:for-index="index" bindtap="ViewImage">
+          <image src='{{img}}' mode='aspectFill' 
+          bindload="onImageLoad" binderror="onImageError"
+          data-urls='{{item.imgs}}' data-current='{{img}}'></image>
+          </view>
+        </view>
+      </view>
+      <!-- 2,4 -->
+      <view class="grid col-2 grid-square flex-sub" wx:if="{{item.imgs.length == 2 || item.imgs.length == 4}}">
+        <view class="bg-img" wx:for="{{item.imgs}}" wx:for-item="img" wx:for-index="index" bindtap="ViewImage">
+          <image src='{{img}}' mode='aspectFill' 
+          bindload="onImageLoad" binderror="onImageError"
+          data-urls='{{item.imgs}}' data-current='{{img}}'></image>
+          </view>
+        </view>
+      <!-- 3,5,6,7,8,9 -->
+        <view class="grid col-3 grid-square flex-sub"  wx:if="{{item.imgs.length == 3 ||(item.imgs.length >=5 && item.imgs.length <= 9)}}">
+          <view class="bg-img" wx:for="{{item.imgs}}" wx:for-item="img" wx:for-index="index" bindtap="ViewImage"> 
+          <image src='{{img}}' mode='aspectFill' 
+          bindload="onImageLoad" binderror="onImageError"
+          data-urls='{{item.imgs}}' data-current='{{img}}'></image>
+          </view>
+        </view>
+      </view>
+
+      <view class='thirdblock'>
+
+        <image class='more' src="/images/more.png" data-openid='{{item.openid}}' bindtap="onTapMore" data-_id='{{item._id}}'></image>
+        <image class='like' src="{{item.islike == 1 ? '/images/likeplus.png' : '/images/like.png' }}" bindtap="like" data-_id='{{item._id}}' data-openid='{{item.openid}}'/>
+
+        <text class='num_like' wx:if="{{item.likes != 0 && item.likes <= 99}}">{{item.likes}}</text>
+                                          <!-- 用空格占位 -->
+        <text class='num_like' wx:if="{{item.likes == 0}}">  </text>
+        <text class='num_like' wx:if="{{item.likes > 99 && item.likes <= 999}}" style="width: 60rpx">{{item.likes}}</text>
+        <text class='num_like' wx:if="{{item.likes > 999}}" style="width: 70rpx">999+</text>
+        <image class='comment' src="/images/comment.png" bindtap="comment" data-_id='{{item._id}}'></image>
+        <text class='num_comment' wx:if="{{item.comments != 0 && item.comments <= 99}}">{{item.comments}}</text>
+        <text class='num_comment' wx:if="{{item.comments > 99 && item.comments <= 999}}" style="width: 60rpx">{{item.comments}}</text>
+        <text class='num_comment' wx:elif="{{item.comments == 0}}">  </text>
+        <text class='num_comment' wx:elif="{{item.comments > 999}}" style="width: 70rpx">999+</text>
+
+        </view>
+
+    </view>
+  </block>
+
+  <view wx:if="{{list.length==0 && showmode==3}}">
+    <view class="bkpic">
+      <view class="box">
+        <image class="nocontentpic" src="/images/nocomment.png"></image>
+        <text class="nocontenttxt">暂无内容，等你来喔~</text>
+      </view>
+    </view>
+    <view class="bk_bottom">
+    </view>
+    </view>
   </view>
   </view>
 
-  </view>
-  <view class="tagsbar">
-      <view class="tag" bindtap="mode1" style="{{showmode==1? 'background-color: #1aa3ff': ''}}">时间排序</view>
-      <view class="tag" bindtap="mode2" style="{{showmode==2? 'background-color: #1aa3ff': ''}}">热度排序</view>
-      <view class="tag" bindtap="mode3" style="{{showmode==3? 'background-color: #1aa3ff': ''}}">与我相关</view>
-   </view>
-  </view>
+  <include src="/pages/bottom_menu/bottom_menu" />
+
+
 </view>
-<view class="totsearchback"></view>
 
-
-
-<import src="square.skeleton.wxml"/>
-<template is="skeleton" wx:if="{{list.length == 0&&showmode!=3}}" />
-
-<view class="fatherview">
-<view class='scbg'  scroll-y='true'>
-<!-- 弹窗
-<block  wx:if="{{startwindow}}">
-  <view class="startwindow">
-  <textarea class="windowtxt">abc</textarea>
-  <button class="okbutton"></button>
-  </view>
-</block> -->
-<block wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
-  <view class='box' data-_id='{{item._id}}' 
-  style="background: {{item.istouch?   '#F3F3F3':'#FFFFFF'}};">
-    <view class='firstblock'  bindtap="comment" data-_id='{{item._id}}'>
-      <view class='person'>
-        <view class='name'>
-          <text class='showname'># {{item.id}}</text>
-          <text class="ttag" style="background-color: #ffaf99" wx:if= "{{item.tag ==1}}">情感</text>
-          <text class="ttag" style="background-color: #9999ff" wx:if= "{{item.tag ==2}}">交友</text>
-          <text class="ttag" style="background-color: #00cc44" wx:if= "{{item.tag ==3}}">寻物</text>
-          <text class="ttag" style="background-color: #ff9900" wx:if= "{{item.tag ==4}}">吐槽</text>
-          <text class="ttag" style="background-color: #ffd700" wx:if= "{{item.tag ==5}}">置顶</text>
-        </view>
-        <view class='tel'>
-          <text class='showtime'>{{tools.timeFormat(item.time)}}</text>
-        </view>
-      </view>
-    </view>
-    <view class='secondblock'  bindtap="comment" data-_id='{{item._id}}'>
-      <text class='content'>{{item.content}}</text>
-    </view>
-
-    <view class="cu-form-group" wx:if="{{item.imgs.length > 0}}">
-    <!-- 1 -->
-    <view class="imgholder"  wx:if="{{item.imgs.length == 1}}">
-      <view class="grid col-1 flex-sub">
-        <view class="bg-img" wx:for="{{item.imgs}}" wx:for-item="img"  wx:for-index="index" bindtap="ViewImage">
-        <image src='{{img}}' mode='aspectFill' 
-        bindload="onImageLoad" binderror="onImageError"
-        data-urls='{{item.imgs}}' data-current='{{img}}'></image>
-        </view>
-      </view>
-    </view>
-    <!-- 2,4 -->
-    <view class="grid col-2 grid-square flex-sub" wx:if="{{item.imgs.length == 2 || item.imgs.length == 4}}">
-      <view class="bg-img" wx:for="{{item.imgs}}" wx:for-item="img" wx:for-index="index" bindtap="ViewImage">
-        <image src='{{img}}' mode='aspectFill' 
-        bindload="onImageLoad" binderror="onImageError"
-        data-urls='{{item.imgs}}' data-current='{{img}}'></image>
-        </view>
-      </view>
-    <!-- 3,5,6,7,8,9 -->
-      <view class="grid col-3 grid-square flex-sub"  wx:if="{{item.imgs.length == 3 ||(item.imgs.length >=5 && item.imgs.length <= 9)}}">
-        <view class="bg-img" wx:for="{{item.imgs}}" wx:for-item="img" wx:for-index="index" bindtap="ViewImage"> 
-        <image src='{{img}}' mode='aspectFill' 
-        bindload="onImageLoad" binderror="onImageError"
-        data-urls='{{item.imgs}}' data-current='{{img}}'></image>
-        </view>
-      </view>
-    </view>
-
-    <view class='thirdblock'>
-
-      <image class='more' src="/images/more.png" data-openid='{{item.openid}}' bindtap="onTapMore" data-_id='{{item._id}}'></image>
-      <image class='like' src="{{item.islike == 1 ? '/images/likeplus.png' : '/images/like.png' }}" bindtap="like" data-_id='{{item._id}}' data-openid='{{item.openid}}'/>
-
-      <text class='num_like' wx:if="{{item.likes != 0 && item.likes <= 99}}">{{item.likes}}</text>
-                                        <!-- 用空格占位 -->
-      <text class='num_like' wx:if="{{item.likes == 0}}">  </text>
-      <text class='num_like' wx:if="{{item.likes > 99 && item.likes <= 999}}" style="width: 60rpx">{{item.likes}}</text>
-      <text class='num_like' wx:if="{{item.likes > 999}}" style="width: 70rpx">999+</text>
-      <image class='comment' src="/images/comment.png" bindtap="comment" data-_id='{{item._id}}'></image>
-      <text class='num_comment' wx:if="{{item.comments != 0 && item.comments <= 99}}">{{item.comments}}</text>
-      <text class='num_comment' wx:if="{{item.comments > 99 && item.comments <= 999}}" style="width: 60rpx">{{item.comments}}</text>
-      <text class='num_comment' wx:elif="{{item.comments == 0}}">  </text>
-      <text class='num_comment' wx:elif="{{item.comments > 999}}" style="width: 70rpx">999+</text>
-
-      </view>
-
-  </view>
-</block>
-
-<view wx:if="{{list.length==0 && showmode==3}}">
-  <view class="bkpic">
-    <view class="box">
-      <image class="nocontentpic" src="/images/nocomment.png"></image>
-      <text class="nocontenttxt">暂无内容，等你来喔~</text>
-    </view>
-  </view>
-  <view class="bk_bottom">
-  </view>
-  </view>
+<view wx:else>
+    <include src='/pages/listtemp/listtemp'/><!--导入列表项模板-->
+  
 </view>
-</view>
-
-<include src="/pages/bottom_menu/bottom_menu" />
-
-

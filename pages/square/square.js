@@ -25,7 +25,10 @@ Page({
     isloadfinished:true,
     showmode:1,  //search tag
     PLATFORM: "ios",
+
+    ifShowContent:"",
   },
+  
   
   onPageScroll: function(e){
   
@@ -216,7 +219,9 @@ Page({
    */
   onLoad: function(options) {
     var that = this
-      
+    this.setData({
+      ifShowContent:getApp().globalData.user.ifshowcontent
+    })
     if(this.data.startwindow == false){
     wx.showModal({
       title: "树洞须知",

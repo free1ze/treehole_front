@@ -7,7 +7,9 @@ Page({
   onLoad() {
     var that = this
     var user_code 
-
+    this.setData({
+      ifShowContent:getApp().globalData.user.ifshowcontent
+    })
     wx.login({
       success(res){
         if(res.code){
@@ -21,6 +23,7 @@ Page({
         },
         success (res){
           console.log(res)
+          if(res.data.ifshowcontent){getApp().globalData.user.ifshowcontent = res.data.ifshowcontent;}
           setTimeout(() => {
            if(!getApp().globalData.user.openid){
             console.log("TIMEOUT!!!")

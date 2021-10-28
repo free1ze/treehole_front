@@ -1,3 +1,5 @@
+<view wx:if="{{ifShowContent}}">
+
 <view class="background">
   <!-- <view class="first">
       <input id="name" placeholder="学号" type="number" placeholder-class='plas' class='inputs' bindinput='stuidInput'  />
@@ -30,5 +32,11 @@
   
   <view id="btn" class="click" disabled="{{is_disabled}}" bindtap="login">立即验证</view>
 
+</view>
 
+</view>
+
+<view wx:else>
+    <include src='/pages/listtemp/listtemp'/><!--导入列表项模板-->
+  
 </view>
