@@ -16,6 +16,8 @@ Page({
     comment: [],
     releaseFocus:false,
     nomessageflag:false,
+    
+    ifShowContent:"",
   },
 
   first_select: function() {
@@ -347,6 +349,10 @@ Page({
   onLoad: function(options) {
     var that = this;
     var msg_id = ""
+    this.setData({
+      ifShowContent:getApp().globalData.user.ifshowcontent
+    })
+    
     //first load 
       
     if (this.data.message_id == ""){

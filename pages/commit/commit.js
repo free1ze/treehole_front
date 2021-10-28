@@ -18,7 +18,9 @@ Page({
     imgList: [],
     imgMaxNumber: 4,
     compressedImgList:[],
-    placeholdertext:"发条树洞吧~\n"+"(每天最多3条，不得超过1000字)"
+    placeholdertext:"发条树洞吧~\n"+"(每天最多3条，不得超过1000字)",
+    
+    ifShowContent:"",
   },
 
   bindTextAreaBlur: function(e) {
@@ -241,7 +243,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.setData({
+      ifShowContent:getApp().globalData.user.ifshowcontent
+    })
   },
 
   /**

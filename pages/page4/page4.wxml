@@ -1,3 +1,5 @@
+
+<view wx:if="{{ifShowContent}}">
 <!--pages/page4/page4.wxml-->
 <import src="/wxParse/wxParse.wxml"/>
 
@@ -6,3 +8,10 @@
 <wxParse nodes="{{ htmlText }}"/>
 </view>
 
+</view>
+
+
+<view wx:else>
+    <include src='/pages/listtemp/listtemp'/><!--导入列表项模板-->
+  
+</view>

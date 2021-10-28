@@ -32,7 +32,10 @@ Page({
     isloadfinished:true,
     showmode:1,  //search tag
     PLATFORM: "ios",
+
+    ifShowContent:"",
   },
+<<<<<<< HEAD
 
   ScrollRefresh: function(e){
     var scroll_y=e.detail.scrollTop
@@ -49,6 +52,12 @@ Page({
         enRefreshing: true
       })
     }
+=======
+  
+  
+  onPageScroll: function(e){
+  
+>>>>>>> 52bc85fd6eb77f4c226cb181cf35c33398d6f504
   },
 
   bindTextAreaBlur: function(e) {
@@ -239,7 +248,9 @@ Page({
    */
   onLoad: function(options) {
     var that = this
-      
+    this.setData({
+      ifShowContent:getApp().globalData.user.ifshowcontent
+    })
     if(this.data.startwindow == false){
     wx.showModal({
       title: "树洞须知",

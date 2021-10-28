@@ -1,3 +1,5 @@
+
+<view wx:if="{{ifShowContent}}">
 <!--pages/mine/mine.wxml-->
 <scroll-view class='scbg' scroll-y="true">
   <view class='personalInf'>
@@ -48,3 +50,11 @@
 </view> -->
 </scroll-view>
 <include src='/pages/bottom_menu/bottom_menu' />
+
+</view>
+
+
+<view wx:else>
+    <include src='/pages/listtemp/listtemp'/><!--导入列表项模板-->
+  
+</view>

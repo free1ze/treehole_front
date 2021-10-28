@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ifShowContent:"",
     htmlText:
     '<h2>\
     遇到问题？\
@@ -35,6 +36,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      ifShowContent:getApp().globalData.user.ifshowcontent
+    })
   },
   onReady: function () {
   },

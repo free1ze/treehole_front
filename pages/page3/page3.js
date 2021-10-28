@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    
+    ifShowContent:"",
     htmlText:'\
     <h3>\
     树洞小程序分享方法：\
@@ -31,7 +33,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      ifShowContent:getApp().globalData.user.ifshowcontent
+    })
   },
 
   /**

@@ -1,7 +1,17 @@
+<view wx:if="{{ifShowContent}}">
+
 <!--pages/page3/page3.wxml-->
 <import src="/wxParse/wxParse.wxml"/>
 
 <view class='contentarea'>
 <!-- <template is="wxParse" data="{{wxParseData:article.nodes}}"/> -->
 <wxParse nodes="{{ htmlText }}"/>
+</view>
+
+
+</view>
+
+<view wx:else>
+    <include src='/pages/listtemp/listtemp'/><!--导入列表项模板-->
+  
 </view>
