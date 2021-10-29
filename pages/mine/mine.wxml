@@ -6,7 +6,7 @@
     <view class='deco'>
       <image class='ava' src="/images/purpose.png"></image>
     </view>
-    <text class='nn'>西交树洞 Version:1.0.0</text>
+    <text class='nn'>西交树洞 Version:1.1.0</text>
   </view>
   <!-- <view class='box'>
     <view class="setbar">

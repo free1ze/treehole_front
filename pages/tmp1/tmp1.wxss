@@ -1,0 +1,473 @@
+/* pages/square/square.wxss */
+@import "/pages/bottom_menu/bottom_menu";
+@import "/pages/square/square.skeleton.wxss";
+
+.page{
+  background-color: #FBEDEC;
+  position: fixed;
+  left:0; top:0; bottom:0; right:0;
+}
+
+.fatherview{
+  background-color: #FBEDEC;
+  /* bad solution here!!!!  to make the background color correct... */
+  height: 10000001%;  
+}
+.scbg{
+  background-color: #FBEDEC;
+  width: 100%;
+  height: 82%;
+  /* height: 100%;   */   /*必须注释掉 */
+  margin-top: 20%;    /*决定了搜索栏*/
+  margin-bottom: 15%;
+  left: 0rpx;
+  right: 0rpx;
+  top: 0rpx;
+  z-index: 0;
+  position: absolute;
+}
+
+.box{
+  background-color: white;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 10rpx solid #EFEFEF;
+  margin: 25rpx 50rpx;
+  border-radius: 20rpx;
+  
+}
+
+.firstblock{
+  height: 100rpx;
+  width: 92%;
+  /* margin-left: 4%; */
+  margin-right: 4%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+
+.person{
+  width: 100%;
+  height: 35rpx;
+  margin-left: 27rpx;
+  margin-top: 5rpx;
+}
+
+.name{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10rpx;
+  font-size: 40rpx;
+  flex-direction: row;
+  width: 100%;
+}
+
+.tag{
+  width: 80rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+  background-color: #E6E7EB;
+  text-align: center;
+  font-size: 22rpx;
+  /* color: #797979; */
+  border-radius: 30rpx;
+  color: white;
+  padding-top: 9rpx;
+}
+
+.tel{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 8rpx;
+  flex-direction: row;
+}
+
+.showname{
+  font-size: 25rpx;
+  color: #5FD9CD;
+  font-family: PingFangSC-regular;
+  font-weight: bold;
+}
+
+.showtime{
+  font-size: 20rpx;
+  color: #999696;
+  font-family: PingFangSC-regular;
+}
+
+.secondblock{
+  margin-top: 10rpx;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-bottom: 20rpx;
+  /* padding-bottom: 20rpx; */
+  /* border-bottom: 5rpx solid #BBBBBB; */
+}
+
+.content{
+  font-size: 29rpx;
+  color: #101010;
+  word-break: break-all;
+}
+
+.thirdblock{
+  height: 50rpx;
+  margin-left: 4%;
+  margin-right: 4%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.like{
+  margin-top: 15rpx;
+  margin-right: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.num_like{
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-top: 10rpx;
+  width: 40rpx;
+  font-size: 28rpx;
+  color: #101010;
+}
+
+.comment{
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.num_comment{
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-top: 10rpx;
+  width: 40rpx;
+  font-size: 28rpx;
+  color: #101010;
+}
+
+.moreblock{
+  position: absolute;
+  width: 200rpx;
+  height: 100rpx;
+  margin-top:20rpx;
+  border-style: solid;
+  border-color: black;
+  margin-left: 20rpx;
+}
+
+.more{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 385rpx;
+}
+
+.startwindow{
+  width: 70%;
+  height: 800rpx;
+  margin-top: 10%;
+  margin-bottom: 15%;
+  margin-left: 15%;
+  margin-right: 15%;
+  background-color: white;
+  border: 3rpx solid #BBB;
+  position: absolute;
+}
+
+.textarea{
+  width: 50%;
+  height: 700rpx;
+}
+
+.okbutton{
+  width: 70%;
+  background-color: #5FD9CD;
+  height: 80rpx;
+  position: fixed;
+}
+
+.searchbk{
+  background-color: #FBEDEC;
+  width: 100%;
+  height: 12%;
+  position: fixed;
+  top: 0;
+}
+
+.searchbox{
+  background-color: #ffffff;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  align-items: center;
+  justify-content: center;
+  z-index: 1024;
+  border-radius: 20rpx;
+}
+
+.totsearch{
+  width: 100%;
+  height: 11%;
+  background-color:  #FBEDEC;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  z-index: 1024;
+  border-radius: 20rpx;
+}
+
+.weui-search-bar {
+  background-color:  #FFFFFF;
+  width: 100%;
+  height: 50%;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.weui-icon-search_in-box {
+  position: absolute;
+  left: 10px;
+  top: 7px;
+}
+.weui-search-bar__form {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+          flex: auto;
+  border-radius: 40rpx;
+  background: #f0f0f5;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border: 3.5rpx solid #E6E6EA;
+}
+.weui-search-bar__box {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 80%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.weui-search-bar__input {
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+}
+.weui-search-bar__cancel-btn {
+  width: 100rpx;
+  line-height: 28px;
+  color: #ffffff;
+  background-color: #09BB07;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.tagsbar{
+  background:#FFFFFF;
+  width: 100%;
+  height: 50%;
+  padding-top: 12rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tag{
+  width: 120rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+  background-color: #b3b3cc;
+  text-align: center;
+  font-size: 22rpx;
+  /* color: #797979; */
+  border-radius: 30rpx;
+  text-align: center;
+  color: white;
+  padding-top: 9rpx;
+}
+
+.imgholder{
+  width: 100%;
+}
+
+.ttag{
+  width: 80rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+  background-color: #b3b3cc;
+  text-align: center;
+  font-size: 22rpx;
+  /* color: #797979; */
+  border-radius: 30rpx;
+  text-align: center;
+  color: white;
+  padding-top: 9rpx;
+}
+
+.nocontentpic{
+  text-align: center;
+  margin-top: 50rpx;
+  width: 200rpx;
+  height: 200rpx;
+  margin-left: 50rpx;
+}
+
+.nocontenttxt{
+  font-size: 30rpx;
+  color: #8585ad;
+}
+
+.bkpic{
+  margin-top: 0rpx;
+  /* height: 100%; */
+  /* z-index: 2; */
+  background-color: #FBEDEC;
+}
+
+
+.bk_bottom{
+  height: 1000%;
+  width: 100%;
+  background-color: #FBEDEC;
+}
+
+.data-loading{
+  height: 80rpx;  
+  line-height: 100rpx;  
+  background-color: #eee;  
+  text-align: center;  
+  align-items: center;
+  justify-content: center;
+  font-size: 14px; 
+  background-color: #FBEDEC;
+
+}
+
+.tui-loading-cell{
+  width: 100%;
+  /* display: table-cell; */
+  text-align: center;
+}
+
+/*动画一：单个渐变  */
+.circle-line{
+  width: 60rpx;
+  height: 60rpx;
+  display: inline-block;
+  position: relative;
+}
+.circle-line text{
+  display: block;
+  /* border: 3rpx solid #BBB; */
+  width: 30%;
+  /* width: 20rpx; */
+  height: 10rpx;
+  opacity: .7;
+  position: absolute;
+  top: calc(30% - 2.5px);
+  left: 0px;
+  transform-origin: center right; 
+  animation: circle 1.5s linear infinite; 
+}
+.circle-line text::before{
+  content: '';
+  display: block;
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 8rpx;
+  position: absolute;
+  top: 0;
+  right: 10rpx;   /*circle R*/
+  background-color:  #7575a3;
+}
+.circle-line text:nth-child(1){
+  transform: rotate(0deg);
+  animation-delay: 0.2s;
+}
+.circle-line text:nth-child(2){
+  transform: rotate(45deg);
+  animation-delay: 0.4s;
+}
+.circle-line text:nth-child(3){
+  transform: rotate(90deg);
+  animation-delay: 0.6s;
+}
+.circle-line text:nth-child(4){
+  transform: rotate(135deg);
+  animation-delay: 0.8s;
+}
+.circle-line text:nth-child(5){
+  transform: rotate(180deg);
+  animation-delay: 1s;
+}
+.circle-line text:nth-child(6){
+  transform: rotate(225deg);
+  animation-delay: 1.2s;
+}
+.circle-line text:nth-child(7){
+  transform: rotate(270deg);
+  animation-delay: 1.4s;
+}
+.circle-line text:nth-child(8){
+  transform: rotate(315deg);
+  animation-delay: 1.6s;
+}
+@keyframes circle {
+  0%{
+      opacity: 0.05;
+  }
+  100%{
+      opacity: 0.9;
+  }
+}
+
+.advertisement_tag{
+  width: 60rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
+  background-color: #FFFFFF;
+  text-align: center;
+  font-size: 22rpx;
+  /* color: #797979; */
+  text-align: center;
+  color: #8585ad;
+  border: 3rpx solid #8585ad;
+  padding-top: 4rpx;
+  padding-bottom: 4rpx;
+}
+
+.new_tag{
+  width: 80rpx;
+  height: 30rpx;
+  margin-left: 30%;
+  background-color: #FFFFFF;
+  text-align: center;
+  font-size: 22rpx;
+  /* color: #797979; */
+  text-align: center;
+  color: #8585ad;
+  border: 3rpx solid #8585ad;
+  padding-top: 4rpx;
+  padding-bottom: 4rpx;
+}
+
+.new_tag_view{
+  width: 60%;
+  background-color: #FFFFFF;
+  text-align: center;
+  font-size: 22rpx;
+  /* color: #797979; */
+  text-align: center;
+  color: #8585ad;
+  display: flex;
+  justify-content: flex-end;
+}

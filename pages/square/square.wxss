@@ -49,7 +49,7 @@
 
 
 .person{
-  width: 75%;
+  width: 100%;
   height: 35rpx;
   margin-left: 27rpx;
   margin-top: 5rpx;
@@ -61,6 +61,7 @@
   margin-top: 10rpx;
   font-size: 40rpx;
   flex-direction: row;
+  width: 100%;
 }
 
 .tag{
@@ -441,4 +442,31 @@
   border: 3rpx solid #8585ad;
   padding-top: 4rpx;
   padding-bottom: 4rpx;
+}
+
+.new_tag{
+  width: 80rpx;
+  height: 30rpx;
+  margin-left: 30%;
+  background-color: #FFFFFF;
+  text-align: center;
+  font-size: 22rpx;
+  /* color: #797979; */
+  text-align: center;
+  color: #8585ad;
+  border: 3rpx solid #8585ad;
+  padding-top: 4rpx;
+  padding-bottom: 4rpx;
+}
+
+.new_tag_view{
+  width: 60%;
+  background-color: #FFFFFF;
+  text-align: center;
+  font-size: 22rpx;
+  /* color: #797979; */
+  text-align: center;
+  color: #8585ad;
+  display: flex;
+  justify-content: flex-end;
 }

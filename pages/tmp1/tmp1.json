@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#F2F2F2",
+  "navigationBarTitleText": "谭宝的日记本",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": false ,
+  "backgroundTextStyle": "dark",
+  "background": "#FBEDEC"
+  
+}

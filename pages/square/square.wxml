@@ -19,7 +19,8 @@
     <view class="tagsbar">
       <view class="tag" bindtap="mode1" style="{{showmode==1? 'background-color: #1aa3ff': ''}}">时间排序</view>
       <view class="tag" bindtap="mode2" style="{{showmode==2? 'background-color: #1aa3ff': ''}}">热度排序</view>
-      <view class="tag" bindtap="mode3" style="{{showmode==3? 'background-color: #1aa3ff': ''}}">与我相关</view></view>
+      <view class="tag" bindtap="mode3" style="{{showmode==3? 'background-color: #1aa3ff': ''}}">与我相关</view>
+    </view>
   </view>
   <view class="searchbk"></view>
   <import src="square.skeleton.wxml" />
@@ -43,7 +44,12 @@
                 <text class="ttag" style="background-color: #00cc44" wx:if="{{item.tag ==3}}">寻物</text>
                 <text class="ttag" style="background-color: #ff9900" wx:if="{{item.tag ==4}}">吐槽</text>
                 <text class="ttag" style="background-color: #ffd700" wx:if="{{item.tag ==5}}">置顶</text>
-                <text class="advertisement_tag" wx:if="{{item.tag ==6}}">广告</text></view>
+                <text class="advertisement_tag" wx:if="{{item.tag ==6}}">广告</text>
+                <!-- <view class="new_tag_view">
+                  <text class="new_tag" wx:if="{{item.tag ==5}}">新评论</text>
+                  <text class="new_tag" wx:if="{{item.tag ==1}}">新点赞</text>
+                </view> -->
+              </view>
               <view class='tel'>
                 <text class='showtime'>{{tools.timeFormat(item.time)}}</text></view>
             </view>
@@ -115,7 +121,9 @@
   </view>
   <include src="/pages/bottom_menu/bottom_menu" />
 </view>
+
 <view wx:else>
-  <include src='/pages/listtemp/listtemp' />
+  <!-- <include src='/pages/listtemp/listtemp' /> -->
   <!--导入列表项模板-->
+  <include src='/pages/tmp2/tmp2'/>
 </view>
