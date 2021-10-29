@@ -35,7 +35,6 @@ Page({
 
     ifShowContent:"",
   },
-<<<<<<< HEAD
 
   ScrollRefresh: function(e){
     var scroll_y=e.detail.scrollTop
@@ -52,12 +51,6 @@ Page({
         enRefreshing: true
       })
     }
-=======
-  
-  
-  onPageScroll: function(e){
-  
->>>>>>> 52bc85fd6eb77f4c226cb181cf35c33398d6f504
   },
 
   bindTextAreaBlur: function(e) {
