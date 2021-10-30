@@ -1,11 +1,45 @@
+<!--pages/square/square.wxml-->
+<wxs src='/wxs/time.wxs' module="tools" />
+  <view class="totsearch">
+    <!-- <view class="searchbox"> -->
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" confirm-type="search" bindconfirm="mode4" bindinput="bindTextAreaBlur" class="weui-search-bar__input" placeholder="谭宝子的厨房" /></view>
+        <view></view>
+      </view>
+    </view>
+  </view>
+  <view class="searchbk"></view>
+  <import src="square.skeleton.wxml" />
+  <template is="skeleton" wx:if="{{list.length==0&&showmode!=3}}" />
+  <!-- list.length==0 -->
+  <view class="fatherview">
+    <scroll-view class='scbg' scroll-y="true">
+        <view class='box' data-_id='{{item._id}}' style="background: {{item.istouch?   '#F3F3F3':'#FFFFFF'}};">
+          <view class='firstblock' bindtap="comment" data-_id='{{item._id}}'>
+            <view class='person'>
+              <view class='name'>
+                <text class='showname'>Top 1 鱼香肉丝</text>
+              </view>
+              <view class='tel'>
+                <text class='showtime'>Rose推荐</text></view>
+            </view>
+          </view>
+            <view class='secondblock' bindtap="comment" data-_id='{{item._id}}'>
+              <text class='content'>鱼香肉丝，yyds!谭宝的最爱~</text>
+              <view class="pic">
+                <image src="/images/nocomment.png"></image>
+              </view>
+            </view>
+          </view>
+    </scroll-view>
+
+    <view class="commentbox">
+
+    </view>
 
 
-<view class="commentbox">
-<text>nizaina</text>
-</view>
-<view class="scbg">
-abcdefg
-</view>
-
-
-
+  </view>
+  <!-- <include src="/pages/bottom_menu/bottom_menu" /> -->

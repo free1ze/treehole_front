@@ -1,5 +1,7 @@
 
-.scbg{
+.txt{
+  border: 3rpx solid #BBB;
+  position: relative;
   width: 100rpx;
   height: 100rpx;
 }

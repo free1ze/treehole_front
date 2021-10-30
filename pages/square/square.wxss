@@ -1,6 +1,7 @@
 /* pages/square/square.wxss */
 @import "/pages/bottom_menu/bottom_menu";
 @import "/pages/square/square.skeleton.wxss";
+@import "/pages/detail/detail.wxss";
 
 .page{
   background-color: #FBEDEC;

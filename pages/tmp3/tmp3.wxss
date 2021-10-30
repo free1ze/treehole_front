@@ -1,1 +1,8 @@
 /* pages/tmp3/tmp3.wxss */
+@import "/pages/detail/detail.wxss";
+
+.abc{
+  border: 3rpx solid #BBB;
+  position: relative;
+
+}
