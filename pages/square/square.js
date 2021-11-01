@@ -33,7 +33,7 @@ Page({
     showmode:1,  //search tag
     PLATFORM: "ios",
 
-    ifShowContent:"",
+    ifShowContent:false,
   },
 
   ScrollRefresh: function(e){

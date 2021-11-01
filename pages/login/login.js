@@ -14,7 +14,7 @@ Page({
     time: '获取验证码', //倒计时 
     currentTime: 20,
     ifallowskipauth: false,
-    ifShowContent:"",
+    ifShowContent:false,
   },
 //控制倒计时
   getCode: function (options){

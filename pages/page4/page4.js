@@ -3,7 +3,7 @@ Page({
 
   data: {  
     
-    ifShowContent:"",
+    ifShowContent:false,
     htmlText:
     '<h3>\
     支持一下\

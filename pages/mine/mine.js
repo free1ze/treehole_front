@@ -6,7 +6,7 @@ Page({
    */
   data: {
     
-    ifShowContent:"",
+    ifShowContent:false,
     firco: "#979797",
     secco: "#000000",
     num: 4,

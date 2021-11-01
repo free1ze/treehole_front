@@ -20,7 +20,7 @@ Page({
     compressedImgList:[],
     placeholdertext:"发条树洞吧~\n"+"(每天最多3条，不得超过1000字)",
     
-    ifShowContent:"",
+    ifShowContent:false,
   },
 
   bindTextAreaBlur: function(e) {

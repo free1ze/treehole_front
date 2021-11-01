@@ -5,7 +5,7 @@ Page({
    */
   data: {
     
-    ifShowContent:"",
+    ifShowContent:false,
     detail: "",
     sent: false,
   },

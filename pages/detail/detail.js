@@ -17,7 +17,8 @@ Page({
     releaseFocus:false,
     nomessageflag:false,
     
-    ifShowContent:"",
+    isLoadCommentFinish:true,
+    ifShowContent:false,
   },
 
   first_select: function() {
@@ -382,6 +383,7 @@ Page({
     })
 
     //get artical comments
+    this.setData({isLoadCommentFinish:false})
     wx.request({
       url: getApp().globalData.url + '/get_all_comment',
       method: "POST",
@@ -394,6 +396,7 @@ Page({
         // console.log("getcomment",res)
         that.setData({
           comment: res.data.data,
+          isLoadCommentFinish:true,
         })
       }
     })
@@ -475,11 +478,13 @@ Page({
       })
     }
     else{
+    if(this.data.isLoadCommentFinish==false){return}
     var that = this
     wx.showToast({
       title: '玩命加载中～',
       icon:'none',
     })
+    this.setData({isLoadCommentFinish:false})
     wx.request({
       url: getApp().globalData.url + '/get_all_comment',
       method: "POST",
@@ -492,7 +497,8 @@ Page({
         // 不能使用that.data.list = res.data.data，不会触发渲染
         console.log(res)
         that.setData({
-          comment: that.data.comment.concat(res.data.data)
+          comment: that.data.comment.concat(res.data.data),
+          isLoadCommentFinish:true
         },()=>{
           wx.showToast({
             title: '加载完成～',

@@ -7,7 +7,7 @@ Page({
    */
   data: {
     
-    ifShowContent:"",
+    ifShowContent:false,
     htmlText:
     '<h2>\
     社区规范\

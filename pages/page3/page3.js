@@ -6,7 +6,7 @@ Page({
    */
   data: {
     
-    ifShowContent:"",
+    ifShowContent:false,
     htmlText:'\
     <h3>\
     树洞小程序分享方法：\
