@@ -701,8 +701,10 @@ Page({
       if (platform_info.indexOf("Android")!=-1)
       {
         this.setData({
-          topNum: tmp
+          topNum: tmp,
+          isloading:false
         })
+        console.log(this.data.isRefreshing)
       }
       else{
         this.iosReachBottomHideLoading();
