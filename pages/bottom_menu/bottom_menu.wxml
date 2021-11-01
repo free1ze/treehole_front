@@ -1,4 +1,5 @@
 <!--pages/bottom_menu/bottom_menu.wxml-->
+<view wx:if="{{ifShowContent}}">
 <view class='bottomrow'>
   <view class='bottomtab' bindtap="first_select">
     <text class='bottomtabText' style='color:{{firco}}'>广场</text>
@@ -10,3 +11,5 @@
     <text class='bottomtabText' style='color:{{secco}}'>我的</text>
   </view>
 </view>
+</view>
+

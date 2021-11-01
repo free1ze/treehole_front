@@ -5,7 +5,7 @@
 <text class="cuIcon-search"></text>
 <input type="text" placeholder="搜树洞" confirm-type="search" bindinput="searchIcon"></input></view>
 </view> -->
-<view wx:if="{{!ifShowContent}}">
+<view wx:if="{{ifShowContent}}">
   <view class="totsearch">
     <!-- <view class="searchbox"> -->
     <view class="weui-search-bar">
