@@ -6,7 +6,7 @@
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-          <input type="text" confirm-type="search" bindconfirm="mode4" bindinput="bindTextAreaBlur" class="weui-search-bar__input" placeholder="谭宝子的厨房" /></view>
+          <input type="text" confirm-type="search" bindconfirm="mode4" bindinput="bindTextAreaBlur" class="weui-search-bar__input" placeholder="西交树洞美食" /></view>
         <view></view>
       </view>
     </view>

@@ -10,75 +10,54 @@
 </template>
 
 <view>
-    美食大赏
+    西交树洞 美食街
         <view style="display:flex;flex-direction:row;margin-top:5px;background-color:#e6e6e6" data-id='1'>
         <image style="width:40%;height:80px;" src='/images/purpose.png' mode='widthFix'/>
         <view style="display:flex;flex-direction:column;margin-left:10px">
             <text>小碗面</text>
-            <text>卤肉</text> 
+            <text>小泉</text> 
         </view>
         </view>
         <view style="display:flex;flex-direction:row;margin-top:5px;background-color:#e6e6e6" data-id='1'>
         <image style="width:40%;height:80px;" src='/images/purpose.png' mode='widthFix'/>
         <view style="display:flex;flex-direction:column;margin-left:10px">
-            <text>佛跳墙美食</text>
+            <text>早餐包子</text>
+            <text>小易</text> 
+        </view>
+        </view>
+        <view style="display:flex;flex-direction:row;margin-top:5px;background-color:#e6e6e6" data-id='1'>
+        <image style="width:40%;height:80px;" src='/images/purpose.png' mode='widthFix'/>
+        <view style="display:flex;flex-direction:column;margin-left:10px">
+            <text>炸鸡腿</text>
             <text>大源</text> 
         </view>
         </view>
         <view style="display:flex;flex-direction:row;margin-top:5px;background-color:#e6e6e6" data-id='1'>
         <image style="width:40%;height:80px;" src='/images/purpose.png' mode='widthFix'/>
         <view style="display:flex;flex-direction:column;margin-left:10px">
-            <text>红手兔子头</text>
-            <text>大源</text> 
-        </view>
-        </view>
-        <view style="display:flex;flex-direction:row;margin-top:5px;background-color:#e6e6e6" data-id='1'>
-        <image style="width:40%;height:80px;" src='/images/purpose.png' mode='widthFix'/>
-        <view style="display:flex;flex-direction:column;margin-left:10px">
-            <text>米饭</text>
-            <text>卤肉</text> 
+            <text>卤肉米饭</text>
+            <text>群众评选</text> 
         </view>
         </view>
         <view style="display:flex;flex-direction:row;margin-top:5px;background-color:#e6e6e6" data-id='1'>
         <image style="width:40%;height:80px;" src='/images/purpose.png' mode='widthFix'/>
         <view style="display:flex;flex-direction:column;margin-left:10px">
             <text>意大利面</text>
-            <text>打卤馕</text> 
+            <text>康桥苑二楼</text> 
         </view>
         </view>
         <view style="display:flex;flex-direction:row;margin-top:5px;background-color:#e6e6e6" data-id='1'>
         <image style="width:40%;height:80px;" src='/images/purpose.png' mode='widthFix'/>
         <view style="display:flex;flex-direction:column;margin-left:10px">
-            <text>大源中央公园</text>
-            <text>大源</text> 
+            <text>肉夹馍</text>
+            <text>小易</text> 
         </view>
         </view>
         <view style="display:flex;flex-direction:row;margin-top:5px;background-color:#e6e6e6" data-id='1'>
         <image style="width:40%;height:80px;" src='/images/purpose.png' mode='widthFix'/>
         <view style="display:flex;flex-direction:column;margin-left:10px">
             <text>方便面</text>
-            <text>大源</text> 
-        </view>
-        </view>
-        <view style="display:flex;flex-direction:row;margin-top:5px;background-color:#e6e6e6" data-id='1'>
-        <image style="width:40%;height:80px;" src='/images/purpose.png' mode='widthFix'/>
-        <view style="display:flex;flex-direction:column;margin-left:10px">
-            <text>食材</text>
-            <text>肉夹馍</text> 
-        </view>
-        </view>
-        <view style="display:flex;flex-direction:row;margin-top:5px;background-color:#e6e6e6" data-id='1'>
-        <image style="width:40%;height:80px;" src='/images/purpose.png' mode='widthFix'/>
-        <view style="display:flex;flex-direction:column;margin-left:10px">
-            <text>蜜汁烧烤</text>
-            <text>花园国际</text> 
-        </view>
-        </view>
-        <view style="display:flex;flex-direction:row;margin-top:5px;background-color:#e6e6e6" data-id='1'>
-        <image style="width:40%;height:80px;" src='/images/purpose.png' mode='widthFix'/>
-        <view style="display:flex;flex-direction:column;margin-left:10px">
-            <text>花园国际</text>
-            <text>花儿</text> 
+            <text>二楼小卖部</text> 
         </view>
         </view>
 

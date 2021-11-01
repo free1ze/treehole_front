@@ -178,7 +178,8 @@ Page({
   onLoad: function (options) {
     console.log(options)
     this.setData({
-      ifallowskipauth: (options.ifallowskipauth == "true" ? true : false)
+      ifallowskipauth: (options.ifallowskipauth == "true" ? true : false),
+      ifShowContent:getApp().globalData.user.ifshowcontent
     })
   },
 

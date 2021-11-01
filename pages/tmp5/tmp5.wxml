@@ -1,2 +1,45 @@
-<!--pages/tmp5/tmp5.wxml-->
-<text>pages/tmp5/tmp5.wxml</text>
+<!--pages/square/square.wxml-->
+<wxs src='/wxs/time.wxs' module="tools" />
+  <view class="totsearch">
+    <!-- <view class="searchbox"> -->
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" confirm-type="search" bindconfirm="mode4" bindinput="bindTextAreaBlur" class="weui-search-bar__input" placeholder="西交树洞美食" /></view>
+        <view></view>
+      </view>
+    </view>
+  </view>
+  <view class="searchbk"></view>
+  <import src="square.skeleton.wxml" />
+  <template is="skeleton" wx:if="{{list.length==0&&showmode!=3}}" />
+  <!-- list.length==0 -->
+  <view class="fatherview">
+    <scroll-view class='scbg' scroll-y="true">
+        <view class='box' data-_id='{{item._id}}' style="background: {{item.istouch?   '#F3F3F3':'#FFFFFF'}};">
+          <view class='firstblock' bindtap="comment" data-_id='{{item._id}}'>
+            <view class='person'>
+              <view class='name'>
+                <text class='showname'> 早餐包子</text>
+              </view>
+              <view class='tel'>
+                <text class='showtime'>西岳江</text></view>
+            </view>
+          </view>
+            <view class='secondblock' bindtap="comment" data-_id='{{item._id}}'>
+              <text class='content'>包子绝对是最好吃的东西，关键是很便宜。最后就是交大食堂的早餐还是很好的，康桥四毛钱的包子四毛钱的煮鸡蛋多年不变，可惜一块钱的牛奶最近好像没有了，偶尔还有油条卖味道也很不错，这是我真正感受到学校食堂给同学们福利的地方，完全是在亏本卖，学校没有补贴不可能是这个价钱的，只能说交大为了让同学们早起吃早餐也是用心良苦。</text>
+              <view class="pic">
+                <image src="cloud://cloud1-6goor8ihe34dca33.636c-cloud1-6goor8ihe34dca33-1306737408/1635605775313-8949998.png"></image>
+              </view>
+            </view>
+          </view>
+    </scroll-view>
+
+    <view class="commentbox">
+
+    </view>
+
+
+  </view>
+  <!-- <include src="/pages/bottom_menu/bottom_menu" /> -->

@@ -37,6 +37,6 @@
 </view>
 
 <view wx:else>
-    <include src='/pages/listtemp/listtemp'/><!--导入列表项模板-->
+    <include src='/pages/tmp3/tmp3'/><!--导入列表项模板-->
   
 </view>

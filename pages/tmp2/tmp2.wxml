@@ -6,7 +6,7 @@
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-          <input type="text" confirm-type="search" bindconfirm="mode4" bindinput="bindTextAreaBlur" class="weui-search-bar__input" placeholder="谭宝子的厨房" /></view>
+          <input type="text" confirm-type="search" bindconfirm="mode4" bindinput="bindTextAreaBlur" class="weui-search-bar__input" placeholder="西交树洞美食" /></view>
         <view></view>
       </view>
     </view>
@@ -21,16 +21,16 @@
           <view class='firstblock' bindtap="comment" data-_id='{{item._id}}'>
             <view class='person'>
               <view class='name'>
-                <text class='showname'>Top 1 鱼香肉丝</text>
+                <text class='showname'> 炸鸡腿</text>
               </view>
               <view class='tel'>
-                <text class='showtime'>Rose推荐</text></view>
+                <text class='showtime'>小泉推荐</text></view>
             </view>
           </view>
             <view class='secondblock' bindtap="comment" data-_id='{{item._id}}'>
-              <text class='content'>鱼香肉丝，yyds!谭宝的最爱~</text>
+              <text class='content'>炸鸡腿、小豆花肉夹馍、排骨面……都是好吃实惠，其中以前的小豆花肉夹馍可是要排长队的，中午11点开饭，10点半就开始有人在窗口前排队，记得还上过电视节目作为交大饭堂的招牌来宣传。</text>
               <view class="pic">
-                <image src="/images/nocomment.png"></image>
+                <image src="cloud://cloud1-6goor8ihe34dca33.636c-cloud1-6goor8ihe34dca33-1306737408/1635605775309-4828421.png"></image>
               </view>
             </view>
           </view>

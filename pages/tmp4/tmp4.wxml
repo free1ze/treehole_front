@@ -1,2 +1,45 @@
-<!--pages/tmp4/tmp4.wxml-->
-<text>pages/tmp4/tmp4.wxml</text>
+<!--pages/square/square.wxml-->
+<wxs src='/wxs/time.wxs' module="tools" />
+  <view class="totsearch">
+    <!-- <view class="searchbox"> -->
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" confirm-type="search" bindconfirm="mode4" bindinput="bindTextAreaBlur" class="weui-search-bar__input" placeholder="西交树洞美食" /></view>
+        <view></view>
+      </view>
+    </view>
+  </view>
+  <view class="searchbk"></view>
+  <import src="square.skeleton.wxml" />
+  <template is="skeleton" wx:if="{{list.length==0&&showmode!=3}}" />
+  <!-- list.length==0 -->
+  <view class="fatherview">
+    <scroll-view class='scbg' scroll-y="true">
+        <view class='box' data-_id='{{item._id}}' style="background: {{item.istouch?   '#F3F3F3':'#FFFFFF'}};">
+          <view class='firstblock' bindtap="comment" data-_id='{{item._id}}'>
+            <view class='person'>
+              <view class='name'>
+                <text class='showname'> 肉夹馍</text>
+              </view>
+              <view class='tel'>
+                <text class='showtime'>小易推荐</text></view>
+            </view>
+          </view>
+            <view class='secondblock' bindtap="comment" data-_id='{{item._id}}'>
+              <text class='content'>梧桐苑气派是气派，环境也舒服多了，但不仅仅是觉得菜价比之前贵了一截，原来老西食堂的东西搬进了梧桐苑总觉得都没有以前的味道了，不知道是不是换了厨子的缘故。肉夹馍是真的实惠,有菜有蛋绝对吃到你撑，价钱七年没变过。</text>
+              <view class="pic">
+                <image src="cloud://cloud1-6goor8ihe34dca33.636c-cloud1-6goor8ihe34dca33-1306737408/1635605775311-5291180.png"></image>
+              </view>
+            </view>
+          </view>
+    </scroll-view>
+
+    <view class="commentbox">
+
+    </view>
+
+
+  </view>
+  <!-- <include src="/pages/bottom_menu/bottom_menu" /> -->

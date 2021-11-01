@@ -69,7 +69,13 @@ Page({
         list: that.data.time_list,
         showmode:1
       })
-},
+      if (this.data.list.length<=5)
+      {
+        this.setData({
+          isloading: false
+        })
+      }   
+   },
 
   mode2: function(e){
     var that = this
@@ -82,7 +88,12 @@ Page({
       list: that.data.heat_list,
       showmode:2
     })
-
+    if (this.data.list.length<=5)
+    {
+      this.setData({
+        isloading: false
+      })
+    }
   },
 
   mode3: function(e){
@@ -96,7 +107,12 @@ Page({
       list: that.data.mine_list,
       showmode:3
     })
-
+    if (this.data.list.length<=5)
+    {
+      this.setData({
+        isloading: false
+      })
+    }
   },
 
   mode4: function(e){
@@ -125,6 +141,13 @@ Page({
             showmode: 4,
             isloadfinished:true
           },()=>{
+            console.log("!!!")
+            if (that.data.list.length<=5)
+            {
+              that.setData({
+                isloading: false
+              })
+            }
             wx.showToast({
               title: '搜索完成~',
               icon: 'none',
@@ -550,6 +573,9 @@ Page({
     }else if(that.data.showmode == 4){
       wx.hideNavigationBarLoading();
       wx.stopPullDownRefresh();
+      this.setData({
+        isRefreshing: false
+      })
       wx.hideToast();
       return
     }

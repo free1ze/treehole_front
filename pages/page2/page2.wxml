@@ -11,6 +11,6 @@
 
 
 <view wx:else>
-    <include src='/pages/listtemp/listtemp'/><!--导入列表项模板-->
+    <include src='/pages/tmp5/tmp5'/><!--导入列表项模板-->
   
 </view>
