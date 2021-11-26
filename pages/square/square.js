@@ -58,6 +58,7 @@ Page({
   },
 
   mode1: function(e){
+    if(!this.data.isloadfinished)return;
     //time order
     var that = this
       wx.pageScrollTo({
@@ -78,6 +79,7 @@ Page({
    },
 
   mode2: function(e){
+    if(!this.data.isloadfinished)return;
     var that = this
     wx.pageScrollTo({
       scrollTop: 0,
@@ -97,6 +99,7 @@ Page({
   },
 
   mode3: function(e){
+    if(!this.data.isloadfinished)return;
     var that = this
     wx.pageScrollTo({
       scrollTop: 0,
@@ -649,27 +652,17 @@ Page({
       })
     }
     this.setData({
-      scroll_animation:false
-    })
-    this.setData({
+      scroll_animation:false,
       isloading: true
     })
+
     if(this.data.isloadfinished == false){
       console.log("unfinished!")
       return
     }
     else{
-
       var that = this
-      if(that.data.showmode == 1){
-          this.onReachBottomGetNewArtical(that, 1)  
-      }else if(that.data.showmode == 2){
-          this.onReachBottomGetNewArtical(that, 2)     
-      }else if(that.data.showmode == 3){
-          this.onReachBottomGetNewArtical(that, 3)  
-      }else if(that.data.showmode == 4){
-        this.onReachBottomGetNewArtical(that, 4)  
-      }      
+      this.onReachBottomGetNewArtical(that,that.data.showmode)   
     }
   },
 
@@ -719,7 +712,7 @@ Page({
       })
     }
 
-    if(type != 4){
+    if(type == 1 || type == 2 || type == 3){
     wx.request({
       url: getApp().globalData.url + aim_func,
       method: "POST",
@@ -753,7 +746,7 @@ Page({
     })   
   
   
-  }else{
+  }else if(type==4){
     //对于search直接用list存放数据、判断长度，不进行数据的保存
     wx.request({
       url: getApp().globalData.url + aim_func,

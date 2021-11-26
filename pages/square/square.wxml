@@ -124,6 +124,6 @@
 
 <view wx:else>
   <!-- <include src='/pages/listtemp/listtemp' /> -->
-  <!--导入列表项模板-->
-  <include src='/pages/listtemp/listtemp'/>
+  <import src="square.skeleton.wxml" />
+  <template is="skeleton" />
 </view>
