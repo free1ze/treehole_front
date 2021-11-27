@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    red_dot: true, //小红点，名字根据需要命名
     scroll_animation: false,
     record_scroll_position: 0,
     en_toTop: false,

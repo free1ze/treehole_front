@@ -19,7 +19,10 @@
     <view class="tagsbar">
       <view class="tag" bindtap="mode1" style="{{showmode==1? 'background-color: #1aa3ff': ''}}">时间排序</view>
       <view class="tag" bindtap="mode2" style="{{showmode==2? 'background-color: #1aa3ff': ''}}">热度排序</view>
-      <view class="tag" bindtap="mode3" style="{{showmode==3? 'background-color: #1aa3ff': ''}}">与我相关</view>
+      <view class="mine_tag" bindtap="mode3" style="{{showmode==3? 'background-color: #1aa3ff': ''}}">
+      <view class="red_dot" wx:if="{{red_dot}}"></view>
+      <text>与我相关</text>
+      </view>
     </view>
   </view>
   <view class="searchbk"></view>
@@ -45,10 +48,7 @@
                 <text class="ttag" style="background-color: #ff9900" wx:if="{{item.tag ==4}}">吐槽</text>
                 <text class="ttag" style="background-color: #ffd700" wx:if="{{item.tag ==5}}">置顶</text>
                 <text class="advertisement_tag" wx:if="{{item.tag ==6}}">广告</text>
-                <!-- <view class="new_tag_view">
-                  <text class="new_tag" wx:if="{{item.tag ==5}}">新评论</text>
-                  <text class="new_tag" wx:if="{{item.tag ==1}}">新点赞</text>
-                </view> -->
+                <text class="new_tag" style="margin-left: {{item.tag?   '50%':'68%'}};">new~</text>
               </view>
               <view class='tel'>
                 <text class='showtime'>{{tools.timeFormat(item.time)}}</text></view>

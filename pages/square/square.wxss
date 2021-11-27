@@ -51,7 +51,7 @@
 
 .person{
   width: 100%;
-  height: 35rpx;
+  /* height: 35rpx; */
   margin-left: 27rpx;
   margin-top: 5rpx;
 }
@@ -66,16 +66,17 @@
 }
 
 .tag{
-  width: 80rpx;
-  height: 40rpx;
+  width: 120rpx;
+  height: 45rpx;
   margin-left: 20rpx;
-  background-color: #E6E7EB;
+  background-color: #b3b3cc;
   text-align: center;
   font-size: 22rpx;
   /* color: #797979; */
   border-radius: 30rpx;
+  text-align: center;
   color: white;
-  padding-top: 9rpx;
+  padding-top: 10rpx;
 }
 
 .tel{
@@ -282,9 +283,9 @@
   justify-content: flex-start;
 }
 
-.tag{
+.mine_tag{
   width: 120rpx;
-  height: 40rpx;
+  height: 45rpx;
   margin-left: 20rpx;
   background-color: #b3b3cc;
   text-align: center;
@@ -293,7 +294,9 @@
   border-radius: 30rpx;
   text-align: center;
   color: white;
-  padding-top: 9rpx;
+  /* padding-top: 9rpx; */
+  padding-top: 0;
+  padding-bottom: 9rpx;
 }
 
 .imgholder{
@@ -446,9 +449,9 @@
 }
 
 .new_tag{
-  width: 80rpx;
+  width: 70rpx;
   height: 30rpx;
-  margin-left: 30%;
+  margin-left: 45%;
   background-color: #FFFFFF;
   text-align: center;
   font-size: 22rpx;
@@ -470,4 +473,14 @@
   color: #8585ad;
   display: flex;
   justify-content: flex-end;
+}
+
+.red_dot{
+  margin-left: 88%;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 10rpx;
+  background-color: #ff0000;
 }
